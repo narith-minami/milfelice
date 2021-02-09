@@ -9,9 +9,6 @@ article.page_container
         | ミルファリーチェでよくある質問は以下となります。
         br
         | その他御不明点などございましたら、お気軽にお声がけください。
-    .button_wrap
-      NLink(to="/consultation")
-        img(:src="require('@/assets/images/consul_link_button.svg')")
   .page_content_wrap
     FAQItems
   BannerPrice
