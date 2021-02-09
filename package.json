@@ -1,0 +1,27 @@
+{
+  "name": "millfeliche-hp",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Nuxt.js Team",
+  "private": true,
+  "scripts": {
+    "dev": "MINIMAL=1 CSB=1 nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "post-update": "yarn upgrade --latest"
+  },
+  "dependencies": {
+    "@nuxt/http": "^0.5.0",
+    "@nuxtjs/style-resources": "1.0.0",
+    "axios": "0.20.0",
+    "node-sass": "4.14.1",
+    "node.js": "0.0.1-security",
+    "nuxt": "^2.12.2",
+    "pug": "3.0.0",
+    "pug-plain-loader": "1.0.0",
+    "reqlim": "^0.0.0",
+    "sass-loader": "10.0.3"
+  },
+  "keywords": []
+}
