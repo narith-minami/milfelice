@@ -1,33 +1,28 @@
 <template lang="pug">
-.price_section
+.sub_price_section
   .main_plan.flex-col
     .header_wrap.flex-row.space-bw
       .left_caption.flex-row
-        span.mg-right-20 挙式〜披露宴
-        span 1日サポートプラン
-      .right_caption
+        span.mg-right-20 {{ plan.plan }}
+      .right_caption.flex-row
         span サポート / {{ plan.support_time }}
     .detail_wrap.flex-row.space-bw.mg-bottom-16
       //- Left Side
       .left_item
         .flex-row
-          .color_label.mix 洋装＋和装
+          .color_label.pink.flex-row 
+            span.mg-auto 洋装
           .price_bold {{ plan.price_1 }}
         .flex-row.padding-top-16
           .option_wrap.flex-col.word-break {{ plan.caption_1 }}
       //- Right Side
       .right_item
         .flex-row
-          .color_label.pink.flex-row 
-            span.mg-auto 洋装のみ
+          .color_label.blue.flex-row 
+            span.mg-auto 和装
           .price_bold {{ plan.price_2 }}         
         .flex-row.padding-top-16
           .option_wrap.flex-col.word-break {{ plan.caption_2 }}
-            .benefits.padding-top-12
-              span
-              | ＜プラン特典＞
-              | 挙式3ヶ月以上前にお申し込みのお客様に限り ¥10,000 OFF           
-    .description_panel.word-break {{ plan.remark }}
 </template>
 
 <script>
@@ -38,7 +33,7 @@ export default {
 }
 </script>
 <style lang="sass" scoped>
-.price_section
+.sub_price_section
   .description_panel
     border: 1px solid #F59C9C
     background-color: #FFF7FA
@@ -51,16 +46,21 @@ export default {
       margin-bottom: 24px
       .left_caption
         font-size: 32px
+      .right_caption
+        align-items: flex-end
+        margin-bottom: 6px
     .detail_wrap
       .price_bold
-        font-size: 44px
+        font-size: 32px
         font-weight: bold
+        margin-left: 8px
       .color_label
-        width: 145px
-        height: 44px
+        margin: auto 0
+        width: 56px
+        height: 30px
         border-radius: 8px
-        &.mix
-          background-color: #F0B7BF
+        &.blue
+          background-color: #B7E3F0
         &.pink
           background-color: #F0B7BF
 </style>
