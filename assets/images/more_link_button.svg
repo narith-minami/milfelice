@@ -1,0 +1,14 @@
+<svg id="コンポーネント_5_1" data-name="コンポーネント 5 – 1" xmlns="http://www.w3.org/2000/svg" width="480" height="96" viewBox="0 0 480 96">
+  <rect id="長方形_221" data-name="長方形 221" width="480" height="96" rx="10" fill="#f0b7bf"/>
+  <g id="グループ_863" data-name="グループ 863" transform="translate(-751 -1852)">
+    <text id="詳しく知りたい方はこちら" transform="translate(892 1906)" fill="#3a3a3a" font-size="16" font-family="YuGo-Medium, YuGothic" font-weight="500" letter-spacing="0.03em"><tspan x="0" y="0">詳しく知りたい方はこちら</tspan></text>
+    <path id="パス_3716" data-name="パス 3716" d="M-2048.339,2668l5.571,6.077-5.571,5.923" transform="translate(3201.339 -774.5)" fill="none" stroke="#3a3a3a" stroke-linecap="round" stroke-width="2"/>
+    <g id="グループ_862" data-name="グループ 862" transform="translate(-112 -95)">
+      <g id="長方形_222" data-name="長方形 222" transform="translate(956 1984)" fill="none" stroke="#fff" stroke-width="2">
+        <rect width="32" height="22.222" rx="2" stroke="none"/>
+        <rect x="1" y="1" width="30" height="20.222" rx="1" fill="none"/>
+      </g>
+      <path id="パス_3717" data-name="パス 3717" d="M2765.213,1986.223l15.824,11.355,15.054-11.355" transform="translate(-1808.728 -0.03)" fill="none" stroke="#fff" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

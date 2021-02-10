@@ -1,3 +1,7 @@
+body {
+  font-family:"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+}
+
 #footer {
   background-color: #F0B7BF;
   padding: 15px 0;
@@ -10,7 +14,7 @@ section {
 
 /* page common */
 .page_container {
-  padding-top: 108px;
+  padding-top: 100px;
 }
 .page_top {
   background-image: url('~@/assets/images/page_back.png');
@@ -31,6 +35,11 @@ section {
 .page_description_wrap {
   background-color: #FFF7FA;
   height: 340px;
+}
+.page_description_inner {
+  width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
 }
 .page_content_wrap {
   width: 1000px;
@@ -79,6 +88,9 @@ section {
   padding-top: 16px;
 }
 .padding-top-18 {
+  padding-top: 18px;
+}
+.padding-top-30 {
   padding-top: 18px;
 }
 .padding-top-40 {
@@ -344,6 +356,9 @@ section {
 }
 .text-size-xl {
   font-size: 20px;
+}
+.text-size-xxl {
+  font-size: 24px;
 }
 .text-size-16-bold {
   font-size: 16px;

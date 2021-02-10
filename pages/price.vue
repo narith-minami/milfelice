@@ -3,7 +3,7 @@ article.page_container
   PageTop(title="Price", caption="料金")
   .page_description_wrap.flex-row
     .mg-auto
-      p さまざまなプランをご用意しています。
+      p.text-size-xxl.mg-bottom-24 さまざまなプランをご用意しています。
       p Milfeliceのウェディングヘアメイクは結婚式やパーティーの種類や
         br
         | 出張先でのサポート内容によって下記のプランからお選びただけます。

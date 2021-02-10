@@ -3,7 +3,7 @@ article.page_container
   PageTop(title="Stuffs", caption="スタッフ")
   .page_description_wrap.flex-row
     .mg-auto
-      p フリーのヘアメイクアーティストがお二人の特別な1日をお手伝いいたします。
+      p.text-size-xxl.mg-bottom-24 フリーのヘアメイクアーティストがお二人の特別な1日をお手伝いいたします。
       p 花嫁様の気持ちに寄り添えるよう精一杯サポートさせていただきますので
         br
         | どんなことでもお気軽にご相談くださいませ。

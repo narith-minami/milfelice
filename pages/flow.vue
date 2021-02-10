@@ -3,7 +3,9 @@ article.page_container
   PageTop(title="Flow of the day", caption="当日の流れ")
   .page_content_wrap
     FlowItem(v-for="(item, index) in list", :key="index", :item="item")
-  //- button
+    .align-right.flex-row.padding-top-30
+      NLink(to="/faq")
+        img(:src="require('@/assets/images/more_link_button.svg')")
   //- flowr image
   BannerPrice
 </template>
