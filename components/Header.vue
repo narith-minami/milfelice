@@ -53,7 +53,7 @@ header.site-header
   .nav__wrapper
     display: flex
     justify-content: space-evenly
-    width: 90vw
+    width: calc(100vw - 220px)
     padding-right: 40px
 
 @media (max-width: 599px)

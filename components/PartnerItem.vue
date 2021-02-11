@@ -19,7 +19,7 @@ export default {
 
 <style lang="sass" scoped>
 .partner_item
-  max-width: 489px
+  width: 47%
   padding-right: 24px
   margin-bottom: 50px
   .partner_name

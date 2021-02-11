@@ -1,8 +1,8 @@
 <template lang="pug">
 article.page_container
   PageTop(title="Stuffs", caption="スタッフ")
-  .page_description_wrap.flex-row
-    .mg-auto
+  .page_description_wrap.flex-row.align-center
+    .page_description_inner
       p.text-size-xxl.mg-bottom-24 フリーのヘアメイクアーティストがお二人の特別な1日をお手伝いいたします。
       p 花嫁様の気持ちに寄り添えるよう精一杯サポートさせていただきますので
         br
@@ -88,7 +88,8 @@ export default {
   padding-top: 40px
   .header_caption
     margin-bottom: 32px
-    font-size: 40px
+    font-size: 70px
+    color: #F59C9C
   .partner_sub_caption
     padding: 30px
     margin-bottom: 60px

@@ -4,7 +4,7 @@
     .item_left.flex-row
       p.left_caption.mg-auto {{ item.title }}
     .item_right
-      p.top_text {{ item.mainBody }}
+      p.top_text.mg-bottom-16 {{ item.mainBody }}
       p.sub_text {{ item.subText }}
 </template>
 
@@ -34,7 +34,7 @@ export default {
         margin: auto
         font-size: 22px
     .item_right
-      padding: 16px
+      padding: 30px
       .top_text
         font-size: 20px
 </style>
