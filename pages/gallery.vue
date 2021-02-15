@@ -1,9 +1,9 @@
 <template lang="pug">
 article.page_container
   PageTop(title="Gallery", caption="ギャラリー")
-  .page_content_wrap
+  .page_content_wrap.gallery_wrap
     .gallery
-      .gallery_flex
+      .gallery_grid
 
         picture.gallery_picture(v-for="index in 16" :key="index")
           source(:srcset="require('@/assets/images/gallery/gallery_' + index + '_sp.png')" media="(max-width: 600px)")
@@ -32,20 +32,25 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.gallery_wrap
+  max-width: 1000px
+  width: 100%
+
 .gallery
   padding: 0 80px
   background-color: #FFF7FA
 
-  &_flex
-   display: flex
-   flex-wrap: wrap;
-   transform: translateY(50px);
-
+  &_grid
+   display: grid
+   grid-template: '1  2  3  4  ' '5  6  7  8  ' '9  10 11 12' '13 14 15 16'
+   transform: translateY(50px)
+   
   &_picture
-    width: 210px
+    width: 100%
     > .gallery_img
       width: 100%
       height: 100%
       object-fit: cover
+      cursor: pointer
 
 </style>
