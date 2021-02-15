@@ -1,5 +1,5 @@
 <template lang="pug">
-section.page_top
+section.page_top.width-100per
   .page_top_inner.mg-auto
     p.page_top_title {{ title }}
     p.page_top_caption.text-center {{ caption }}
