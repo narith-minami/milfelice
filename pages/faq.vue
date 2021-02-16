@@ -1,6 +1,6 @@
 <template lang="pug">
 article.page_container
-  PageTop(title="Faq", caption="よくある質問")
+  PageTop(name="faq", caption="よくある質問")
   .page_description_wrap.flex-row.align-center
     .page_description_inner.flex-row.space-bw
       .left_panel

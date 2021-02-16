@@ -1,15 +1,14 @@
 <template lang="pug">
-.faq_items
+.option_items
   .pc_layout.text-center
-    img.mg-bottom-16(:src="require('@/assets/images/faq/pc_1.svg')")
-    img.mg-bottom-16(:src="require('@/assets/images/faq/pc_2.svg')")
-    img.mg-bottom-16(:src="require('@/assets/images/faq/pc_3.svg')")
-    img(:src="require('@/assets/images/faq/pc_4.svg')")
+    img.mg-bottom-16(:src="require('@/assets/images/price/option_1.svg')")
+    img#option_katsura.mg-bottom-16(:src="require('@/assets/images/price/option_2.svg')")
+    img(:src="require('@/assets/images/price/option_3.svg')")
   .sp_layout 
 </template>
 
 <style lang="sass" scoped>
-.faq_items
+.option_items
   .pc_layout
     padding: 0 16px
     img

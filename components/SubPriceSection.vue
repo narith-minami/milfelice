@@ -23,12 +23,17 @@
           .price_bold {{ plan.price_2 }}         
         .flex-row.padding-top-16
           .option_wrap.flex-col.word-break {{ plan.caption_2 }}
+            .benefits.padding-top-12.flex-col.text-size-m(v-if="showKastura")
+              span かつらは別途料金になります。
+              span
+                a(href="#option_katsura") かつらオプション詳細
 </template>
 
 <script>
 export default {
   props: {
-    plan: Object
+    plan: Object,
+    showKastura: Boolean
   }
 }
 </script>
