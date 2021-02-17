@@ -1,5 +1,6 @@
 body {
   font-family:"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+  letter-spacing: 0.05em;
 }
 
 .price-title-font {
@@ -63,6 +64,7 @@ $breakpoints: (
 .page_top {
   background-image: url('~@/assets/images/page_back.png');
   background-position: center;
+  background-color: #FFF7FA;
   height: 340px;
   width: 100vw;
   display: flex;
@@ -89,7 +91,7 @@ $breakpoints: (
   position: relative;
   top: 60px;
   &.no_title {
-    top: 80px;
+    top: 50px;
   }
 }
 .page_description_wrap {

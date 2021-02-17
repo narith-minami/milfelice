@@ -2,7 +2,7 @@
 .staff_item
   .staff_item_inner.flex-row
     .item_left.flex-row
-      img.left_caption(:src="require('@/assets/images/' + item.image_name)")
+      img.staff_image(:src="require('@/assets/images/' + item.image_name)")
     .item_right
       .flex-col
         .staff_name_wrap
@@ -10,7 +10,7 @@
             p.top_text {{ item.name }}
             p.sub_text {{ item.kana }}
           .flex-row {{ item.job }}
-        .staff_comment_wrap.word-break {{ item.comment }}
+        .staff_comment_wrap.word-break.line-height-normal {{ item.comment }}
 </template>
 
 <script>
@@ -28,9 +28,10 @@ export default {
     max-width: 1000px
     .item_left
       padding: 16px
-      .left_caption
-        margin: auto
-        font-size: 22px
+      .staff_image
+        margin-top: 6px
+        width: 286px
+        height: 286px
     .item_right
       padding: 16px
       .staff_name_wrap
@@ -39,7 +40,7 @@ export default {
         padding-top: 16px
       .top_text
         font-size: 24px
-        margin-bottom: 12px
+        margin-bottom: 8px
       .sub_text
         padding-top: 10px
         padding-left: 12px
