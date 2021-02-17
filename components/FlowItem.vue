@@ -1,8 +1,8 @@
 <template lang="pug">
 .flow_item
-  .flow_item_inner.flex-row
+  .flow_item_inner.flex-row.line-height-normal
     .item_left.flex-row
-      p.left_caption.mg-auto {{ item.title }}
+      p.left_caption.mg-auto.price-title-font {{ item.title }}
     .item_right
       p.top_text.mg-bottom-16 {{ item.mainBody }}
       p.sub_text {{ item.subText }}
