@@ -64,6 +64,7 @@ export default {
 <style lang="sass" scoped>
 .back_image_1
   position: absolute
+  z-index: -1
   right: 0
 
 .back_image_2

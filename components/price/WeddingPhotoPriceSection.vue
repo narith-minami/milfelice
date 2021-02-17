@@ -42,9 +42,10 @@ export default {
     margin-bottom: 80px
     .option_wrap
       line-height: 30px
+      letter-spacing: 0.04em
     .header_wrap
       border-bottom: 1px solid #F59C9C
-      margin-bottom: 24px
+      margin-bottom: 18px
       .left_caption
         font-size: 28px
       .right_caption
@@ -57,7 +58,7 @@ export default {
         margin-left: 8px
       .color_label
         margin: auto 0
-        width: 56px
+        width: 60px
         height: 30px
         border-radius: 8px
         border: 1px solid #C7B9DB

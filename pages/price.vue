@@ -65,7 +65,9 @@ article.page_container
   &.sub_plan_2
     height: 250px
   .plan_item
-    width: 484px
+    width: 488px
+  .left_item
+    margin-right: 50px
 
 .description_panel
   border: 1px solid #F59C9C

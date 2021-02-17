@@ -32,7 +32,8 @@ export default {
   .main_plan
     margin-bottom: 80px
     .option_wrap
-      line-height: 30px  
+      line-height: 30px
+      letter-spacing: 0.02em
     .header_wrap
       border-bottom: 1px solid #F59C9C
       margin-bottom: 12px

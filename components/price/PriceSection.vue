@@ -48,7 +48,7 @@ export default {
     margin-bottom: 80px
     .header_wrap
       border-bottom: 1px solid #F59C9C
-      margin-bottom: 24px
+      margin-bottom: 18px
       .left_caption
         font-size: 32px
       .right_caption
