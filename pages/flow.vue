@@ -1,12 +1,14 @@
 <template lang="pug">
 article.page_container
-  PageTop(title="Flow of the day", caption="当日の流れ")
+  PageTop(name="flow" title="Flow of the day", caption="当日の流れ")
   .page_content_wrap
     FlowItem(v-for="(item, index) in list", :key="index", :item="item")
     .align-right.flex-row.padding-top-30
       NLink(to="/faq")
         img(:src="require('@/assets/images/more_link_button.svg')")
-  //- flowr image
+  //- 装飾
+  .back_image_flower
+    img(:src="require('@/assets/images/flower_2.svg')")
   BannerPrice
 </template>
 
@@ -28,3 +30,10 @@ export default {
   },
 };
 </script>
+
+<style lang="sass" scoped>
+.back_image_flower
+  position: relative
+  top: -330px
+  height: 0
+</style>

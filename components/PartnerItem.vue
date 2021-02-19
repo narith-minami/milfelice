@@ -6,7 +6,7 @@
   .link.mg-bottom-12
     .inner_link.mg-bottom-2
       a(:href="item.link", target="_blank") {{ item.link }}
-  .detail.word-break-all {{ item.detail }}
+  .detail.word-break-all.line-height-normal {{ item.detail }}
 </template>
 
 <script>

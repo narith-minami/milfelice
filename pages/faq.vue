@@ -1,7 +1,7 @@
 <template lang="pug">
 article.page_container
-  PageTop(title="Faq", caption="よくある質問")
-  .page_description_wrap.flex-row.align-center
+  PageTop(name="faq", caption="よくある質問")
+  .page_description_wrap.flex-row.align-center.line-height-normal
     .page_description_inner.flex-row.space-bw
       .left_panel
         p.text-size-xxl.mg-bottom-24 よくある質問をまとめました。

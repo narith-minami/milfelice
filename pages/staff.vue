@@ -1,8 +1,8 @@
 <template lang="pug">
 article.page_container
-  PageTop(title="Stuffs", caption="スタッフ")
+  PageTop(name="staff", caption="スタッフ")
   .page_description_wrap.flex-row.align-center
-    .page_description_inner
+    .page_description_inner.line-height-normal
       p.text-size-xxl.mg-bottom-24 フリーのヘアメイクアーティストがお二人の特別な1日をお手伝いいたします。
       p 花嫁様の気持ちに寄り添えるよう精一杯サポートさせていただきますので
         br
@@ -19,11 +19,13 @@ article.page_container
   //- パートナー
   section.partner_section.width-100vw
     .partner_section_inner.main-width.margin-side
-      p.header_caption.text-center Partner
-      .text-center 提携パートナー
-      .partner_sub_caption.text-center ミルフェリーチェがおすすめする素晴らしい技術とアットホームなお人柄のカメラマンさんたちです。
-        br
-        | 是非一度HPを覗いてみてくださいね。
+      p.header_caption.text-center
+        img(:src="require('@/assets/images/partners/label_partner.svg')")
+      .text-center.mg-bottom-40 提携パートナー
+      .partner_sub_caption.flex-row
+        .line-height-normal.mg-auto ミルフェリーチェがおすすめする素晴らしい技術とアットホームなお人柄のカメラマンさんたちです。
+          br
+          | 是非一度HPを覗いてみてくださいね。
       .parter_list.flex-row.flex-wrap
         PartnerItem(
           v-for="(item, index) in partners",
@@ -62,6 +64,7 @@ export default {
 <style lang="sass" scoped>
 .back_image_1
   position: absolute
+  z-index: -1
   right: 0
 
 .back_image_2
@@ -85,7 +88,7 @@ export default {
 
 .partner_section
   background-color: #FFF7FA
-  padding-top: 40px
+  padding-top: 80px
   .header_caption
     margin-bottom: 32px
     font-size: 70px

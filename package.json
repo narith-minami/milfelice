@@ -23,5 +23,8 @@
     "reqlim": "^0.0.0",
     "sass-loader": "10.0.3"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "@nuxtjs/pwa": "^3.3.5"
+  }
 }

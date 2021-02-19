@@ -1,7 +1,7 @@
 <template lang="pug">
 .sub_price_section
   .main_plan.flex-col
-    .header_wrap.flex-row.space-bw
+    .header_wrap.flex-row.space-bw.price-title-font
       .left_caption.flex-row
         span.mg-right-20 {{ plan.plan }}
       .right_caption.flex-row
@@ -12,25 +12,30 @@
         .flex-row
           .color_label.pink.flex-row 
             span.mg-auto 洋装
-          .price_bold {{ plan.price_1 }}
+          .price_bold.price-amount-font {{ plan.price_1 }}
         .flex-row.padding-top-16
-          .option_wrap.flex-col.word-break {{ plan.caption_1 }}
+          .option_wrap.flex-col.word-break.text-size-m {{ plan.caption_1 }}
       //- Right Side
       .right_item
         .flex-row
           .color_label.blue.flex-row 
             span.mg-auto 和装
-          .price_bold {{ plan.price_2 }}         
+          .price_bold.price-amount-font {{ plan.price_2 }}
         .flex-row.padding-top-16
-          .option_wrap.flex-col.word-break {{ plan.caption_2 }}
+          .option_wrap.flex-col.word-break.text-size-m {{ plan.caption_2 }}
+            .benefits.padding-top-12.flex-col.text-size-m(v-if="showKastura")
+              span かつらは別途料金になります。
+              span
+                a.text-underline(href="#option_katsura") かつらオプション詳細
 </template>
 
 <script>
 export default {
   props: {
-    plan: Object
-  }
-}
+    plan: Object,
+    showKastura: Boolean,
+  },
+};
 </script>
 <style lang="sass" scoped>
 .sub_price_section
@@ -43,13 +48,15 @@ export default {
     margin-bottom: 80px
     .header_wrap
       border-bottom: 1px solid #F59C9C
-      margin-bottom: 24px
+      margin-bottom: 18px
       .left_caption
-        font-size: 32px
+        font-size: 28px
       .right_caption
         align-items: flex-end
         margin-bottom: 6px
     .detail_wrap
+      .option_wrap
+        line-height: 30px
       .price_bold
         font-size: 32px
         font-weight: bold

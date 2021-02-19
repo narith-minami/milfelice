@@ -1,5 +1,20 @@
 body {
   font-family:"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.price-title-font {
+	font-family :
+	YuMincho,    /* Mac用 */
+	'Yu Mincho', /* Windows用 */
+	serif;
+}
+
+.price-amount-font {
+	font-family :
+	YuMincho,    /* Mac用 */
+	'Yu Mincho', /* Windows用 */
+	serif;
 }
 
 #footer {
@@ -12,15 +27,59 @@ section {
   line-height: initial;
 }
 
+.line-height-normal {
+  line-height: 30px;
+}
+
+a {
+  img:hover {
+    opacity: 0.8;
+  }
+}
+/* break point */
+$breakpoints: (
+  'sm': 'screen and (min-width: 400px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 1000px)',
+  'xl': 'screen and (min-width: 1200px)',
+) !default;
+
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+.page-enter-active, .page-leave-active {
+  transition: opacity 0.2s
+}
+.page-enter, .page-leave-active {
+  opacity: 0
+}
+
 /* page common */
 .page_container {
   padding-top: 100px;
 }
 .page_top {
   background-image: url('~@/assets/images/page_back.png');
+  background-position: center;
+  background-color: #FFF7FA;
   height: 340px;
   width: 100vw;
   display: flex;
+  &.page_price {
+    background-image: url('~@/assets/images/page_back_price.png');
+  }
+  &.page_flow {
+    background-image: url('~@/assets/images/page_back_flow.png');
+  }
+  &.page_staff {
+    background-image: url('~@/assets/images/page_back_staff.png');
+  }    
+  &.page_faq {
+    background-image: url('~@/assets/images/page_back_faq.png');
+  }  
 }
 .page_top_title {
   margin: auto;
@@ -31,6 +90,9 @@ section {
 .page_top_caption {
   position: relative;
   top: 60px;
+  &.no_title {
+    top: 50px;
+  }
 }
 .page_description_wrap {
   background-color: #FFF7FA;

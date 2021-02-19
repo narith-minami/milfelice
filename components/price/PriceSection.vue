@@ -1,33 +1,32 @@
 <template lang="pug">
 .price_section
   .main_plan.flex-col
-    .header_wrap.flex-row.space-bw
+    .header_wrap.flex-row.space-bw.price-title-font
       .left_caption.flex-row
         span.mg-right-20 挙式〜披露宴
         span 1日サポートプラン
-      .right_caption
+      .right_caption.flex-row
         span サポート / {{ plan.support_time }}
-    .detail_wrap.flex-row.space-bw.mg-bottom-16
+    .detail_wrap.flex-row.space-bw.mg-bottom-30
       //- Left Side
       .left_item
         .flex-row
-          .color_label.mix 洋装＋和装
-          .price_bold {{ plan.price_1 }}
+          img(:src="require('@/assets/images/price/label_yoso_waso.svg')")
+          .price_bold.price-amount-font  {{ plan.price_1 }}
         .flex-row.padding-top-16
-          .option_wrap.flex-col.word-break {{ plan.caption_1 }}
+          .option_wrap.flex-col.word-break.text-size-m {{ plan.caption_1 }}
       //- Right Side
       .right_item
         .flex-row
-          .color_label.pink.flex-row 
-            span.mg-auto 洋装のみ
-          .price_bold {{ plan.price_2 }}         
+          img(:src="require('@/assets/images/price/label_yoso.svg')")
+          .price_bold.price-amount-font  {{ plan.price_2 }}         
         .flex-row.padding-top-16
-          .option_wrap.flex-col.word-break {{ plan.caption_2 }}
+          .option_wrap.flex-col.word-break.text-size-m {{ plan.caption_2 }}
             .benefits.padding-top-12
               span
               | ＜プラン特典＞
               | 挙式3ヶ月以上前にお申し込みのお客様に限り ¥10,000 OFF           
-    .description_panel.word-break {{ plan.remark }}
+    .description_panel.text-size-m.word-break {{ plan.remark }}
 </template>
 
 <script>
@@ -44,23 +43,28 @@ export default {
     background-color: #FFF7FA
     border-radius: 10px
     padding: 20px
+    line-height: 24px
   .main_plan
     margin-bottom: 80px
     .header_wrap
       border-bottom: 1px solid #F59C9C
-      margin-bottom: 24px
+      margin-bottom: 18px
       .left_caption
         font-size: 32px
+      .right_caption
+        align-items: flex-end
+        margin-bottom: 6px        
     .detail_wrap
+      .option_wrap
+        line-height: 30px
       .price_bold
         font-size: 44px
         font-weight: bold
+        margin-left: 16px
       .color_label
         width: 145px
         height: 44px
         border-radius: 8px
-        &.mix
-          background-color: #F0B7BF
         &.pink
           background-color: #F0B7BF
 </style>
