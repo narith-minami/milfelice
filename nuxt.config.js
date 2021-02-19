@@ -36,7 +36,7 @@ export default {
   modules: [
     // Doc: https://http.nuxtjs.org
     "@nuxt/http",
-    '@nuxtjs/pwa',
+
     // TODO: Remove it if you want to eject from codeSandbox
     "./codesandbox",
 
