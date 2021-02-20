@@ -29,6 +29,7 @@ article.top_content
     .gallery_top_content.default_content
       img.gallery_title(:src="require('@/assets/images/top/gallery_title.svg')" alt="")
       a.insta_button(href="https://instagram.com/milfelicewedding" target="_blank") ミルフェリーチェのスタイルを<br>インスタグラムでもチェック！
+    TopGallery
 
   //- customers voice
   section.voice
@@ -47,6 +48,7 @@ import BannerPrice from "~/components/BannerPrice.vue";
 import BannerFAQ from "~/components/BannerFAQ.vue";
 import Slider from "~/components/Slider.vue";
 import VoiceItems from "~/components/VoiceItems.vue";
+import TopGallery from "~/components/TopGallery.vue";
 
 export default {
   components: {
@@ -55,6 +57,7 @@ export default {
     BannerFAQ,
     Slider,
     VoiceItems,
+    TopGallery,
   },
 };
 </script>
