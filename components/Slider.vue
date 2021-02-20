@@ -68,12 +68,16 @@ export default {
     width: 100%;
     max-height: 720px;
     margin: 0 auto;
-    // max-width: 1200px;
-    padding-bottom: 11%;
+    padding-bottom: 160px;
     @media (min-width: 1441px)
       max-width: 100%;
+      padding-bottom: 160px;
+    .swiper-wrapper
+      height: 720px;
     img
       transform: translate(10%);
+      height: 100%;
+      object-fit: cover;
       @media (min-width: 1441px)
         width: 100%;
         transform: translate(0);
@@ -91,11 +95,14 @@ export default {
         display: block;
         border-radius: 0px;
         opacity: 1;
+        background: inherit
         @for $index from 1 through 8
           &:nth-child(#{$index})
             background-image: url(~@/assets/images/top_sliders/slide_mini#{$index}.png);
         &:hover
           opacity: 0.6;
+    .swiper-pagination-bullet-active
+      background: inherit
     .swiper-button-prev,.swiper-button-next
       position: absolute;
       transform: translate(-50%, -50%);

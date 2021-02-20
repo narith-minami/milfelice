@@ -46,7 +46,6 @@ export default {
   methods: {
     openModal(index){
       const number = index + 1
-      console.log(number);
       this.$modal.show('voiceModal'+number+'');
     },
     closeModal1(){

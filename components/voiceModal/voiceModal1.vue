@@ -45,7 +45,10 @@ export default {
 .voice-modal
   .vm--modal
     border-radius: 10px;
-    overflow: scroll
+    overflow: scroll;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%!important;
   .vm--overlay
     background-color: rgba(60,60,60,0.8)
   .btn-close

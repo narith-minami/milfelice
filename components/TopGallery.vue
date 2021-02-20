@@ -37,7 +37,10 @@ export default {
   .top_gallery
     width: 20.8vw;
     height: 20.8vw;
+    max-width: 300px;
+    max-height: 300px;
     img
       width: 100%;
       height: 100%;
+      object-fit: cover;
 </style>
