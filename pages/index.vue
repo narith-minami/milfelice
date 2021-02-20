@@ -93,6 +93,7 @@ export default {
           line-height: 1.8
       .top_img
         max-width: 589px;
+        max-height: 333px;
         width: 40.09vw;
         height: 22.665vw;
     .top_copy
