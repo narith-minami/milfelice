@@ -29,14 +29,15 @@ export default {
 <style lang="sass">
 .top_gallerys
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 22px auto 0px;
   cursor: pointer;
   .top_gallery
-    width: 300px;
-    height: 300px;
+    width: 20.8vw;
+    height: 20.8vw;
     img
-      width: 300px;
-      height: 300px;
+      width: 100%;
+      height: 100%;
 </style>

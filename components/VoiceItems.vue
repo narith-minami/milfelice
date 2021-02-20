@@ -1,15 +1,24 @@
 <template lang="pug">
 .voice_items
-  .voice_item(@click="" v-for="(voiceItem, index) in voiceItems" :key="index")
+  .voice_item(@click="openModal(index)" v-for="(voiceItem, index) in voiceItems" :key="index")
     img(:src="require('@/assets/images/top/voice_image1.png')" alt="")
     .text_content
       p.text_bold {{voiceItem.text}}
       p.text_normal {{voiceItem.staf}}
       p.text_min {{voiceItem.detail}}
+  voiceModal1(@closeModal="closeModal1")
+  voiceModal2(@closeModal="closeModal2")
+  voiceModal3(@closeModal="closeModal3")
 </template>
 <script>
+import voiceModal1 from "~/components/voiceModal/voiceModal1.vue";
+import voiceModal2 from "~/components/voiceModal/voiceModal2.vue";
+import voiceModal3 from "~/components/voiceModal/voiceModal3.vue";
 export default {
   components: {
+    voiceModal1,
+    voiceModal2,
+    voiceModal3,
   },
   props: {
   },
@@ -32,6 +41,22 @@ export default {
           detail: '2017/11/11 Wさんご夫妻'
         }
       ]
+    }
+  },
+  methods: {
+    openModal(index){
+      const number = index + 1
+      console.log(number);
+      this.$modal.show('voiceModal'+number+'');
+    },
+    closeModal1(){
+      this.$modal.hide('voiceModal1');
+    },
+    closeModal2(){
+      this.$modal.hide('voiceModal2');
+    },
+    closeModal3(){
+      this.$modal.hide('voiceModal3');
     }
   }
 };

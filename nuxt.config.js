@@ -29,7 +29,8 @@ export default {
    */
   plugins: [
     { src: "~/plugins/contents.js" },
-    { src: '~/plugins/vue-awesome-swiper.js', ssr: false }
+    { src: '~/plugins/vue-awesome-swiper.js', ssr: false },
+    { src: '~/plugins/vue-js-modal.js', ssr: false }
   ],
 
   /*
