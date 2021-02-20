@@ -71,12 +71,20 @@ export default {
     cursor: pointer;
     position: relative;
     max-width: 385px;
+    max-height: 295px;
+    width: 26.73vw;
+    height: 20.48vw;
     &:hover
       opacity: 0.6;
-    .text_content
+    img
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+    .text_content
+      width: calc(100% - 20px);
       position: absolute;
       bottom: 0px;
+      left: 0px;
       padding: 20px 0px 18px 20px;
       background-color: rgba(255 , 255 , 255 , 0.8)
       p

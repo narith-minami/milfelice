@@ -84,6 +84,7 @@ export default {
       display: flex;
       margin-bottom: 66.9px;
       justify-content: space-between;
+      align-items: center;
       .text_box
         max-width: 589.88px;
         p
@@ -92,6 +93,8 @@ export default {
           line-height: 1.8
       .top_img
         max-width: 589px;
+        width: 40.09vw;
+        height: 22.665vw;
     .top_copy
       margin: 0 auto 38px;
       display: block;
