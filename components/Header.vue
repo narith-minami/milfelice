@@ -81,7 +81,9 @@ header.site-header
 
 .nav__item a
   display: block
-  padding: 1.5rem 1rem
+  padding: 1.5rem 2rem
+  &:hover
+    opacity: 0.5;
 
 .nav__toggle
   display: none
@@ -94,6 +96,8 @@ header.site-header
   margin-top: 7px
   margin-left: 114px;
   cursor: pointer;
+  &:hover
+    opacity: 0.5;
   @media (max-width: 1380px)
     margin-left: 7.91%;
 
