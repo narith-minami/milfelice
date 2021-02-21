@@ -35,7 +35,7 @@ header.site-header
   top: 0
   width: 100vw
   padding: 18px 30px
-  z-index: 1
+  z-index: 99
 
 .site-header__wrapper
   padding-top: 1rem

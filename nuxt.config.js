@@ -27,7 +27,11 @@ export default {
    ** Plugins to load before mounting the App
    ** Doc: https://nuxtjs.org/guide/plugins
    */
-  plugins: [{ src: "~/plugins/contents.js" }],
+  plugins: [
+    { src: "~/plugins/contents.js" },
+    { src: '~/plugins/vue-awesome-swiper.js', ssr: false },
+    { src: '~/plugins/vue-js-modal.js', ssr: false }
+  ],
 
   /*
    ** Nuxt.js modules
@@ -58,6 +62,10 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    vendor: [
+      'vue-awesome-swiper',
+      'vue-js-modal'
+    ],
     extend(config, ctx) {}
   }
 };
