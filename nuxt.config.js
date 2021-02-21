@@ -63,7 +63,8 @@ export default {
      ** You can extend webpack config here
      */
     vendor: [
-      'vue-awesome-swiper'
+      'vue-awesome-swiper',
+      'vue-js-modal'
     ],
     extend(config, ctx) {}
   }

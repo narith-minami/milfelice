@@ -84,10 +84,13 @@ export default {
       object-fit: cover;
       left: 50%;
       position: absolute;
+      width: 100%;
+      max-width: 1200px;
       @media (min-width: 1441px)
         width: 100%;
         transform: translate(0);
         left: 0px;
+        max-width: inherit;
     .swiper-pagination
       max-width: 1200px;
       display: flex;
