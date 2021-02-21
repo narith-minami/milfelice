@@ -3,7 +3,7 @@
   .flow_item_inner.flex-row.line-height-normal
     .item_left.flex-row
       p.left_caption.mg-auto.price-title-font {{ item.title }}
-    .item_right
+    .item_right.word-break
       p.top_text.mg-bottom-16 {{ item.mainBody }}
       p.sub_text {{ item.subText }}
 </template>

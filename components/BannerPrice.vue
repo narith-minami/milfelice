@@ -1,6 +1,6 @@
 <template lang="pug">
 .banner_faq.flex-row.justify-center
-  NLink.mg-right-16(to="/price")
+  NLink(to="/price")
     img(:src="require('@/assets/images/footer_banner_price.jpg')")
 </template>
 
@@ -10,5 +10,6 @@
   background-color: #FFF7FA
   img
     border: 4px solid #F2ACB6
-    max-width: 1200px
+    max-width: 1192px
+    width: calc(100% - 8px);
 </style>
