@@ -2,7 +2,7 @@
 .staff_item
   .staff_item_inner.flex-row
     .item_left.flex-row
-      img.staff_image(:src="require('@/assets/images/staff/' + item.image_name)")
+      img.staff_image(:src="item.image")
     .item_right
       .flex-col
         .staff_name_wrap
