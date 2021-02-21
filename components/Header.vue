@@ -19,7 +19,7 @@ header.site-header
         li.nav__item
           NLink(to="/faq") FAQ
         li.nav__item
-          .contact_button.text-white.flex-row
+          .contact_button.text-white.flex-row(href="#")
             span.mg-auto お問い合わせ
 // Header End
 </template>
@@ -33,13 +33,15 @@ header.site-header
   position: fixed
   background-color: #FFF7FA
   top: 0
-  width: 100vw
+  width: calc(100vw - 60px)
   padding: 18px 30px
-  z-index: 1
+  z-index: 99
 
 .site-header__wrapper
+  max-width: 1384px
   padding-top: 1rem
   padding-bottom: 1rem
+  margin: 0 auto;
 
 @media (min-width: 600px)
   .site-header__wrapper
@@ -52,9 +54,12 @@ header.site-header
 @media (min-width: 600px)
   .nav__wrapper
     display: flex
-    justify-content: space-evenly
-    width: calc(100vw - 220px)
-    padding-right: 40px
+    justify-content: space-between;
+    max-width: 1067px;
+    width: calc(100vw - 235.16px)
+    @media (max-width: 1380px)
+      justify-content: right;
+      width: auto;
 
 @media (max-width: 599px)
   .nav__wrapper
@@ -86,7 +91,11 @@ header.site-header
   width: 200px
   height: 48px
   border-radius: 30px
-  margin-top: 12px
+  margin-top: 7px
+  margin-left: 114px;
+  cursor: pointer;
+  @media (max-width: 1380px)
+    margin-left: 7.91%;
 
 @media (max-width: 599px)
   .nav__toggle
