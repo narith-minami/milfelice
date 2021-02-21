@@ -60,9 +60,11 @@ export default {
   .slide_text
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 50%;
-    left: 29%;
+    top: 45%;
+    left: 31%;
     z-index: 4;
+    @media (min-width: 1441px)
+      left: 38%;
   .swiper-container
     height: 100%;
     width: 100%;
@@ -72,15 +74,20 @@ export default {
     @media (min-width: 1441px)
       max-width: 100%;
       padding-bottom: 160px;
+    @media (max-width: 600px)
+      padding-bottom: 13.33vw;
     .swiper-wrapper
       height: 720px;
     img
-      transform: translate(10%);
+      transform: translate(-50%);
       height: 100%;
       object-fit: cover;
+      left: 50%;
+      position: absolute;
       @media (min-width: 1441px)
         width: 100%;
         transform: translate(0);
+        left: 0px;
     .swiper-pagination
       max-width: 1200px;
       display: flex;
@@ -88,9 +95,10 @@ export default {
       left: 50%;
       transform: translateX(-50%)
       .swiper-pagination-bullet
-        width: 150px;
+        width: 12.5vw;
         max-width: 150px;
-        height: 160px;
+        max-height: 160px;
+        height: 13.33vw;
         margin: 0px;
         display: block;
         border-radius: 0px;
@@ -105,10 +113,12 @@ export default {
       background: inherit
     .swiper-button-prev,.swiper-button-next
       position: absolute;
-      transform: translate(-50%, -50%);
-      bottom: 50%;
+      transform: translateY(-50%);
+      top: 45%;
+      display: block;
     .swiper-button-prev
-      left: 6%;
+      left: calc(50% - 640px);
+      right: auto;
       &:after
         content: '';
         display: block;
@@ -116,13 +126,16 @@ export default {
         height: 24px;
         background-image: url(~@/assets/images/top_sliders/slide_prev.svg);
         background-size: cover;
+        margin: 50% auto;
     .swiper-button-next
-      right: 4%;
+      right: calc(50% - 640px);
+      left: auto;
       &:after
         content: '';
         display: block;
         width: 11px;
         height: 24px;
+        margin: 50% auto;
         background-image: url(~@/assets/images/top_sliders/slide_next.svg);
         background-size: cover;
         background-position-x: -11px;

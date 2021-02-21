@@ -34,6 +34,7 @@ export default {
   max-width: 1200px;
   margin: 22px auto 0px;
   cursor: pointer;
+  border: solid 1px #C9C9C9;
   .top_gallery
     width: 20.8vw;
     height: 20.8vw;

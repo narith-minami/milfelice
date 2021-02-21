@@ -78,8 +78,9 @@ export default {
     z-index: 3;
     .flower1
       position: absolute;
-      top: -60px;
-      left: 2%;
+      top: -46px;
+      left: calc(50% - 586px);
+      transform: translateX(-50%);
     .detail_flex
       display: flex;
       margin-bottom: 66.9px;
@@ -134,7 +135,9 @@ export default {
     position: relative;
     .flower2
       position: absolute;
-      right: 0px;
+      right: calc(50% - 836px);
+      transform: translateX(-50%);
+      top: -69px;
       top: -60px;
     .gallery_top_content
       display: flex;
@@ -183,7 +186,8 @@ export default {
       padding: 80px 0px 118px;
     .flower3
       position: absolute;
-      left: -50px;
-      top: -80px;
+      left: calc(50% - 614px);
+      transform: translateX(-50%);
+      top: -84px;
       z-index: 2;
 </style>
