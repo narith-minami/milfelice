@@ -81,9 +81,13 @@ header.site-header
 
 .nav__item a
   display: block
-  padding: 1.5rem 2rem
+  padding: 1.5rem 0px;
+  text-align: center;
+  width: 151px
   &:hover
     opacity: 0.5;
+  @media (max-width: 1380px)
+    width: 10.48vw;
 
 .nav__toggle
   display: none
