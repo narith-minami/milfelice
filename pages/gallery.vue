@@ -3,7 +3,7 @@ article.page_container
   PageTop(name="gallery", caption="ギャラリー")
   .page_content_wrap.gallery_wrap
     .gallery
-      transition-group(tag="div" name="model" appear)
+      transition-group.model_wrap(tag="div" name="model" appear)
         .model(v-for="index in 12" :key="index" v-show="modelFlag[index - 1]")
           .model_overlay(@click.self="closeModel(index)")
             .model_window
@@ -76,44 +76,23 @@ export default {
   methods: {
     openModel(index) {
       this.modelFlag.splice((index - 1), 1, true);
-      if (process.client) {
-         document.body.classList.add('stop');
-       }
     },
     closeModel(index) {
       this.modelFlag.splice((index - 1), 1, false);
-      if (process.client) {
-         document.body.classList.remove('stop');
-       }
     }
   },
 };
 </script>
 
-<style>
-  .stop {
-    height: 100vh;
-    overflow-y: hidden;
-    padding-right: 15px;
-  }
-
-
-</style>
-
 <style lang="sass" scoped>
 
-.model-enter
-  opacity: 0;
-
+.model-enter,
 .model-leave-to 
   opacity: 0;
  
-.model-enter-active
-  transition: all .3s;
-
+.model-enter-active,
 .model-leave-active 
-  transition: all .3s;
-
+  transition: all .4s;
 
 .gallery_wrap
   max-width: 1440px
@@ -128,6 +107,10 @@ export default {
 
 .gallery
   position: relative;
+
+  .model_wrap
+    position: relative;
+    z-index: 2;
 
   .model
     &_overlay
@@ -205,6 +188,8 @@ export default {
       margin-right: 5px
       overflow: hidden
       cursor: pointer
+      &:hover
+        opacity: 0.6;
       &:last-child
         margin-right: 0
 
