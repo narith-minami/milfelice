@@ -6,9 +6,9 @@
       p.text_bold {{voiceItem.text}}
       p.text_normal {{voiceItem.staf}}
       p.text_min {{voiceItem.detail}}
-  voiceModal1(@closeModal="closeModal1")
-  voiceModal2(@closeModal="closeModal2")
-  voiceModal3(@closeModal="closeModal3")
+  voiceModal1( v-if="voiceModalFlug1" @closeModal="closeModal1")
+  voiceModal2( v-if="voiceModalFlug2" @closeModal="closeModal2")
+  voiceModal3( v-if="voiceModalFlug3" @closeModal="closeModal3")
 </template>
 <script>
 import voiceModal1 from "~/components/voiceModal/voiceModal1.vue";
@@ -40,22 +40,34 @@ export default {
           staf: '担当:比留間',
           detail: '2017/11/11 Wさんご夫妻'
         }
-      ]
+      ],
+      voiceModalFlug1: false,
+      voiceModalFlug2: false,
+      voiceModalFlug3: false,
     }
   },
   methods: {
     openModal(index){
       const number = index + 1
-      this.$modal.show('voiceModal'+number+'');
+      console.log(number);
+      if(number === 1){
+        this.voiceModalFlug1 = true;
+        return
+      }
+      if(number === 2){
+        this.voiceModalFlug2 = true;
+        return
+      }
+      this.voiceModalFlug3 = true;
     },
     closeModal1(){
-      this.$modal.hide('voiceModal1');
+      this.voiceModalFlug1 = false;
     },
     closeModal2(){
-      this.$modal.hide('voiceModal2');
+      this.voiceModalFlug2 = false;
     },
     closeModal3(){
-      this.$modal.hide('voiceModal3');
+      this.voiceModalFlug3 = false;
     }
   }
 };

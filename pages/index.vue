@@ -103,17 +103,22 @@ export default {
     .top_detail-text
       display: flex;
       justify-content: space-between;
+      @media (max-width: 1222px)
+        display: block;
       .text_content
         width: 589px;
         height: 269px;
         background-color: #ffffff;
         background-image: url(~@/assets/images/top/text_cover.svg);
         background-size: cover;
+        @media (max-width: 1222px)
+          margin: 0 auto;
+          &:first-child
+            margin: 0 auto 21.8px;
         p
           padding-left: 55px;
-          width: 478px;
         .text_bold
-          width: 501px;
+          width: 85%;
           font-size: 22px;
           font-weight: bold;
           padding: 47px 0px 27px 55px;
@@ -121,6 +126,7 @@ export default {
         .text_normal
           color: #3A3A3A;
           font-size: 16px;
+          width: 82%;
   .banners
     z-index: 1;
     padding: 40px 0px 39px;
@@ -135,10 +141,11 @@ export default {
     position: relative;
     .flower2
       position: absolute;
-      right: calc(50% - 836px);
+      right: -110px;
       transform: translateX(-50%);
-      top: -69px;
       top: -60px;
+      @media (min-width: 1440px)
+        right: calc(50% - 836px);
     .gallery_top_content
       display: flex;
       justify-content: space-between;
