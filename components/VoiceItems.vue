@@ -1,11 +1,11 @@
 <template lang="pug">
 .voice_items
-  .voice_item(@click="openModal(index)" v-for="(voiceItem, index) in voiceItems" :key="index")
-    img(:src="require('@/assets/images/top/voice_image1.png')" alt="")
+  .voice_item(@click="openModal(index)" v-for="(voiceItem, index) in voiceList" :key="index")
+    img(:src="voiceItem.image.url" alt="")
     .text_content
-      p.text_bold {{voiceItem.text}}
-      p.text_normal {{voiceItem.staf}}
-      p.text_min {{voiceItem.detail}}
+      p.text_bold {{ voiceItem.title }}
+      p.text_normal {{ voiceItem.staff }}
+      p.text_min {{  voiceItem.date }} {{ voiceItem.user_name }}
   voiceModal1( v-if="voiceModalFlug1" @closeModal="closeModal1")
   voiceModal2( v-if="voiceModalFlug2" @closeModal="closeModal2")
   voiceModal3( v-if="voiceModalFlug3" @closeModal="closeModal3")
@@ -21,6 +21,7 @@ export default {
     voiceModal3,
   },
   props: {
+    voiceList: Array
   },
   data() {
     return {
@@ -106,7 +107,7 @@ export default {
         font-weight: bold;
         padding-bottom: 4px;
       .text_normal
-        font-size: 16px;
+        font-size: 14px;
         padding-bottom: 5px;
       .text_min
         font-size: 14px;

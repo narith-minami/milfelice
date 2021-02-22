@@ -35,7 +35,7 @@ article.top_content
   section.voice
     .voice_top_content.default_content
       img.gallery_title(:src="require('@/assets/images/top/voice_title.svg')" alt="")
-    VoiceItems
+    VoiceItems(:voice-list="voice")
   //- faq
   section.faq
     img.flower3(:src="require('@/assets/images/top/flower3.png')" alt="")
@@ -59,6 +59,12 @@ export default {
     VoiceItems,
     TopGallery,
   },
+  async asyncData(context) {
+    // const slideImages = await context.app.$getData("slide"); TODO
+    // const galleryItems = await context.app.$getData("gallery");
+    const voiceItems = await context.app.$getData("voice");
+    return { voice: voiceItems };
+  },  
 };
 </script>
 
