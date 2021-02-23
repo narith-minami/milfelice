@@ -1,35 +1,30 @@
 <template lang="pug">
-article.page_container
+article.page_container.sp-color_pink
   PageTop(name="gallery", caption="ギャラリー")
   .page_content_wrap.gallery_wrap
     .gallery
       transition-group.model_wrap(tag="div" name="model" appear)
         .model(v-for="index in 12" :key="index" v-show="modelFlag[index - 1]")
           .model_overlay(@click.self="closeModel(index)")
-            .model_window
-              .model_cross_wrap
-                span.model_cross(@click="closeModel(index)")
-              h2.model_title 可愛らしい編みおろしスタイル♪
-              img.model_main_img(:src="mainImg[index - 1]" alt="")
-              .model_sub_img_wrap
-                .model_sub_img_cont
-                  img.model_sub_img(:src="require('@/assets/images/gallery/gallery_' + index + '.png')" alt="")
-                .model_sub_img_cont
-                  img.model_sub_img(:src="require('@/assets/images/gallery/gallery_' + index + '.png')" alt="")
-                .model_sub_img_cont
-                  img.model_sub_img(:src="require('@/assets/images/gallery/gallery_' + index + '.png')" alt="")
-                .model_sub_img_cont
-                  img.model_sub_img(:src="require('@/assets/images/gallery/gallery_' + index + '.png')" alt="")
-              p.model_text 人気の編みおろしスタイルは取ってもキュート。
-                br
-                | ミモザやカスミソウなど、かわいらしい小花をアレンジするのが相性抜群!
+            transition(appear name="model_inside")
+              .model_window(v-show="modelFlag[index - 1]")
+                .model_cross_wrap
+                  span.model_cross(@click="closeModel(index)")
+                h2.model_title 可愛らしい編みおろしスタイル♪
+                img.model_main_img(:src="bigImages[index - 1].image.url" alt="")
+                .model_sub_img_wrap
+                  .model_sub_img_cont(v-for="n in 4" :key="n" @click="changeImg(index, n)")
+                    img.model_sub_img(:src="normalImages[index - 1].image.url" alt="")
+                p.model_text 人気の編みおろしスタイルは取ってもキュート。
+                  br
+                  | ミモザやカスミソウなど、かわいらしい小花をアレンジするのが相性抜群!
 
 
       .gallery_grid
 
         picture.gallery_picture(v-for="index in 12" :key="index" @click="openModel(index)")
-          source(:srcset="require('@/assets/images/gallery/gallery_' + index + '_sp.png')" media="(max-width: 600px)")
-          img.gallery_img(:src="require('@/assets/images/gallery/gallery_' + index + '.png')" alt="")
+          source(:srcset="smallImages[index - 1].image.url" media="(max-width: 600px)")
+          img.gallery_img(:src="normalImages[index - 1].image.url" alt="")
         
 
     //- FlowItem(v-for="(item, index) in list", :key="index", :item="item")
@@ -42,6 +37,7 @@ article.page_container
 import PageTop from "~/components/PageTopView.vue";
 // import FlowItem from "~/components/FlowItem.vue";
 import BannerItems from "~/components/BannerItems.vue";
+import axios from "axios";
 
 export default {
   layout: "page",
@@ -56,22 +52,20 @@ export default {
                 false, false, false, false, 
                 false, false, false, false, 
                 ],
-    
-    mainImg: [
-      require("@/assets/images/gallery/gallery_1_2x.png"),
-      require("@/assets/images/gallery/gallery_2_2x.png"),
-      require("@/assets/images/gallery/gallery_3_2x.png"),
-      require("@/assets/images/gallery/gallery_4_2x.png"),
-      require("@/assets/images/gallery/gallery_5_2x.png"),
-      require("@/assets/images/gallery/gallery_6_2x.png"),
-      require("@/assets/images/gallery/gallery_7_2x.png"),
-      require("@/assets/images/gallery/gallery_8_2x.png"),
-      require("@/assets/images/gallery/gallery_9_2x.png"),
-      require("@/assets/images/gallery/gallery_10_2x.png"),
-      require("@/assets/images/gallery/gallery_11_2x.png"),
-      require("@/assets/images/gallery/gallery_12_2x.png"),
-    ]
    }
+  },
+  async asyncData() {
+   const gallery = await axios.get( 
+     'https://jamstackblog.microcms.io/api/v1/gallery',
+      {
+        headers: { 'X-API-KEY': 'ac4bdc72-42db-40aa-87ad-f41ca20e95e1' }
+      });
+
+    return {
+      smallImages : gallery.data.contents[0].image,
+      normalImages:gallery.data.contents[1].image,
+      bigImages:gallery.data.contents[2].image,
+    }
   },
   methods: {
     openModel(index) {
@@ -79,6 +73,10 @@ export default {
     },
     closeModel(index) {
       this.modelFlag.splice((index - 1), 1, false);
+    },
+    changeImg(index, n) {
+      // モーダルのメイン画像をクリックしたサブ画像に入れ替える処理を入れる
+      console.log(index, n);
     }
   },
 };
@@ -86,13 +84,25 @@ export default {
 
 <style lang="sass" scoped>
 
+.sp-color_pink
+  @media screen and (max-width: 600px)
+    background-color: #FFF7FA
+
 .model-enter,
 .model-leave-to 
   opacity: 0;
  
 .model-enter-active,
 .model-leave-active 
-  transition: all .4s;
+  transition: opacity .5s;
+
+.model_inside-enter,
+.model_inside-leave-to
+  transform: translateY(50px)
+
+.model_inside-enter-active,
+.model_inside-leave-active 
+  transition: transform .5s cubic-bezier(0.64, 0.55, 0, 1.49);
 
 .gallery_wrap
   max-width: 1440px
@@ -104,13 +114,16 @@ export default {
   box-sizing: border-box;
   @media screen and (max-width: 900px)
     padding: 80px 60px 40px
+  @media screen and (max-width: 600px)
+    padding: 20px 15px 0
+  
 
 .gallery
   position: relative;
 
   .model_wrap
     position: relative;
-    z-index: 2;
+    z-index: 100;
 
   .model
     &_overlay
@@ -131,8 +144,9 @@ export default {
       background-color: #fff
       box-sizing: border-box
       margin: 10px auto 0;
-      height: calc(100vh - 20px);
-      width: calc((100vh - 20px) / 2 - 25px);
+      max-height: calc(100vh - 20px);
+      width: calc((100vh - 20px) / 2 - 20px);
+      max-width: 98%;
       padding: 5px 15px 30px;
 
     &_cross_wrap
@@ -166,7 +180,7 @@ export default {
       // margin-top: 14px
       // font-size: 24px
       color: #3A3A3A
-      font-size: 14px;
+      font-size: 13.8px;
 
     &_main_img
       margin-top: 5px
@@ -207,7 +221,11 @@ export default {
 
   &_grid
    display: grid
-   grid-template: '1  2  3  4  ' '5  6  7  8  ' '9  10 11 12' '13 14 15 16'
+   grid-template: '1  2  3  4  ' '5  6  7  8  ' '9  10 11 12'
+   @media screen and (max-width: 600px)
+     grid-template: '1  2  3  ' '4  5  6  ' '7  8  9 ' '10 11 12'
+     
+
    
   &_picture
     width: 100%
