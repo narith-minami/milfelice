@@ -43,8 +43,8 @@
           img(:src="require('@/assets/images/consultation/flower_title.svg')" alt="Favorite flower item")
         p.consult_subtitle.price-title-font お気に入りのフラワーアイテム
         ul.flower_list
-          li.flower_item(v-for="index in 6" :key="index")
-            img(:src="require('@/assets/images/consultation/flower_' + index + '.jpg')")
+          li.flower_item(v-for="(flowerItem, index) in flowerItems" :key="index")
+            img(:src="flowerItem.image.url")
     BannerFAQ
   </article>
 </template>
@@ -57,6 +57,12 @@ export default {
   components: {
     BannerFAQ,
   },
+  async asyncData(context) {
+    const items = await context.app.$getData("flower_items");
+    return {
+      flowerItems: items,
+    };
+  },
 };
 </script>
 
@@ -64,6 +70,7 @@ export default {
 $sp-padding: 16px
 img
   max-width: 100%
+  vertical-align: bottom
 .consult_top
   background-image: url('~@/assets/images/consultation/consult_back.jpg')
   background-position: center
@@ -150,7 +157,6 @@ img
   &_list
     display: grid
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
-    grid-gap: 15px
     list-style-type: none
 
 *,
@@ -226,5 +232,5 @@ img
       padding-right: 15px
       margin-bottom: 10px
     &_list
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr))
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
 </style>
