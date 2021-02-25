@@ -31,9 +31,9 @@
         .consult_inner
           p.consult_btn
             a.consult_link.item-center(href="https://instagram.com/milfelicewedding" target="_blank")
-              img(:src="require('@/assets/images/consultation/instagram.svg')")
+              img.consult_link_insta(:src="require('@/assets/images/consultation/instagram.svg')")
               <span>ヘア小物のスタイリングを<br />Instagramでチェックできます</span>
-              img(:src="require('@/assets/images/consultation/arrow.svg')")
+              img.consult_link_arr(:src="require('@/assets/images/consultation/arrow.svg')")
     section.flower_section#flower_item
       .consult_top.flower_top
         .consult_inner
@@ -61,6 +61,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+$sp-padding: 16px
 img
   max-width: 100%
 .consult_top
@@ -151,4 +152,79 @@ img
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
     grid-gap: 15px
     list-style-type: none
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+@media screen and (max-width: 767px)
+  .consult_top
+    height: 48vw
+    background-image: url('~@/assets/images/consultation/consult_back_sp.jpg')
+    background-size: cover
+    &.flower_top
+      width: calc(100vw - 32px)
+      height: 38vw
+      background-image: url('~@/assets/images/consultation/flower_back_sp.jpg')
+    img
+      max-width: 55%
+  .consult_inner
+    padding: 0 $sp-padding
+  .consult_subtitle
+    margin: 0 0 20px
+    font-size: 10px
+  .consult
+    &_main
+      padding: 20px 0 0
+      .consult_inner
+        padding-top: 0
+      &_content
+        max-width: 100%
+        margin-bottom: 45px
+      &_thumb
+        position: static
+        max-width: calc(100% + #{$sp-padding} * 2)
+        margin: 0 -$sp-padding
+        text-align: center
+    &_title
+      padding-right: 15px
+      margin-bottom: 10px
+    &_lead
+      font-size: 12px
+      & + .consult_lead
+        margin-top: 20px
+    &_box
+      position: relative
+      padding: 10px 0
+      margin: -50px $sp-padding 0
+      &_title
+        max-width: 100%
+        font-size: 24px
+        span
+          font-size: 24px
+      .consult_lead
+        font-size: 12px
+    &_btm
+      padding: 10px 0 20px
+    &_btn
+      max-width: 220px
+    &_link
+      padding: 8px 5px
+      font-size: 8px
+      span
+        margin: 0 10px
+      &_insta
+        max-width: 30px
+      &_arr
+        max-width: 4px
+  .flower
+    &_section
+      padding: 0 $sp-padding
+    &_content
+      padding: 20px 0 40px
+    &_title
+      padding-right: 15px
+      margin-bottom: 10px
+    &_list
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr))
 </style>
