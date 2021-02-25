@@ -1,7 +1,7 @@
 <template lang="pug">
 .partner_item
   .thumbnail_wrap
-    img.mg-bottom-16(:src="require('@/assets/images/' + item.image_name)")
+    img.mg-bottom-16(:src="item.image.url")
   .partner_name {{ item.name }}
   .link.mg-bottom-12
     .inner_link.mg-bottom-2

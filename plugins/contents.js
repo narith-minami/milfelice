@@ -2,8 +2,8 @@ import axios from "axios";
 
 const getData = (page) => {
   return axios
-    .get(`https://naritech.microcms.io/api/v1/${page}`, {
-      headers: { "X-API-KEY": "63e9fc87-08da-43bd-ae4a-5e82b31557e7" }
+    .get(`https://milfeliche.microcms.io/api/v1/${page}`, {
+      headers: { "X-API-KEY": "67208e66-8604-4353-b492-bdfcbd70da7d" }
     })
     .then((res) => {
       return res.data.contents;

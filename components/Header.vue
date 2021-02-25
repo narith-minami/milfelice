@@ -6,7 +6,9 @@ header.site-header
       img.logo(:src="require('@/assets/images/logo.svg')")
     nav.nav
       button.nav__toggle(aria-expanded="false", type="button")
-        | menu
+        span.nav_line
+        span.nav_line
+        span.nav_line
       ul.nav__wrapper
         li.nav__item
           NLink(to="/gallery") ギャラリー
@@ -19,7 +21,7 @@ header.site-header
         li.nav__item
           NLink(to="/faq") FAQ
         li.nav__item
-          .contact_button.text-white.flex-row
+          .contact_button.text-white.flex-row(href="#")
             span.mg-auto お問い合わせ
 // Header End
 </template>
@@ -29,17 +31,28 @@ header.site-header
   font-weight: bold
   font-size: 20px
 
+.logo
+  @media (max-width: 600px)
+    width: 128.39px;
+
 .site-header
   position: fixed
   background-color: #FFF7FA
   top: 0
-  width: 100vw
-  padding: 18px 30px
-  z-index: 1
+  width: calc(100vw - 60px)
+  padding: 23px 30px;
+  z-index: 99
+  @media (max-width: 600px)
+    padding: 11.9px 20px
+    width: calc(100vw - 40px)
 
 .site-header__wrapper
+  max-width: 1384px
   padding-top: 1rem
   padding-bottom: 1rem
+  margin: 0 auto;
+  @media (max-width: 600px)
+    padding: 0px;
 
 @media (min-width: 600px)
   .site-header__wrapper
@@ -52,11 +65,14 @@ header.site-header
 @media (min-width: 600px)
   .nav__wrapper
     display: flex
-    justify-content: space-evenly
-    width: calc(100vw - 220px)
-    padding-right: 40px
+    justify-content: space-between;
+    max-width: 1067px;
+    width: calc(100vw - 235.16px)
+    @media (max-width: 1380px)
+      justify-content: right;
+      width: auto;
 
-@media (max-width: 599px)
+@media (max-width: 1025px)
   .nav__wrapper
     position: absolute
     top: 100%
@@ -76,7 +92,13 @@ header.site-header
 
 .nav__item a
   display: block
-  padding: 1.5rem 1rem
+  padding: 1.5rem 0px;
+  text-align: center;
+  width: 151px
+  &:hover
+    opacity: 0.5;
+  @media (max-width: 1380px)
+    width: 10.48vw;
 
 .nav__toggle
   display: none
@@ -86,12 +108,41 @@ header.site-header
   width: 200px
   height: 48px
   border-radius: 30px
-  margin-top: 12px
+  margin-top: 7px
+  margin-left: 114px;
+  cursor: pointer;
+  &:hover
+    opacity: 0.5;
+  @media (max-width: 1380px)
+    margin-left: 7.91%;
 
-@media (max-width: 599px)
+@media (max-width: 1025px)
   .nav__toggle
     display: block
     position: absolute
-    right: 1rem
-    top: 1rem
+    right: 20px;
+    top: 37%
+    width: 16px;
+    height: 13px;
+    appearance: none;
+    border: none;
+    background: inherit;
+    padding: 0px;
+    cursor: pointer;
+    &:focus
+      appearance: none;
+      outline: initial;
+    .nav_line
+      height: 1px;
+      width: 100%;
+      background-color: #F59C9C;
+      display: block;
+      position: absolute;
+      left: 0px;
+      &:nth-child(1)
+        top: 0px;
+      &:nth-child(2)
+        top: 6px;
+      &:nth-child(3)
+        bottom: 0px;
 </style>
