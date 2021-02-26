@@ -172,6 +172,8 @@ img
       width: calc(100vw - 32px)
       height: 38vw
       background-image: url('~@/assets/images/consultation/flower_back_sp.jpg')
+      background-color: #FFF
+      background-size: contain
     img
       max-width: 55%
   .consult_inner
