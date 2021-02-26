@@ -31,9 +31,9 @@
         .consult_inner
           p.consult_btn
             a.consult_link.item-center(href="https://instagram.com/milfelicewedding" target="_blank")
-              img(:src="require('@/assets/images/consultation/instagram.svg')")
+              img.consult_link_insta(:src="require('@/assets/images/consultation/instagram.svg')")
               <span>ヘア小物のスタイリングを<br />Instagramでチェックできます</span>
-              img(:src="require('@/assets/images/consultation/arrow.svg')")
+              img.consult_link_arr(:src="require('@/assets/images/consultation/arrow.svg')")
     section.flower_section#flower_item
       .consult_top.flower_top
         .consult_inner
@@ -43,8 +43,8 @@
           img(:src="require('@/assets/images/consultation/flower_title.svg')" alt="Favorite flower item")
         p.consult_subtitle.price-title-font お気に入りのフラワーアイテム
         ul.flower_list
-          li.flower_item(v-for="index in 6" :key="index")
-            img(:src="require('@/assets/images/consultation/flower_' + index + '.jpg')")
+          li.flower_item(v-for="(flowerItem, index) in flowerItems" :key="index")
+            img(:src="flowerItem.image.url")
     BannerFAQ
   </article>
 </template>
@@ -57,98 +57,182 @@ export default {
   components: {
     BannerFAQ,
   },
+  async asyncData(context) {
+    const items = await context.app.$getData("flower_items");
+    return {
+      flowerItems: items,
+    };
+  },
 };
 </script>
 
 <style lang="sass" scoped>
+$sp-padding: 16px
 img
-  max-width: 100%;
+  max-width: 100%
+  vertical-align: bottom
 .consult_top
-  background-image: url('~@/assets/images/consultation/consult_back.jpg');
-  background-position: center;
-  background-color: #FFF7FA;
-  background-repeat: no-repeat;
-  height: 340px;
-  width: 100vw;
+  background-image: url('~@/assets/images/consultation/consult_back.jpg')
+  background-position: center
+  background-color: #FFF7FA
+  background-repeat: no-repeat
+  height: 340px
+  width: 100vw
   display: flex
-  align-items: center;
+  align-items: center
   &.flower_top
-    background-image: url('~@/assets/images/consultation/flower_back.jpg');
+    background-image: url('~@/assets/images/consultation/flower_back.jpg')
   img
-    max-width: 400px;
+    max-width: 400px
 .consult_inner
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
+  max-width: 1200px
+  width: 100%
+  margin: 0 auto
 .consult_subtitle
-  margin: 0 0 60px;
-  color: #F59C9C;
-  font-size: 18px;
+  margin: 0 0 60px
+  color: #F59C9C
+  font-size: 18px
   text-align: center
 .consult
   &_main
-    padding: 160px 0 60px;
+    padding: 160px 0 60px
     .consult_inner
-      position: relative;
+      position: relative
       padding-top: 30px
     &_content
-      max-width: 55%;
+      max-width: 55%
     &_thumb
-      position: absolute;
-      top: 0;
-      right: 0;
-      max-width: 40%;
+      position: absolute
+      top: 0
+      right: 0
+      max-width: 40%
   &_title
-    padding-right: 40px;
-    margin-bottom: 25px;
-    text-align: center;
+    padding-right: 40px
+    margin-bottom: 25px
+    text-align: center
   &_lead
-    line-height: 1.8;
+    line-height: 1.8
     & + .consult_lead
       margin-top: 30px
   &_box
-    padding: 40px 0;
-    background-color: #FFF7FA;
+    padding: 40px 0
+    background-color: #FFF7FA
     &_title
-      display: flex;
-      justify-content: space-between;
-      max-width: 540px;
+      display: flex
+      justify-content: space-between
+      max-width: 540px
       margin-bottom: 20px
-      border-bottom: 1px solid #F59C9C;
-      font-size: 28px;
+      border-bottom: 1px solid #F59C9C
+      font-size: 28px
       span
-        font-size: 32px;
-        font-weight: bold;
+        font-size: 32px
+        font-weight: bold
     .consult_lead
-      font-size: 14px;
+      font-size: 14px
   &_btm
-    padding: 20px 0 80px;
+    padding: 20px 0 80px
   &_btn
-    max-width: 480px;
-    margin-left: auto;
+    max-width: 480px
+    margin-left: auto
   &_link
-    padding: 5px 20px;
-    border: 1px solid #EF6092;
-    border-radius: 10px;
-    font-size: 14px;
+    padding: 5px 20px
+    border: 1px solid #EF6092
+    border-radius: 10px
+    font-size: 14px
     &:hover
-      opacity: 0.8;
+      opacity: 0.8
     span
-      margin: 0 60px 0 20px;
-      line-height: 1.6;
+      margin: 0 60px 0 20px
+      line-height: 1.6
 .flower
   &_content
-    max-width: 1240px;
-    width: 100%;
-    padding: 80px 0;
-    margin: 0 auto;
+    max-width: 1240px
+    width: 100%
+    padding: 80px 0
+    margin: 0 auto
   &_title
-    padding-right: 40px;
-    margin-bottom: 25px;
-    text-align: center;
+    padding-right: 40px
+    margin-bottom: 25px
+    text-align: center
   &_list
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 15px;
-    list-style-type: none;
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    list-style-type: none
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+@media screen and (max-width: 767px)
+  .consult_top
+    height: 48vw
+    background-image: url('~@/assets/images/consultation/consult_back_sp.jpg')
+    background-size: cover
+    &.flower_top
+      width: calc(100vw - 32px)
+      height: 38vw
+      background-image: url('~@/assets/images/consultation/flower_back_sp.jpg')
+      background-color: #FFF
+      background-size: contain
+    img
+      max-width: 55%
+  .consult_inner
+    padding: 0 $sp-padding
+  .consult_subtitle
+    margin: 0 0 20px
+    font-size: 10px
+  .consult
+    &_main
+      padding: 20px 0 0
+      .consult_inner
+        padding-top: 0
+      &_content
+        max-width: 100%
+        margin-bottom: 45px
+      &_thumb
+        position: static
+        max-width: calc(100% + #{$sp-padding} * 2)
+        margin: 0 -$sp-padding
+        text-align: center
+    &_title
+      padding-right: 15px
+      margin-bottom: 10px
+    &_lead
+      font-size: 12px
+      & + .consult_lead
+        margin-top: 20px
+    &_box
+      position: relative
+      padding: 10px 0
+      margin: -50px $sp-padding 0
+      &_title
+        max-width: 100%
+        font-size: 24px
+        span
+          font-size: 24px
+      .consult_lead
+        font-size: 12px
+    &_btm
+      padding: 10px 0 20px
+    &_btn
+      max-width: 220px
+    &_link
+      padding: 8px 5px
+      font-size: 8px
+      span
+        margin: 0 10px
+      &_insta
+        max-width: 30px
+      &_arr
+        max-width: 4px
+  .flower
+    &_section
+      padding: 0 $sp-padding
+    &_content
+      padding: 20px 0 40px
+    &_title
+      padding-right: 15px
+      margin-bottom: 10px
+    &_list
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
 </style>
