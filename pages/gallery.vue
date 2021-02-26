@@ -4,27 +4,26 @@ article.page_container.sp-color_pink
   .page_content_wrap.gallery_wrap
     .gallery
       transition-group.model_wrap(tag="div" name="model" appear)
-        .model(v-for="index in 12" :key="index" v-show="modelFlag[index - 1]")
+        .model(v-for="index in galleryList.length" :key="index" v-show="modelFlag[index - 1]")
           .model_overlay(@click.self="closeModel(index)")
             transition(appear name="model_inside")
               .model_window(v-show="modelFlag[index - 1]")
                 .model_cross_wrap
                   span.model_cross(@click="closeModel(index)")
-                h2.model_title 可愛らしい編みおろしスタイル♪
-                img.model_main_img(:src="bigImages[index - 1].image.url" alt="")
-                .model_sub_img_wrap
-                  .model_sub_img_cont(v-for="n in 4" :key="n" @click="changeImg(index, n)")
-                    img.model_sub_img(:src="normalImages[index - 1].image.url" alt="")
-                p.model_text 人気の編みおろしスタイルは取ってもキュート。
-                  br
-                  | ミモザやカスミソウなど、かわいらしい小花をアレンジするのが相性抜群!
-
+                h2.model_title {{ galleryList[index -1].title }}
+                .model_grid
+                  img.model_main_img(:src="modelMainImg[index - 1] + '?w=400'" alt="")
+                  .model_sub_img_wrap
+                    .model_sub_img_cont(v-for="n in imgCount(index)" :key="n" @click="changeImg(index, n)")
+                      img.model_sub_img(:src="galleryList[index - 1][`image_${n}`].url  + '?w=200'" alt="")
+                  .model_text_cont
+                    p.model_text {{ galleryList[index - 1].comment }}
 
       .gallery_grid
 
-        picture.gallery_picture(v-for="index in 12" :key="index" @click="openModel(index)")
-          source(:srcset="smallImages[index - 1].image.url" media="(max-width: 600px)")
-          img.gallery_img(:src="normalImages[index - 1].image.url" alt="")
+        picture.gallery_picture(v-for="index in galleryList.length" :key="index" @click="openModel(index)")
+          source(:srcset="galleryList[index - 1].image_1.url + '?w=190'" media="(max-width: 600px)")
+          img.gallery_img(:src="galleryList[index - 1].image_1.url + '?w=300'" alt="")
         
 
     //- FlowItem(v-for="(item, index) in list", :key="index", :item="item")
@@ -54,18 +53,15 @@ export default {
                 ],
    }
   },
-  async asyncData() {
-   const gallery = await axios.get( 
-     'https://jamstackblog.microcms.io/api/v1/gallery',
-      {
-        headers: { 'X-API-KEY': 'ac4bdc72-42db-40aa-87ad-f41ca20e95e1' }
-      });
+  async asyncData(context) {
 
-    return {
-      smallImages : gallery.data.contents[0].image,
-      normalImages:gallery.data.contents[1].image,
-      bigImages:gallery.data.contents[2].image,
-    }
+      const galleryList = await context.app.$getData("gallery");
+
+      let modelMainImg = galleryList.map((gallery) => {
+       return gallery.image_1.url
+      });
+      return { galleryList, modelMainImg }
+
   },
   methods: {
     openModel(index) {
@@ -73,10 +69,18 @@ export default {
     },
     closeModel(index) {
       this.modelFlag.splice((index - 1), 1, false);
+      this.modelMainImg.splice((index - 1), 1, this.galleryList[index - 1]['image_1'].url);
     },
     changeImg(index, n) {
       // モーダルのメイン画像をクリックしたサブ画像に入れ替える処理を入れる
-      console.log(index, n);
+      this.modelMainImg.splice((index - 1), 1, this.galleryList[index - 1][`image_${n}`].url);
+    },
+    imgCount(index) {
+     const galleryArray = Object.keys(this.galleryList[index - 1]);
+     if (!galleryArray.includes('image_2')) return 1;
+     if (!galleryArray.includes('image_3')) return 2;
+     if (!galleryArray.includes('image_4')) return 3;
+     return 4;
     }
   },
 };
@@ -88,21 +92,17 @@ export default {
   @media screen and (max-width: 600px)
     background-color: #FFF7FA
 
-.model-enter,
-.model-leave-to 
-  opacity: 0;
+.model-enter
+  opacity: 0
  
-.model-enter-active,
-.model-leave-active 
-  transition: opacity .5s;
+.model-enter-active
+  transition: opacity .5s
 
-.model_inside-enter,
-.model_inside-leave-to
-  transform: translateY(50px)
+.model_inside-enter
+  transform: translateY(5%)
 
-.model_inside-enter-active,
-.model_inside-leave-active 
-  transition: transform .5s cubic-bezier(0.64, 0.55, 0, 1.49);
+.model_inside-enter-active
+  transition: transform .5s ease-out
 
 .gallery_wrap
   max-width: 1440px
@@ -134,24 +134,28 @@ export default {
       height: 100%;
       width: 100%;
       background-color: rgba(13, 13, 13, 0.6);
+      display: flex
+      justify-content: center
+      align-items: center
+
     
     &_window
-      // margin: 20px auto 0
-      // max-width: 640px
-      // width: 92%
-      // padding: 20px 40px 160px
       border-radius: 10px
       background-color: #fff
       box-sizing: border-box
-      margin: 10px auto 0;
-      max-height: calc(100vh - 20px);
-      width: calc((100vh - 20px) / 2 - 20px);
-      max-width: 98%;
-      padding: 5px 15px 30px;
+      width: 70%
+      max-width: 667px
+      padding: 0.7% 1.5% 4%
+      @media screen and (min-width: 970px) and (min-height: 800px)
+        width: 100%
+        max-width: 890px
+        padding: 10px 20px 45px
+      @media screen and (max-width: 800px)
+        font-size: 13px
 
     &_cross_wrap
+      padding-right: 5px
       text-align: right
-      // transform: translate(20px)
 
     &_cross
       display: inline-block;
@@ -177,31 +181,67 @@ export default {
          transform: rotate(90deg);
 
     &_title
-      // margin-top: 14px
-      // font-size: 24px
+      margin-top: 2.7%;
+      padding-left: 5px
       color: #3A3A3A
-      font-size: 13.8px;
+      font-size: 1.15em
+      letter-spacing: 0
+      @media screen and (min-width: 970px) and (min-height: 800px)
+        font-size: 24px
 
+    &_grid
+      display: grid
+      grid-template-areas: 'main sub' 'main text' 
+      grid-template-columns: 29.1vw 1fr
+      column-gap: 2.4%
+      margin-top: 1.8%
+      @media screen and (min-width: 970px)
+        grid-template-columns: 300px 1fr
+        column-gap: 15px
+        margin-top: 11px
+
+      @media screen and (min-width: 970px) and (min-height: 800px)
+        grid-template-columns: 400px 1fr
+        column-gap: 20px
+        margin-top: 15px
+        
+        
     &_main_img
-      margin-top: 5px
+      grid-area: main
       width: 100%
+      height: calc(29.1vw * 1.41)
+      object-fit: cover
+      @media screen and (min-width: 970px)
+        height: 423px
+        
+      @media screen and (min-width: 970px) and (min-height: 800px)
+        height: 564px  
 
     &_sub_img_wrap
-      // margin-top: 37px
+      grid-area: sub
       display: flex
+      flex-wrap: wrap
       width: 100%
-      margin-top: 5px;
+      height: min-content
+      margin-top: 5px
 
     &_sub_img_cont
       position: relative
-      // width: 130px
-      // height: 130px
-      // margin-right: 12px
-      width: 57px
-      height: 57px
-      margin-right: 5px
+      width: 12vw
+      height: 12vw
+      margin-right: 2.5%
+      margin-bottom: 3.5%
       overflow: hidden
       cursor: pointer
+      @media screen and (min-width: 970px)
+        width: 117px
+        height: 117px
+
+      @media screen and (min-width: 970px) and (min-height: 800px)
+        width: 156px
+        height: 156px
+        margin-right: 11px
+        margin-bottom: 15px
       &:hover
         opacity: 0.6;
       &:last-child
@@ -209,16 +249,33 @@ export default {
 
     &_sub_img
       position: absolute;
-      width: 61px;
-      top: 0;
-      left: -2px;
+      width: 16.1vw
+      height: auto
+      left: calc((16.1vw - 12vw) / -2)
+      top: calc((16.1vw - 12vw) / -2)
+      @media screen and (min-width: 970px)
+        width: 156px
+        left: -19.5px
+        top: -19.5px
+
+      @media screen and (min-width: 970px) and (min-height: 800px)
+        width: 209px
+        left: -26px
+        top: -26px
+
+    &_text_cont
+      grid-area: text
+      display: flex
+      align-items: flex-end
       
 
     &_text
-      // margin-top: 40px
-      margin-top: 20px;
-      font-size: 12px;
-
+      font-size: 0.8em
+      white-space:pre-wrap
+      word-wrap:break-word
+      @media screen and (min-width: 970px) and (min-height: 800px)
+        font-size: 16px
+  
   &_grid
    display: grid
    grid-template: '1  2  3  4  ' '5  6  7  8  ' '9  10 11 12'
