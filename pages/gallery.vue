@@ -12,12 +12,12 @@ article.page_container.sp-color_pink
                   span.model_cross(@click="closeModel(index)")
                 h2.model_title {{ galleryList[index -1].title }}
                 .model_grid
-                  img.model_main_img(:src="modelMainImg[index - 1] + '?w=400'" alt="")
+                  img.model_main_img.model-enter-active(:src="modelMainImg[index - 1] + '?w=400'" :class="{ 'model-enter' : changeImgFlag }" alt="")
                   .model_sub_img_wrap
                     .model_sub_img_cont(v-for="n in imgCount(index)" :key="n" @click="changeImg(index, n)")
                       img.model_sub_img(:src="galleryList[index - 1][`image_${n}`].url  + '?w=200'" alt="")
                   .model_text_cont
-                    p.model_text {{ galleryList[index - 1].comment }}
+                    p.model_text(v-html="galleryList[index - 1].comment")
 
       .gallery_grid
 
@@ -51,17 +51,26 @@ export default {
                 false, false, false, false, 
                 false, false, false, false, 
                 ],
+    changeImgFlag: false
    }
   },
   async asyncData(context) {
 
-      const galleryList = await context.app.$getData("gallery");
-
+      let galleryList = await context.app.$getData("gallery");
+      
       let modelMainImg = galleryList.map((gallery) => {
        return gallery.image_1.url
       });
       return { galleryList, modelMainImg }
 
+  },
+  mounted() {
+        this.galleryList.map((gallery) => {
+          if (gallery.comment !== undefined) {
+            gallery.comment = gallery.comment.replace(/\n/g, '<br/>')
+          }
+        return gallery
+        });
   },
   methods: {
     openModel(index) {
@@ -73,7 +82,13 @@ export default {
     },
     changeImg(index, n) {
       // モーダルのメイン画像をクリックしたサブ画像に入れ替える処理を入れる
-      this.modelMainImg.splice((index - 1), 1, this.galleryList[index - 1][`image_${n}`].url);
+      this.changeImgFlag = true;
+
+      setTimeout(() => {
+        this.modelMainImg.splice((index - 1), 1, this.galleryList[index - 1][`image_${n}`].url);
+        this.changeImgFlag = false;
+      }, 500);
+      
     },
     imgCount(index) {
      const galleryArray = Object.keys(this.galleryList[index - 1]);
@@ -81,7 +96,7 @@ export default {
      if (!galleryArray.includes('image_3')) return 2;
      if (!galleryArray.includes('image_4')) return 3;
      return 4;
-    }
+    },
   },
 };
 </script>
@@ -103,7 +118,7 @@ export default {
 
 .model_inside-enter-active
   transition: transform .5s ease-out
-
+  
 .gallery_wrap
   max-width: 1440px
   width: 100%
