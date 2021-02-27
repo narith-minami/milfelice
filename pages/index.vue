@@ -2,7 +2,7 @@
 article.top_content
   //- first view
   section.first_view
-    Slider
+    Slider(:slideImages ="slideImages")
   //- top detail
   section.detail
     img.flower1(:src="require('@/assets/images/top/flower1.png')" alt="")
@@ -33,7 +33,7 @@ article.top_content
     .gallery_top_content.default_content
       img.gallery_title(:src="require('@/assets/images/top/gallery_title.svg')" alt="")
       a.insta_button.is-pc(href="https://instagram.com/milfelicewedding" target="_blank") ミルフェリーチェのスタイルを<br>インスタグラムでもチェック！
-    TopGallery
+    TopGallery(:galleryItems ="galleryItems")
     .gallery_top_content.default_content.is-sp
       a.insta_button(href="https://instagram.com/milfelicewedding" target="_blank") ミルフェリーチェのスタイルを<br>インスタグラムでもチェック！
 
@@ -66,10 +66,10 @@ export default {
     TopGallery,
   },
   async asyncData(context) {
-    // const slideImages = await context.app.$getData("slide"); TODO
-    // const galleryItems = await context.app.$getData("gallery");
+    const slideImages = await context.app.$getData("slide");
+    const galleryItems = await context.app.$getData("gallery");
     const voiceItems = await context.app.$getData("voice");
-    return { voice: voiceItems };
+    return { voice: voiceItems , galleryItems: galleryItems ,slideImages: slideImages };
   },
 };
 </script>
