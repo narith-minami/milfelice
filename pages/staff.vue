@@ -85,6 +85,8 @@ export default {
   margin-left: auto
   margin-top: 80px
   margin-bottom: 40px
+  @media screen and (max-width: 600px)
+    width: 100%
 
 .partner_section
   background-color: #FFF7FA
@@ -98,4 +100,6 @@ export default {
     margin-bottom: 60px
   .parter_list
     max-width: 1000px
+    @media screen and (max-width: 600px)
+      width: 100%
 </style>
