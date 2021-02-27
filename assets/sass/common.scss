@@ -60,6 +60,9 @@ $breakpoints: (
 /* page common */
 .page_container {
   padding-top: 100px;
+  @media screen and (max-width: 600px) {
+    padding-top: 55px;
+  }  
 }
 .page_top {
   background-image: url('~@/assets/images/page_back.png');
@@ -70,16 +73,32 @@ $breakpoints: (
   display: flex;
   &.page_price {
     background-image: url('~@/assets/images/page_back_price.png');
+    // @media screen and (max-width: 600px) {
+    //   background-image: url('~@/assets/images/page_back_price_sp.png');
+    // }
   }
   &.page_flow {
     background-image: url('~@/assets/images/page_back_flow.png');
+    @media screen and (max-width: 600px) {
+      background-image: url('~@/assets/images/page_back_flow_sp.png');
+    }
   }
   &.page_staff {
     background-image: url('~@/assets/images/page_back_staff.png');
   }    
   &.page_faq {
     background-image: url('~@/assets/images/page_back_faq.png');
-  }  
+  }
+  @media screen and (max-width: 600px) {
+    height: 120px;
+    background-size: cover;
+    .page_top_inner {
+      img {
+        width: 160px;
+        height: fit-content;
+      }
+    }
+  }
 }
 .page_top_title {
   margin: auto;
@@ -92,6 +111,10 @@ $breakpoints: (
   top: 60px;
   &.no_title {
     top: 50px;
+    @media screen and (max-width: 600px) {
+      top: -20px;
+      font-size: 10px;
+    }
   }
 }
 .page_description_wrap {
@@ -111,6 +134,7 @@ $breakpoints: (
   margin-bottom: 80px;
   @media (max-width: 600px) {
     width: 100%;
+    margin-top: 40px
   }
 }
 
