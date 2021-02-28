@@ -2,7 +2,7 @@
 article.top_content
   //- first view
   section.first_view
-    Slider(:slideImages ="slideImages")
+    Slider(:slideImages ="slideImages" :thumbnails ="thumbnails")
   //- top detail
   section.detail
     img.flower1(:src="require('@/assets/images/top/flower1.png')" alt="")
@@ -67,10 +67,19 @@ export default {
   },
   async asyncData(context) {
     // const slideImages = await context.app.$getData("slide");
-    // const galleryItems = await context.app.$getData("gallery");
+    const thumbnails = await context.app.$getData("top_thumbnails");
+    const galleryItems = await context.app.$getData("gallery");
     const voiceItems = await context.app.$getData("voice");
-    return { voice: voiceItems };
+    return { voice: voiceItems ,thumbnails: thumbnails, galleryItems: galleryItems};
   },
+  created() {
+    this.fetchImages();
+  },
+  methods: {
+    fetchImages(){
+      console.log(this.galleryItems);
+    }
+  }
 };
 </script>
 
@@ -166,15 +175,18 @@ export default {
           &:first-child
             margin: 0 auto 21.8px;
         @media (max-width: 720px)
-          width: 81.38vw;
-          height: 37.17vw
+          width: 100%;
+          height: 51.4vw
+          background-image: url(~@/assets/images/top/text_cover-sp.svg);
+        @media (max-width: 580px)
+          width: 100%;
+          height: 51.6vw
         @media (max-width: 500px)
           width: 100%;
           height: 56.53vw
-          background-image: url(~@/assets/images/top/text_cover-sp.svg);
         p
           padding-left: 55px;
-          @media (max-width: 500px)
+          @media (max-width: 580px)
             padding-left: 20px;
         .text_bold
           width: 85%;
@@ -209,6 +221,12 @@ export default {
     .banner_faq
       background-color: #ffffff;
       padding: 0px 0px 20px
+      @media (max-width: 375px)
+        margin-bottom: 0px;
+        padding: 0px 0px 26.9px 0px
+      .banner_inner
+        @media (max-width: 375px)
+          padding: 0px
     .banner_items
       padding: 0px;
   .gallery
@@ -299,7 +317,7 @@ export default {
             top: 10px
             left: 10px
           &:before
-            top: 16.5px
+            top: 20.5px
             right: 8.6px
   .voice
     padding: 70.7px 0px 80px;
