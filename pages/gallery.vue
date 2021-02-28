@@ -44,13 +44,21 @@ export default {
     // FlowItem,
     BannerItems,
   },
+  head() {
+    return {
+      meta: [
+      { name: 'viewport', content: this.viewport }
+    ]
+    }
+  },
   data() {
    return {
     modelFlag: [false, false, false, false, 
                 false, false, false, false, 
                 false, false, false, false, 
                 ],
-    changeImgFlag: false
+    changeImgFlag: false,
+    viewport: 'width=device-width,initial-scale=1'
    }
   },
   async asyncData(context) {
@@ -65,18 +73,8 @@ export default {
   },
   created() {
     if (process.client) {
-      const viewport = document.querySelector('meta[name="viewport"]');
-      function switchViewport() {
-        const value =
-          window.outerWidth > 360
-            ? 'width=device-width,initial-scale=1'
-            : 'width=360';
-        if (viewport.getAttribute('content') !== value) {
-          viewport.setAttribute('content', value);
-        }
-      }
-      addEventListener('resize', switchViewport, false);
-      switchViewport();
+      addEventListener('resize', this.switchViewport, false);
+      this.switchViewport();
     }
   },
   mounted() {
@@ -86,6 +84,11 @@ export default {
           }
         return gallery
         });
+  },
+  destroyed() {
+    if (process.client) {
+      window.removeEventListener("resize", this.switchViewport);
+    }
   },
   methods: {
     openModel(index) {
@@ -112,6 +115,17 @@ export default {
      if (!galleryArray.includes('image_4')) return 3;
      return 4;
     },
+    switchViewport() {
+       const value =
+          window.outerWidth > 360
+            ? 'width=device-width,initial-scale=1'
+            : 'width=360';
+           if (this.viewport !== value) {
+             this.$nextTick(() => {
+             this.viewport = value;
+          })
+        }
+    }
   },
 };
 </script>
@@ -350,6 +364,7 @@ export default {
    
   &_picture
     width: 100%
+    height: 100%
     &:hover
       opacity: 0.6;
     > .gallery_img
