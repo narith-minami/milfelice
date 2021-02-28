@@ -66,10 +66,10 @@ export default {
     TopGallery,
   },
   async asyncData(context) {
-    const slideImages = await context.app.$getData("slide");
-    const galleryItems = await context.app.$getData("gallery");
+    // const slideImages = await context.app.$getData("slide");
+    // const galleryItems = await context.app.$getData("gallery");
     const voiceItems = await context.app.$getData("voice");
-    return { voice: voiceItems , galleryItems: galleryItems ,slideImages: slideImages };
+    return { voice: voiceItems };
   },
 };
 </script>
@@ -77,6 +77,7 @@ export default {
 <style lang="sass" scoped>
 .top_content
   margin-top: 100px;
+  overflow: hidden;
   @media (max-width: 600px)
     margin-top: 54.94px
   .default_content

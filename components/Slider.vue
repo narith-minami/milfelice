@@ -18,7 +18,7 @@ export default {
   created() {
   },
   props: {
-    slideImages: Array
+    // slideImages: Array
   },
   data() {
     return {
@@ -35,16 +35,16 @@ export default {
           clickable: true
         },
       },
-      // slideImages:[
-      //   'slides1.png',
-      //   'slides2.png',
-      //   'slides3.png',
-      //   'slides4.png',
-      //   'slides5.png',
-      //   'slides6.png',
-      //   'slides7.png',
-      //   'slides8.png',
-      // ]
+      slideImages:[
+        'slides1.png',
+        'slides2.png',
+        'slides3.png',
+        'slides4.png',
+        'slides5.png',
+        'slides6.png',
+        'slides7.png',
+        'slides8.png',
+      ]
     }
   }
 };

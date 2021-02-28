@@ -59,6 +59,8 @@ export default {
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     background-color: #ffffff;
+    @media (max-width: 375px)
+      width: 347px;
   .vm--overlay
     background-color: rgba(60,60,60,0.8)
     height: 100vh;
@@ -78,30 +80,38 @@ export default {
       outline: none;
   .voice-wrapper
     padding: 60px 40px 80px;
+    @media (max-width: 375px)
+      padding: 40px 22px 104px;
     .voice-title
       font-size: 24px;
       font-weight: bold;
       color: #3A3A3A;
       padding-bottom: 32px;
       letter-spacing: 0.125rem;
+      @media (max-width: 375px)
+        font-size: 16px;
+        padding-bottom: 8px;
     .voice-detail
       p
         font-size: 16px;
         color: #3A3A3A;
+        @media (max-width: 375px)
+          font-size: 12px;
       .detail-flex
         display: flex
         justify-content: left
         .date
           margin-right: 8px
     img
-      width: 560px
+      width: 100%
       margin: 20px 0px 40px;
+      @media (max-width: 375px)
+        margin: 20px 0px 27px;
     .voice-text
-      padding-bottom: 33px;
       color: #3A3A3A;
       font-size: 16px;
       letter-spacing: 0.05rem;
       line-height: 1.8;
-      &:last-child
-        padding-bottom: 0px;
+      @media (max-width: 375px)
+        font-size: 12px;
 </style>
