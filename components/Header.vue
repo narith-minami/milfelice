@@ -5,7 +5,7 @@ header.site-header
     NLink(to="/")
       img.logo(:src="require('@/assets/images/logo.svg')")
     nav.nav
-      button.nav__toggle(aria-expanded="false", type="button")
+      button.nav__toggle(aria-expanded="false", type="button" @click="navOpen()")
         span.nav_line
         span.nav_line
         span.nav_line
@@ -23,8 +23,43 @@ header.site-header
         li.nav__item
           .contact_button.text-white.flex-row(href="#")
             span.mg-auto お問い合わせ
+  navModal( v-if="navFlug" @closeModal="closeNav")
 // Header End
 </template>
+
+<script>
+
+import navModal from "~/components/HeaderModal.vue";
+  export default {
+  components: {
+    navModal,
+  },
+  data() {
+    return {
+      navFlug: false,
+      width: '',
+    }
+  },
+  mounted: function () {
+    window.addEventListener('resize', this.handleResize)
+  },
+  methods: {
+    handleResize: function() {
+      this.width = window.innerWidth;
+      console.log(this.width);
+      if(this.width >= 1025){
+        this.navFlug = false;
+      }
+    },
+    navOpen(){
+      this.navFlug = true;
+    },
+    closeNav(){
+      this.navFlug = false;
+    },
+  }
+};
+</script>
 
 <style lang="sass" scoped>
 .brand
@@ -120,15 +155,19 @@ header.site-header
   .nav__toggle
     display: block
     position: absolute
-    right: 20px;
+    right: 30px;
     top: 37%
-    width: 16px;
-    height: 13px;
+    width: 26px;
+    height: 23px;
     appearance: none;
     border: none;
     background: inherit;
     padding: 0px;
     cursor: pointer;
+    @media (max-width: 600px)
+      right: 20px;
+      width: 16px;
+      height: 13px;
     &:focus
       appearance: none;
       outline: initial;
@@ -142,7 +181,9 @@ header.site-header
       &:nth-child(1)
         top: 0px;
       &:nth-child(2)
-        top: 6px;
+        top: 50%;
+        @media (max-width: 600px)
+          top: 6px
       &:nth-child(3)
         bottom: 0px;
 </style>
