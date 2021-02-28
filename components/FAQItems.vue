@@ -1,10 +1,7 @@
 <template lang="pug">
 .faq_items
   .pc_layout.text-center
-    img.mg-bottom-16(:src="require('@/assets/images/faq/pc_1.svg')")
-    img.mg-bottom-16(:src="require('@/assets/images/faq/pc_2.svg')")
-    img.mg-bottom-16(:src="require('@/assets/images/faq/pc_3.svg')")
-    img(:src="require('@/assets/images/faq/pc_4.svg')")
+    img.mg-bottom-16(v-for="n in 7" :key="n" :src="require('@/assets/images/faq/pc_' + n + '.svg')")
   .sp_layout 
 </template>
 

@@ -44,4 +44,11 @@ export default {
       .sub_text
         padding-top: 10px
         padding-left: 12px
+  @media screen and (max-width: 600px)
+    .staff_item_inner
+      flex-direction: column
+      .item_left
+        .staff_image
+          width: 120px
+          height: 120px
 </style>

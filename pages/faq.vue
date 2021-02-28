@@ -12,7 +12,7 @@ article.page_container
           | その他御不明点などございましたら、お気軽にお声がけください。
       .right_panel.flex-row
         NLink(to="/consultation")
-          img(:src="require('@/assets/images/consul_link_button.svg')")
+          img.more_link_button(:src="require('@/assets/images/consul_link_button.svg')")
   .page_content_wrap
     FAQItems
   BannerPrice
@@ -38,4 +38,8 @@ export default {
   .page_description_inner
     .right_panel
       align-items: flex-end
+      @media screen and (max-width: 600px)
+        .more_link_button
+          width: 80%
+
 </style>
