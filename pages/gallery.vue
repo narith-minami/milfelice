@@ -36,7 +36,6 @@ article.page_container.sp-color_pink
 import PageTop from "~/components/PageTopView.vue";
 // import FlowItem from "~/components/FlowItem.vue";
 import BannerItems from "~/components/BannerItems.vue";
-import axios from "axios";
 
 export default {
   layout: "page",
@@ -63,6 +62,22 @@ export default {
       });
       return { galleryList, modelMainImg }
 
+  },
+  created() {
+    if (process.client) {
+      const viewport = document.querySelector('meta[name="viewport"]');
+      function switchViewport() {
+        const value =
+          window.outerWidth > 360
+            ? 'width=device-width,initial-scale=1'
+            : 'width=360';
+        if (viewport.getAttribute('content') !== value) {
+          viewport.setAttribute('content', value);
+        }
+      }
+      addEventListener('resize', switchViewport, false);
+      switchViewport();
+    }
   },
   mounted() {
         this.galleryList.map((gallery) => {
@@ -160,15 +175,21 @@ export default {
       box-sizing: border-box
       width: 70%
       max-width: 667px
-      padding: 0.7% 1.5% 4%
+      padding: 1.5% 1.5% 4%
       @media screen and (min-width: 970px) and (min-height: 800px)
         width: 100%
         max-width: 890px
-        padding: 10px 20px 45px
+        padding: 20px 20px 45px
       @media screen and (max-width: 800px)
         font-size: 13px
+      @media screen and (max-width: 600px)
+        width: 90vw
+        max-width: 312px
+        padding: 18px 18px 28px
+        
 
     &_cross_wrap
+      line-height: 1em
       padding-right: 5px
       text-align: right
 
@@ -203,6 +224,11 @@ export default {
       letter-spacing: 0
       @media screen and (min-width: 970px) and (min-height: 800px)
         font-size: 24px
+        margin-top: 24px
+
+      @media screen and (max-width: 600px)
+        font-size: 14px
+        margin-top: 5px
 
     &_grid
       display: grid
@@ -218,8 +244,11 @@ export default {
       @media screen and (min-width: 970px) and (min-height: 800px)
         grid-template-columns: 400px 1fr
         column-gap: 20px
-        margin-top: 15px
+        margin-top: 19px
         
+      @media screen and (max-width: 600px)
+        display: block
+        margin-top: 12px
         
     &_main_img
       grid-area: main
@@ -232,13 +261,19 @@ export default {
       @media screen and (min-width: 970px) and (min-height: 800px)
         height: 564px  
 
+      @media screen and (max-width: 600px)
+        height: calc(1.33 * (93vw - 36px))
+        max-height: 367px
+
     &_sub_img_wrap
       grid-area: sub
       display: flex
       flex-wrap: wrap
       width: 100%
       height: min-content
-      margin-top: 5px
+      @media screen and (max-width: 600px)
+        margin-top: 10px
+    
 
     &_sub_img_cont
       position: relative
@@ -262,6 +297,12 @@ export default {
       &:last-child
         margin-right: 0
 
+      @media screen and (max-width: 600px)
+        width: 55px
+        height: 55px
+        margin-right: 5px
+        margin-bottom: 0
+
     &_sub_img
       position: absolute;
       width: 16.1vw
@@ -278,18 +319,26 @@ export default {
         left: -26px
         top: -26px
 
+      @media screen and (max-width: 600px)
+        width: 73px
+        left: -9px
+        top: -9px
+
     &_text_cont
       grid-area: text
       display: flex
       align-items: flex-end
+      @media screen and (max-width: 600px)
+        margin-top: 22px
       
-
     &_text
       font-size: 0.8em
       white-space:pre-wrap
       word-wrap:break-word
       @media screen and (min-width: 970px) and (min-height: 800px)
         font-size: 16px
+      @media screen and (max-width: 600px)
+        font-size: 11px
   
   &_grid
    display: grid
