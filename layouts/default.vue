@@ -27,4 +27,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+#footer
+  font-size: 10px;
 </style>
