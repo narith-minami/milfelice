@@ -39,9 +39,27 @@
         .consult_inner
           img(:src="require('@/assets/images/consultation/flower.svg')" alt="胸キュン フラワーアイテム")
       .flower_content
-        p.flower_title
-          img(:src="require('@/assets/images/consultation/flower_title.svg')" alt="Favorite flower item")
-        p.consult_subtitle.price-title-font お気に入りのフラワーアイテム
+        .flower_main
+          .flower_main_top
+            p.flower_title
+              img(:src="require('@/assets/images/consultation/flower_title.svg')" alt="Favorite flower item")
+            p.consult_subtitle.price-title-font お気に入りのフラワーアイテム
+            p.consult_lead ミルフェリーチェでは衣装に合わせたブーケやリストブーケ
+              br
+              | ヘアスタイルに合わせた花冠などの髪飾りもご提案させていただきます。
+              br
+              | どうぞお気軽にお問い合わせください。
+          .flower_main_btm
+            p.consult_lead お花は全てアーティシャルフラワーになります。
+              br
+              | 生花の取り扱いはございませんのでご注意ください。
+            p.flower_price Price（税抜き表示）
+            ul.flower_price_list
+              li.flower_price_item ・ウエディングブーケ・ブートニアセット … ￥20,000〜
+              li.flower_price_item ・花冠 … ￥5,000〜
+              li.flower_price_item ・リストブーケ … ￥4,500〜
+              li.flower_price_item ・和装髪飾り（コームタイプ） … ￥3,500〜
+              li.flower_price_item ・フラワーヘッドパーツ … ￥300〜/1本
         ul.flower_list
           li.flower_item(v-for="(flowerItem, index) in flowerItems" :key="index")
             img(:src="flowerItem.image.url")
@@ -150,13 +168,36 @@ img
     width: 100%
     padding: 80px 0
     margin: 0 auto
+  &_main
+    display: flex
+    justify-content: space-between
+    max-width: 1200px
+    margin: 0 auto
+    &_top
+      flex: 0 0 55%
+    &_btm
+      flex: 0 1 40%
+      padding-top: 40px
   &_title
     padding-right: 40px
     margin-bottom: 25px
     text-align: center
+  &_price
+    padding-top: 20px
+    margin: 20px 0 10px
+    border-top: 1px solid #F59C9C
+    color: #F59C9C
+    font-weight: bold
+    &_list
+      line-height: 2.0
+      list-style-type: none
+    &_item
+      padding-left: 1em
+      text-indent: -1em
   &_list
     display: grid
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    margin-top: 50px
     list-style-type: none
 
 *,
@@ -230,9 +271,21 @@ img
       padding: 0 $sp-padding
     &_content
       padding: 20px 0 40px
+    &_main
+      flex-direction: column
+      padding: 0 6px
+      &_top
+        flex: 0 0 100%
+      &_btm
+        flex: 0 1 100%
     &_title
       padding-right: 15px
       margin-bottom: 10px
+    &_price
+      font-size: 12px
+      &_list
+        font-size: 12px
     &_list
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+      margin-top: 40px
 </style>
