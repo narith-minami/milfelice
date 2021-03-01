@@ -3,7 +3,10 @@
   img(class="slide_text" :src="require('@/assets/images/top_sliders/slide_text.svg')")
   swiper(:options="swiperOption")
     swiper-slide(v-for="(images, index) in slideImages" :key="index")
-      img(:src="require('@/assets/images/top_sliders/'+images+'')" alt="")
+      img(:src="images.main_image.url" alt="")
+      picture
+        source(media="(min-width: 1440px)" :src="images.wide_image.url")
+        img(:src="images.main_image.url" alt="")
     .swiper-button-prev(slot="button-prev" class="swiper-button-prev")
     .swiper-button-next(slot="button-next" class="swiper-button-next")
   .bottom-bar
@@ -21,7 +24,7 @@ export default {
   },
   props: {
     thumbnails: Array,
-    // slideImages: Array,
+    slideImages: Array,
   },
   data() {
     return {
@@ -37,21 +40,16 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         },
-        // pagination: { //ページネーション設定
-        //   el: '.swiper-pagination',
-        //   clickable: false
-        // },
       },
-      slideImages:[
-        'slides1.png',
-        'slides2.png',
-        'slides3.png',
-      ]
     }
   },
   created() {
+    this.fetch();
   },
   methods: {
+    fetch(){
+      console.log(this.slideImages);
+    }
   }
 };
 </script>
