@@ -1,6 +1,6 @@
 <template lang="pug">
 article.page_container
-  PageTop(name="flow", caption="当日の流れ")
+  PageTop(name="flow", caption="当日までの流れ")
   .page_content_wrap
     FlowItem(v-for="(item, index) in list", :key="index", :item="item")
     .more_link_wrap.align-right.flex-row.padding-top-30
