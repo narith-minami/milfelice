@@ -221,6 +221,7 @@ export default {
     .banner_faq
       background-color: #ffffff;
       padding: 0px 0px 20px
+      margin-bottom: 0px;
       @media (max-width: 375px)
         margin-bottom: 0px;
         padding: 0px 0px 26.9px 0px
@@ -338,8 +339,9 @@ export default {
       padding: 0px 27px
     .banner_faq
       padding: 80px 0px 118px;
-      @media (max-width: 375px)
-        padding: 40px 0px 40px;
+      @media (max-width: 600px)
+        padding: 25.4px 27px 40.5px;
+        width: auto;
     .flower3
       position: absolute;
       left: calc(50% - 614px);

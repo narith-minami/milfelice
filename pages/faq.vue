@@ -15,7 +15,7 @@ article.page_container
           img.more_link_button(:src="require('@/assets/images/consul_link_button.svg')")
   .page_content_wrap
     FAQItems
-  BannerPrice
+  BannerPrice.price-container
 </template>
 
 <script>
@@ -42,4 +42,9 @@ export default {
         .more_link_button
           width: 80%
 
+.price-container
+  padding: 80px 16px 82px;
+  @media screen and (max-width: 600px)
+    padding: 40px 24px 56px;
+    margin-bottom: 0px;
 </style>
