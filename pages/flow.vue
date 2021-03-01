@@ -9,7 +9,7 @@ article.page_container
   //- 装飾
   .back_image_flower
     img(:src="require('@/assets/images/flower_2.svg')")
-  BannerPrice
+  BannerPrice.price-container
 </template>
 
 <script>
@@ -43,6 +43,12 @@ export default {
     img
       width: 150px
       transform: rotate(-10deg)
+
+.price-container
+  padding: 80px 16px 82px;
+  @media screen and (max-width: 600px)
+    padding: 40px 24px 56px;
+    margin-bottom: 0px;
 
 .page_content_wrap
   @media screen and (max-width: 600px)
