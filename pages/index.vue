@@ -66,11 +66,11 @@ export default {
     TopGallery,
   },
   async asyncData(context) {
-    // const slideImages = await context.app.$getData("slide");
+    const slideImages = await context.app.$getData("top_slide");
     const thumbnails = await context.app.$getData("top_thumbnails");
     const galleryItems = await context.app.$getData("gallery");
     const voiceItems = await context.app.$getData("voice");
-    return { voice: voiceItems ,thumbnails: thumbnails, galleryItems: galleryItems};
+    return { voice: voiceItems ,thumbnails: thumbnails, galleryItems: galleryItems ,slideImages: slideImages};
   },
   created() {
     this.fetchImages();
