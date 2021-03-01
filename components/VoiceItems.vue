@@ -6,9 +6,9 @@
       p.text_bold {{ voiceItem.title }}
       p.text_normal {{ voiceItem.staff }}
       p.text_min {{  voiceItem.date }} {{ voiceItem.user_name }}
-  voiceModal1( v-if="voiceModalFlug1" @closeModal="closeModal1")
-  voiceModal2( v-if="voiceModalFlug2" @closeModal="closeModal2")
-  voiceModal3( v-if="voiceModalFlug3" @closeModal="closeModal3")
+  voiceModal1( v-if="voiceModalFlug1" @closeModal="closeModal1" :voiceItem="voiceList[0]")
+  voiceModal2( v-if="voiceModalFlug2" @closeModal="closeModal2" :voiceItem="voiceList[1]")
+  voiceModal3( v-if="voiceModalFlug3" @closeModal="closeModal3" :voiceItem="voiceList[2]")
 </template>
 <script>
 import voiceModal1 from "~/components/voiceModal/voiceModal1.vue";
@@ -25,29 +25,18 @@ export default {
   },
   data() {
     return {
-      voiceItems:[
-        {
-          text: '挙式披露宴1日サポートプラン',
-          staf: '担当:比留間',
-          detail: '2017/11/11 Wさんご夫妻'
-        },
-        {
-          text: '挙式披露宴1日サポートプラン',
-          staf: '担当:比留間',
-          detail: '2017/11/11 Wさんご夫妻'
-        },
-        {
-          text: '挙式披露宴1日サポートプラン',
-          staf: '担当:比留間',
-          detail: '2017/11/11 Wさんご夫妻'
-        }
-      ],
       voiceModalFlug1: false,
       voiceModalFlug2: false,
       voiceModalFlug3: false,
     }
   },
+  created() {
+    this.fetchVoice();
+  },
   methods: {
+    fetchVoice(){
+      console.log(this.voiceList);
+    },
     openModal(index){
       const number = index + 1
       console.log(number);
@@ -69,7 +58,7 @@ export default {
     },
     closeModal3(){
       this.voiceModalFlug3 = false;
-    }
+    },
   }
 };
 </script>
@@ -80,13 +69,27 @@ export default {
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+  @media (max-width: 1165px)
+    display: block
+    padding: 0px 15px
+  @media (max-width: 375px)
+    padding: 0px
   .voice_item
     cursor: pointer;
     position: relative;
-    max-width: 385px;
-    max-height: 295px;
-    width: 26.73vw;
-    height: 20.48vw;
+    width: 385px;
+    height: 295px;
+    @media (max-width: 1165px)
+      margin: 0 auto
+      width: 53.46vw
+      height: 40.96vw
+      &:nth-child(2)
+        margin: 20px auto
+    @media (max-width: 600px)
+      width: 100%
+      height: 53.29vw
+    @media (max-width: 375px)
+      height: 200px
     &:hover
       opacity: 0.6;
     img
@@ -106,10 +109,16 @@ export default {
         font-size: 20px;
         font-weight: bold;
         padding-bottom: 4px;
+        @media (max-width: 375px)
+          font-size: 16px;
       .text_normal
         font-size: 14px;
         padding-bottom: 5px;
+        @media (max-width: 375px)
+          font-size: 12px;
       .text_min
         font-size: 14px;
+        @media (max-width: 375px)
+          font-size: 12px;
 
 </style>

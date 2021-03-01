@@ -4,10 +4,12 @@
   swiper(:options="swiperOption")
     swiper-slide(v-for="(images, index) in slideImages" :key="index")
       img(:src="require('@/assets/images/top_sliders/'+images+'')" alt="")
-    .swiper-pagination(slot="pagination" class="swiper-pagination")
     .swiper-button-prev(slot="button-prev" class="swiper-button-prev")
     .swiper-button-next(slot="button-next" class="swiper-button-next")
   .bottom-bar
+    .swiper-thumbnails(class="swiper-pagination")
+      .slide-thumbnail(v-for="(images, index) in thumbnails" :key="index")
+        img(:src="images.image.url" alt="")
 
 </template>
 
@@ -15,34 +17,41 @@
 export default {
   components: {
   },
+  created() {
+  },
   props: {
+    thumbnails: Array,
+    // slideImages: Array,
   },
   data() {
     return {
       swiperOption: {
         speed: 1000,//スライドの切り替わりスxピード
         centeredSlides: true,//スライダーを真ん中に
-        paginationClickable: true,
+        loop: true,
+        autoplay: { //スライドの自動切り替え
+          delay: 5000,//スライドの自動切り替えの秒数
+          disableOnInteraction: false//何らかのアクション後の自動切り替えを再開
+        },
         navigation: { //ナビゲーション設定
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         },
-        pagination: { //ページネーション設定
-          el: '.swiper-pagination',
-          clickable: true
-        },
+        // pagination: { //ページネーション設定
+        //   el: '.swiper-pagination',
+        //   clickable: false
+        // },
       },
       slideImages:[
         'slides1.png',
         'slides2.png',
         'slides3.png',
-        'slides4.png',
-        'slides5.png',
-        'slides6.png',
-        'slides7.png',
-        'slides8.png',
       ]
     }
+  },
+  created() {
+  },
+  methods: {
   }
 };
 </script>
@@ -51,6 +60,7 @@ export default {
 .slider
   width: 100%;
   position: relative;
+  overflow: hidden;
   .bottom-bar
     width: 100%;
     height: 80px;
@@ -65,6 +75,35 @@ export default {
     z-index: 4;
     @media (min-width: 1441px)
       left: 38%;
+    @media (max-width: 1220px)
+      width: 41.25%;
+      min-width: 173px;
+    @media (max-width: 375px)
+      top: 37%;
+      left: 26%;
+  .swiper-thumbnails
+    max-width: 1200px;
+    display: flex;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%)
+    @media (max-width: 375px)
+      width: 641px
+    .slide-thumbnail
+      width: 12.5vw;
+      max-width: 150px;
+      max-height: 160px;
+      height: 13.33vw;
+      margin: 0px;
+      display: block;
+      border-radius: 0px;
+      @media (max-width: 375px)
+        width: 80px;
+        height: 85px;
+      img
+        width: 100%;
+        height: 100%;
+        object-fit: cover
   .swiper-container
     height: 100%;
     width: 100%;
@@ -74,10 +113,14 @@ export default {
     @media (min-width: 1441px)
       max-width: 100%;
       padding-bottom: 160px;
-    @media (max-width: 600px)
+    @media (max-width: 1200px)
       padding-bottom: 13.33vw;
+    @media (max-width: 375px)
+      padding-bottom: 22.8vw;
     .swiper-wrapper
       height: 720px;
+      @media (max-width: 375px)
+        height: 212px;
     img
       transform: translate(-50%);
       height: 100%;
@@ -91,37 +134,24 @@ export default {
         transform: translate(0);
         left: 0px;
         max-width: inherit;
-    .swiper-pagination
-      max-width: 1200px;
-      display: flex;
-      bottom: 0%;
-      left: 50%;
-      transform: translateX(-50%)
-      .swiper-pagination-bullet
-        width: 12.5vw;
-        max-width: 150px;
-        max-height: 160px;
-        height: 13.33vw;
-        margin: 0px;
-        display: block;
-        border-radius: 0px;
-        opacity: 1;
-        background: inherit
-        @for $index from 1 through 8
-          &:nth-child(#{$index})
-            background-image: url(~@/assets/images/top_sliders/slide_mini#{$index}.png);
-        &:hover
-          opacity: 0.6;
-    .swiper-pagination-bullet-active
-      background: inherit
+      @media (max-width: 1290px)
+        width: 100%;
     .swiper-button-prev,.swiper-button-next
       position: absolute;
       transform: translateY(-50%);
       top: 45%;
       display: block;
+      @media (max-width: 375px)
+        width: 5.46px
+        height: 13.1px
+        top: 50%;
     .swiper-button-prev
       left: calc(50% - 640px);
       right: auto;
+      @media (max-width: 1290px)
+        left: 30px;
+      @media (max-width: 375px)
+        left: 10px;
       &:after
         content: '';
         display: block;
@@ -130,9 +160,16 @@ export default {
         background-image: url(~@/assets/images/top_sliders/slide_prev.svg);
         background-size: cover;
         margin: 50% auto;
+        @media (max-width: 375px)
+          width: 5.46px
+          height: 13.1px
     .swiper-button-next
       right: calc(50% - 640px);
       left: auto;
+      @media (max-width: 1290px)
+        right: 30px;
+      @media (max-width: 375px)
+        right: 10px;
       &:after
         content: '';
         display: block;
@@ -142,4 +179,8 @@ export default {
         background-image: url(~@/assets/images/top_sliders/slide_next.svg);
         background-size: cover;
         background-position-x: -11px;
+        @media (max-width: 375px)
+          width: 6.46px
+          height: 13.1px
+          background-position-x: 0px;
 </style>
