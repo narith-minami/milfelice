@@ -4,6 +4,9 @@
   swiper(:options="swiperOption")
     swiper-slide(v-for="(images, index) in slideImages" :key="index")
       img(:src="images.main_image.url" alt="")
+      picture
+        source(media="(min-width: 1440px)" :src="images.wide_image.url")
+        img(:src="images.main_image.url" alt="")
     .swiper-button-prev(slot="button-prev" class="swiper-button-prev")
     .swiper-button-next(slot="button-next" class="swiper-button-next")
   .bottom-bar
@@ -41,8 +44,12 @@ export default {
     }
   },
   created() {
+    this.fetch();
   },
   methods: {
+    fetch(){
+      console.log(this.slideImages);
+    }
   }
 };
 </script>
