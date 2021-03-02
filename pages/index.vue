@@ -353,8 +353,10 @@ export default {
       padding: 0px 27px
     .banner_faq
       padding: 80px 0px 118px;
+      max-width: 1200px
+      width: 83.3%;
       @media (max-width: 600px)
-        padding: 25.4px 0px 40.5px;
+        padding: 25.4px 25px 40.5px;
         width: auto;
     .flower3
       position: absolute;
