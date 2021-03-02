@@ -1,6 +1,6 @@
 <template lang="pug">
 article.page_container
-  PageTop(name="staff", caption="スタッフ")
+  PageTop(name="staff", caption="スタッフ紹介")
   .page_description_wrap.flex-row.align-center
     .page_description_inner.line-height-normal
       p.text-size-xxl.mg-bottom-24 フリーのヘアメイクアーティストがお二人の特別な1日をお手伝いいたします。

@@ -110,7 +110,7 @@ $breakpoints: (
   position: relative;
   top: 60px;
   &.no_title {
-    top: 50px;
+    top: 6px;
     @media screen and (max-width: 600px) {
       top: -20px;
       font-size: 10px;
@@ -125,6 +125,10 @@ $breakpoints: (
   width: 1000px;
   margin-right: auto;
   margin-left: auto;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    padding: 0px 20px;
+  }
 }
 .page_content_wrap {
   width: 1000px;

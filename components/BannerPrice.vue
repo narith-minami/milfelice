@@ -3,7 +3,7 @@
   NLink.banner_inner(to="/price")
     picture
       source.faq_banner.sp_image(:srcset="require('@/assets/images/banners/footer_banner_price_sp.png')" media="(max-width: 600px)")
-      img.faq_banner(:src="require('@/assets/images/banners/footer_banner_price.jpg')")
+      img.faq_banner(:src="require('@/assets/images/banners/footer_banner_price.png')")
 </template>
 
 <style lang="sass" scoped>
@@ -11,9 +11,7 @@
   padding: 80px 0
   background-color: #FFF7FA
   .banner_inner
-    padding: 0 16px;
     .faq_banner
-      border: 4px solid #F2ACB6
       max-width: 1192px
       width: calc(100% - 8px)
       source

@@ -11,7 +11,7 @@
       li.nav__item
         NLink(to="/price") 料金
       li.nav__item
-        NLink(to="/flow") 当日の流れ
+        NLink(to="/flow") 当日までの流れ
       li.nav__item
         NLink(to="/staff") スタッフ
       li.nav__item
