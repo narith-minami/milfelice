@@ -65,16 +65,8 @@ export default {
     viewport: 'width=device-width,initial-scale=1'
    }
   },
-  async asyncData() {
-      const limit = 16;
-
-      const res = await axios.get(
-      `https://milfeliche.microcms.io/api/v1/gallery?limit=${limit}`,
-      {
-        headers: { "X-API-KEY": "67208e66-8604-4353-b492-bdfcbd70da7d" }
-      }
-    );
-     const galleryList = res.data.contents;
+  async asyncData(context) {
+    const galleryList = await context.app.$getData("gallery?limit=20");
 
       let modelMainImg = galleryList.map((gallery) => {
        return gallery.image_1.url
@@ -112,14 +104,12 @@ export default {
     },
     changeImg(index, n) {
       // モーダルのメイン画像をクリックしたサブ画像に入れ替える処理を入れる
-      this.changeImgFlag = true;      
+      this.changeImgFlag = true; 
+      const item = this.galleryList[index - 1][`image_${n}`];
+
       setTimeout(() => {
-        if (this.galleryList[index - 1][`image_${n}`].height < this.galleryList[index - 1][`image_${n}`].width) {
-          this.oblongFlag = true;
-        } else {
-          this.oblongFlag = false;
-        }
-        this.modelMainImg.splice((index - 1), 1, this.galleryList[index - 1][`image_${n}`].url);
+        this.oblongFlag = item.height < item.width;     
+        this.modelMainImg.splice((index - 1), 1, item.url);
         this.changeImgFlag = false;
       }, 500);
       
@@ -209,7 +199,7 @@ export default {
       box-sizing: border-box
       width: 70%
       max-width: 667px
-      padding: 1.5% 1.5% 4%
+      padding: 15px 15px 4%
       @media screen and (min-width: 970px) and (min-height: 800px)
         width: 100%
         max-width: 890px
