@@ -10,7 +10,7 @@
         p.staf {{voiceItem.staff}}
       img(:src="voiceItem.image.url" alt="")
       p.voice-text {{voiceItem.body}}
-  a.back-page(@click="$emit('closePage')") TOPへ戻る
+  a.back-page(href="/") TOPへ戻る
 </template>
 
 <script>

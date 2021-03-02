@@ -22,7 +22,6 @@ export default {
   },
   props: {
     voiceList: Array,
-    voiceFlug: Boolean,
   },
   data() {
     return {

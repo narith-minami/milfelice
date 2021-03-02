@@ -42,12 +42,12 @@ article
     section.voice
       .voice_top_content.default_content
         img.voice_title(:src="require('@/assets/images/top/voice_title.svg')" alt="")
-      VoiceItems(:voice-list="voice" :voiceFlug="voiceFlug" @goVoicePage="goVoicePage")
+      VoiceItems(:voice-list="voice" @goVoicePage="goVoicePage")
     //- faq
     section.faq
       img.flower3(:src="require('@/assets/images/top/flower3.png')" alt="")
       BannerFAQ
-  VoicePage(v-if="voiceFlug" :voiceNumber="voiceNumber" :voice-list="voice" @closePage="closePage")
+  VoicePage(v-if="voiceFlug" :voiceNumber="voiceNumber" :voice-list="voice")
 </template>
 
 <script>
@@ -90,9 +90,9 @@ export default {
       this.voiceFlug = true;
       window.location.href ="/#"
     },
-    closePage(){
-      this.voiceFlug = false;
-    }
+    // closePage(){
+    //   this.voiceFlug = false;
+    // }
   }
 };
 </script>
