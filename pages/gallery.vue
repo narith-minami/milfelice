@@ -11,17 +11,17 @@ article.page_container.sp-color_pink
                 .model_cross_wrap
                   span.model_cross(@click="closeModel(index)")
                 h2.model_title {{ galleryList[index -1].title }}
-                .model_grid
+                .model_grid(:class="{ 'oblong': oblongFlag }")
                   img.model_main_img.model-enter-active(:src="modelMainImg[index - 1] + '?w=400'" :class="{ 'model-enter' : changeImgFlag }" alt="")
                   .model_sub_img_wrap
                     .model_sub_img_cont(v-for="n in imgCount(index)" :key="n" @click="changeImg(index, n)")
-                      img.model_sub_img(:src="galleryList[index - 1][`image_${n}`].url  + '?w=200'" alt="")
+                      img.model_sub_img(:src="galleryList[index - 1][`image_${n}`].url  + '?w=240'" alt="")
                   .model_text_cont
                     p.model_text(v-html="galleryList[index - 1].comment")
 
       .gallery_grid
 
-        picture.gallery_picture(v-for="index in galleryList.length" :key="index" @click="openModel(index)")
+        picture.gallery_picture(:class="'gallery_picture_' + index" v-for="index in galleryList.length" :key="index" @click="openModel(index)")
           source(:srcset="galleryList[index - 1].image_1.url + '?w=190'" media="(max-width: 600px)")
           img.gallery_img(:src="galleryList[index - 1].image_1.url + '?w=300'" alt="")
         
@@ -36,6 +36,8 @@ article.page_container.sp-color_pink
 import PageTop from "~/components/PageTopView.vue";
 // import FlowItem from "~/components/FlowItem.vue";
 import BannerItems from "~/components/BannerItems.vue";
+import axios from "axios";
+
 
 export default {
   layout: "page",
@@ -56,15 +58,24 @@ export default {
     modelFlag: [false, false, false, false, 
                 false, false, false, false, 
                 false, false, false, false, 
+                false, false, false, false, 
                 ],
     changeImgFlag: false,
+    oblongFlag: false,
     viewport: 'width=device-width,initial-scale=1'
    }
   },
-  async asyncData(context) {
+  async asyncData() {
+      const limit = 16;
 
-      let galleryList = await context.app.$getData("gallery");
-      
+      const res = await axios.get(
+      `https://milfeliche.microcms.io/api/v1/gallery?limit=${limit}`,
+      {
+        headers: { "X-API-KEY": "67208e66-8604-4353-b492-bdfcbd70da7d" }
+      }
+    );
+     const galleryList = res.data.contents;
+
       let modelMainImg = galleryList.map((gallery) => {
        return gallery.image_1.url
       });
@@ -73,7 +84,7 @@ export default {
   },
   created() {
     if (process.client) {
-      addEventListener('resize', this.switchViewport, false);
+      window.addEventListener('resize', this.switchViewport, false);
       this.switchViewport();
     }
   },
@@ -97,12 +108,17 @@ export default {
     closeModel(index) {
       this.modelFlag.splice((index - 1), 1, false);
       this.modelMainImg.splice((index - 1), 1, this.galleryList[index - 1]['image_1'].url);
+      this.oblongFlag = false;
     },
     changeImg(index, n) {
       // モーダルのメイン画像をクリックしたサブ画像に入れ替える処理を入れる
-      this.changeImgFlag = true;
-
+      this.changeImgFlag = true;      
       setTimeout(() => {
+        if (this.galleryList[index - 1][`image_${n}`].height < this.galleryList[index - 1][`image_${n}`].width) {
+          this.oblongFlag = true;
+        } else {
+          this.oblongFlag = false;
+        }
         this.modelMainImg.splice((index - 1), 1, this.galleryList[index - 1][`image_${n}`].url);
         this.changeImgFlag = false;
       }, 500);
@@ -131,6 +147,10 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+
+@for $i from 1 through 16
+  .gallery_picture_#{$i}
+    grid-area: area#{$i}
 
 .sp-color_pink
   @media screen and (max-width: 600px)
@@ -249,21 +269,93 @@ export default {
       grid-template-areas: 'main sub' 'main text' 
       grid-template-columns: 29.1vw 1fr
       column-gap: 2.4%
+      row-gap: 20px
       margin-top: 1.8%
       @media screen and (min-width: 970px)
         grid-template-columns: 300px 1fr
         column-gap: 15px
+        row-gap: 30px
         margin-top: 11px
 
       @media screen and (min-width: 970px) and (min-height: 800px)
         grid-template-columns: 400px 1fr
         column-gap: 20px
+        row-gap: 40px
         margin-top: 19px
         
       @media screen and (max-width: 600px)
         display: block
         margin-top: 12px
+    
+      &.oblong
+        grid-template-areas: 'main sub' 'text text'
+        grid-template-columns: 42vw 1fr
+        column-gap: 2%
+        @media screen and (min-width: 970px)
+          grid-template-columns: 437px 1fr
+          column-gap: 9px
+
+        @media screen and (min-width: 970px) and (min-height: 800px)
+          grid-template-columns: 583px 1fr
+          column-gap: 12px
+
+        .model_main_img
+          height: calc(42vw * 0.56)
+          @media screen and (min-width: 970px)
+            height: 246px
+          
+          @media screen and (min-width: 970px) and (min-height: 800px)
+            height: 328px
+
+          @media screen and (max-width: 600px)
+            height: calc(0.56 * (93vw - 36px))
+            
         
+        .model_sub_img_cont
+          width: 8.8vw;
+          height: 8.8vw;
+          margin-bottom: 4%;
+          @media screen and (min-width: 970px)
+            width: 91.5px
+            height: 91.5px
+            margin-bottom: 7.5px
+
+          @media screen and (min-width: 970px) and (min-height: 800px)
+            width: 122px
+            height: 122px
+            margin-bottom: 10px
+          
+          @media screen and (max-width: 600px)
+            width: 55px
+            height: 55px
+            margin-right: 5px
+            margin-bottom: 0
+          
+        
+        .model_sub_img
+          width: 12vw;
+          height: 12vw;
+          left: calc((12vw - 8.8vw) / -2);
+          top: calc((12vw - 8.8vw) / -2);
+
+          @media screen and (min-width: 970px)
+             width: 123px;
+             height: 123px;
+             left: -15.75px;
+             top: -15.75px;
+
+          @media screen and (min-width: 970px) and (min-height: 800px)
+            width: 164px;
+            height: 164px;
+            left: -21px;
+            top: -21px;
+
+          @media screen and (max-width: 600px)
+            width: 73px
+            height: 73px
+            left: -9px
+            top: -9px
+          
     &_main_img
       grid-area: main
       width: 100%
@@ -288,7 +380,6 @@ export default {
       @media screen and (max-width: 600px)
         margin-top: 10px
     
-
     &_sub_img_cont
       position: relative
       width: 12vw
@@ -297,6 +388,13 @@ export default {
       margin-bottom: 3.5%
       overflow: hidden
       cursor: pointer
+      &:hover
+        opacity: 0.6;
+      &:nth-child(2n)
+        margin-right: 0
+        @media screen and (max-width: 600px)
+          margin-right: 5px
+          
       @media screen and (min-width: 970px)
         width: 117px
         height: 117px
@@ -306,10 +404,6 @@ export default {
         height: 156px
         margin-right: 11px
         margin-bottom: 15px
-      &:hover
-        opacity: 0.6;
-      &:last-child
-        margin-right: 0
 
       @media screen and (max-width: 600px)
         width: 55px
@@ -318,23 +412,28 @@ export default {
         margin-bottom: 0
 
     &_sub_img
-      position: absolute;
+      position: absolute
       width: 16.1vw
-      height: auto
+      height: 16.1vw
+      object-fit: cover
+      object-position: right 0
       left: calc((16.1vw - 12vw) / -2)
       top: calc((16.1vw - 12vw) / -2)
       @media screen and (min-width: 970px)
         width: 156px
+        height: 156px
         left: -19.5px
         top: -19.5px
 
       @media screen and (min-width: 970px) and (min-height: 800px)
         width: 209px
+        height: 209px
         left: -26px
         top: -26px
 
       @media screen and (max-width: 600px)
         width: 73px
+        height: 73px
         left: -9px
         top: -9px
 
@@ -356,9 +455,9 @@ export default {
   
   &_grid
    display: grid
-   grid-template: '1  2  3  4  ' '5  6  7  8  ' '9  10 11 12'
+   grid-template-areas: 'area1  area2  area3  area4  ' 'area5  area6  area7  area8  ' 'area9  area10 area11 area12''area13 area14 area15 area16'
    @media screen and (max-width: 600px)
-     grid-template: '1  2  3  ' '4  5  6  ' '7  8  9 ' '10 11 12'
+     grid-template-areas: 'area1  area1  area2  area2  area3  area3  ' 'area4  area4  area5  area5  area6  area6  ' 'area7  area7  area8  area8  area9  area9 ' 'area10 area10 area11 area11 area12 area12 ''area13 area13 area13 area14 area14 area14' 'area15 area15 area15 area16 area16 area16'
      
 
    
