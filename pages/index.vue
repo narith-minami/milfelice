@@ -358,6 +358,9 @@ export default {
       @media (max-width: 600px)
         padding: 25.4px 25px 40.5px;
         width: auto;
+      @media (max-width: 375px)
+        padding: 25.4px 0px 40.5px;
+        width: auto;
     .flower3
       position: absolute;
       left: calc(50% - 614px);
