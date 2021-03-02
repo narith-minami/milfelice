@@ -1,51 +1,53 @@
 <template lang="pug">
-article.top_content
-  //- first view
-  section.first_view
-    Slider(:slideImages ="slideImages" :thumbnails ="thumbnails")
-  //- top detail
-  section.detail
-    img.flower1(:src="require('@/assets/images/top/flower1.png')" alt="")
-    .detail_flex.default_content
-      .text_box.is_sp
-        p.detail_text Milfelice（ミルフェリーチェ）は、出張ヘアメイクを中心に活躍する、フリーランスヘアメイクアーティストの集まりです。<br>「人」と「人」としての関係を一番に考え、フリーランスであることのメリットを生かし、式場のような固い考えに囚われない自由なウェディングを提供させていただきます。
-      img.top_img(:src="require('@/assets/images/top/top_img.png')" alt="")
-      .text_box.is_pc
-        p.detail_text Milfelice（ミルフェリーチェ）は、出張ヘアメイクを中心に活躍する、フリーランスヘアメイクアーティストの集まりです。<br>「人」と「人」としての関係を一番に考え、フリーランスであることのメリットを生かし、式場のような固い考えに囚われない自由なウェディングを提供させていただきます。<br><br>女性の美しさを最大限に引き出し、かけがえのない「特別な一日」を演出するお手伝いをさせていただいております。<br><br>Milfeliceという名前には、ご依頼いただいたすべてのお客様や出会ったすべての花嫁に、たくさんの幸せが訪れることを願い　Mill = 重なる　Felice = 幸せ　という意味が込められています。
-      .text_box.is_sp
-        p.detail_text 女性の美しさを最大限に引き出し、かけがえのない「特別な一日」を演出するお手伝いをさせていただいております。<br><br>Milfeliceという名前には、ご依頼いただいたすべてのお客様や出会ったすべての花嫁に、たくさんの幸せが訪れることを願い　Mill = 重なる　Felice = 幸せ　という意味が込められています。
-    img.top_copy(:src="require('@/assets/images/top/top_copy.svg')" alt="1番素敵な日になりますように")
-    .top_detail-text.default_content
-      .text_content
-        p.text_bold 自分に似合う髪形がわからない
-        p.text_normal ヘアスタイルは花嫁にとって一番重要です。<br>輪郭やヘアカラーの色により、似合う髪形はそれぞれ。Milfeliceからお好みに合わせて、様々なヘアスタイルを提案させていただきます。美容師の視点から、髪の悩みや普段のお手入れなどもアドバイスできたらと思います。
-      .text_content
-        p.text_bold いつもよりきれい、素肌に近い<br>ナチュラルメイク
-        p.text_normal Milfeliceでは素肌に近いナチュラルメイクを心掛けています。<br>作りこんだメイクよりも普段の私よりもちょっときれい♪を目指し10年先も20年先もアルバムを開いたときに「美しい」と感じられるヘアメイクになるようお手伝いさせていただきます。
-  //- banners
-  section.banners
-    BannerPrice
-    BannerItems
+article
+  .top_content(v-if="!voiceFlug")
+    //- first view
+    section.first_view
+      Slider(:slideImages ="slideImages" :thumbnails ="thumbnails")
+    //- top detail
+    section.detail
+      img.flower1(:src="require('@/assets/images/top/flower1.png')" alt="")
+      .detail_flex.default_content
+        .text_box.is_sp
+          p.detail_text Milfelice（ミルフェリーチェ）は、出張ヘアメイクを中心に活躍する、フリーランスヘアメイクアーティストの集まりです。<br>「人」と「人」としての関係を一番に考え、フリーランスであることのメリットを生かし、式場のような固い考えに囚われない自由なウェディングを提供させていただきます。
+        img.top_img(:src="require('@/assets/images/top/top_img.png')" alt="")
+        .text_box.is_pc
+          p.detail_text Milfelice（ミルフェリーチェ）は、出張ヘアメイクを中心に活躍する、フリーランスヘアメイクアーティストの集まりです。<br>「人」と「人」としての関係を一番に考え、フリーランスであることのメリットを生かし、式場のような固い考えに囚われない自由なウェディングを提供させていただきます。<br><br>女性の美しさを最大限に引き出し、かけがえのない「特別な一日」を演出するお手伝いをさせていただいております。<br><br>Milfeliceという名前には、ご依頼いただいたすべてのお客様や出会ったすべての花嫁に、たくさんの幸せが訪れることを願い　Mill = 重なる　Felice = 幸せ　という意味が込められています。
+        .text_box.is_sp
+          p.detail_text 女性の美しさを最大限に引き出し、かけがえのない「特別な一日」を演出するお手伝いをさせていただいております。<br><br>Milfeliceという名前には、ご依頼いただいたすべてのお客様や出会ったすべての花嫁に、たくさんの幸せが訪れることを願い　Mill = 重なる　Felice = 幸せ　という意味が込められています。
+      img.top_copy(:src="require('@/assets/images/top/top_copy.svg')" alt="1番素敵な日になりますように")
+      .top_detail-text.default_content
+        .text_content
+          p.text_bold 自分に似合う髪形がわからない
+          p.text_normal ヘアスタイルは花嫁にとって一番重要です。<br>輪郭やヘアカラーの色により、似合う髪形はそれぞれ。Milfeliceからお好みに合わせて、様々なヘアスタイルを提案させていただきます。美容師の視点から、髪の悩みや普段のお手入れなどもアドバイスできたらと思います。
+        .text_content
+          p.text_bold いつもよりきれい、素肌に近い<br>ナチュラルメイク
+          p.text_normal Milfeliceでは素肌に近いナチュラルメイクを心掛けています。<br>作りこんだメイクよりも普段の私よりもちょっときれい♪を目指し10年先も20年先もアルバムを開いたときに「美しい」と感じられるヘアメイクになるようお手伝いさせていただきます。
+    //- banners
+    section.banners
+      BannerPrice
+      BannerItems
 
-  //- style gallery
-  section.gallery
-    img.flower2(:src="require('@/assets/images/top/flower2.png')" alt="")
-    .gallery_top_content.default_content
-      img.gallery_title(:src="require('@/assets/images/top/gallery_title.svg')" alt="")
-      a.insta_button.is-pc(href="https://instagram.com/milfelicewedding" target="_blank") ミルフェリーチェのスタイルを<br>インスタグラムでもチェック！
-    TopGallery(:galleryItems ="galleryItems")
-    .gallery_top_content.default_content.is-sp
-      a.insta_button(href="https://instagram.com/milfelicewedding" target="_blank") ミルフェリーチェのスタイルを<br>インスタグラムでもチェック！
+    //- style gallery
+    section.gallery
+      img.flower2(:src="require('@/assets/images/top/flower2.png')" alt="")
+      .gallery_top_content.default_content
+        img.gallery_title(:src="require('@/assets/images/top/gallery_title.svg')" alt="")
+        a.insta_button.is-pc(href="https://instagram.com/milfelicewedding" target="_blank") ミルフェリーチェのスタイルを<br>インスタグラムでもチェック！
+      TopGallery(:galleryItems ="galleryItems")
+      .gallery_top_content.default_content.is-sp
+        a.insta_button(href="https://instagram.com/milfelicewedding" target="_blank") ミルフェリーチェのスタイルを<br>インスタグラムでもチェック！
 
-  //- customers voice
-  section.voice
-    .voice_top_content.default_content
-      img.voice_title(:src="require('@/assets/images/top/voice_title.svg')" alt="")
-    VoiceItems(:voice-list="voice")
-  //- faq
-  section.faq
-    img.flower3(:src="require('@/assets/images/top/flower3.png')" alt="")
-    BannerFAQ
+    //- customers voice
+    section.voice
+      .voice_top_content.default_content
+        img.voice_title(:src="require('@/assets/images/top/voice_title.svg')" alt="")
+      VoiceItems(:voice-list="voice" :voiceFlug="voiceFlug" @goVoicePage="goVoicePage")
+    //- faq
+    section.faq
+      img.flower3(:src="require('@/assets/images/top/flower3.png')" alt="")
+      BannerFAQ
+  VoicePage(v-if="voiceFlug" :voiceNumber="voiceNumber" :voice-list="voice" @closePage="closePage")
 </template>
 
 <script>
@@ -55,6 +57,7 @@ import BannerFAQ from "~/components/BannerFAQ.vue";
 import Slider from "~/components/Slider.vue";
 import VoiceItems from "~/components/VoiceItems.vue";
 import TopGallery from "~/components/TopGallery.vue";
+import VoicePage from "~/components/VoicePage.vue";
 
 export default {
   components: {
@@ -64,6 +67,7 @@ export default {
     Slider,
     VoiceItems,
     TopGallery,
+    VoicePage
   },
   async asyncData(context) {
     const slideImages = await context.app.$getData("top_slide");
@@ -72,12 +76,21 @@ export default {
     const voiceItems = await context.app.$getData("voice");
     return { voice: voiceItems ,thumbnails: thumbnails, galleryItems: galleryItems ,slideImages: slideImages};
   },
+  data() {
+    return {
+      voiceFlug: false,
+      voiceNumber: Number,
+    }
+  },
   created() {
-    this.fetchImages();
   },
   methods: {
-    fetchImages(){
-      console.log(this.galleryItems);
+    goVoicePage(value){
+      this.voiceNumber = value;
+      this.voiceFlug = true;
+    },
+    closePage(){
+      this.voiceFlug = false;
     }
   }
 };

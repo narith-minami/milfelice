@@ -21,34 +21,52 @@ export default {
     voiceModal3,
   },
   props: {
-    voiceList: Array
+    voiceList: Array,
+    voiceFlug: Boolean,
   },
   data() {
     return {
       voiceModalFlug1: false,
       voiceModalFlug2: false,
       voiceModalFlug3: false,
+      spFlug: '',
+      width: '',
     }
   },
   created() {
-    this.fetchVoice();
+    // this.handleResize();
+  },
+  mounted: function () {
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize)
   },
   methods: {
-    fetchVoice(){
-      console.log(this.voiceList);
+    handleResize() {
+      this.width = window.innerWidth;
+      if(this.width >= 600){
+        this.spFlug = false;
+        return
+      }
+      this.spFlug = true;
     },
     openModal(index){
       const number = index + 1
-      console.log(number);
-      if(number === 1){
-        this.voiceModalFlug1 = true;
+
+      if(!this.spFlug){
+        if(number === 1){
+          this.voiceModalFlug1 = true;
+          return
+        }
+        if(number === 2){
+          this.voiceModalFlug2 = true;
+          return
+        }
+        this.voiceModalFlug3 = true;
         return
       }
-      if(number === 2){
-        this.voiceModalFlug2 = true;
-        return
-      }
-      this.voiceModalFlug3 = true;
+      this.$emit('goVoicePage', index)
+      return
+
     },
     closeModal1(){
       this.voiceModalFlug1 = false;
