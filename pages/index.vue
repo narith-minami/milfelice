@@ -88,6 +88,7 @@ export default {
     goVoicePage(value){
       this.voiceNumber = value;
       this.voiceFlug = true;
+      window.location.href ="/#"
     },
     closePage(){
       this.voiceFlug = false;
@@ -353,7 +354,7 @@ export default {
     .banner_faq
       padding: 80px 0px 118px;
       @media (max-width: 600px)
-        padding: 25.4px 27px 40.5px;
+        padding: 25.4px 0px 40.5px;
         width: auto;
     .flower3
       position: absolute;
