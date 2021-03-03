@@ -59,8 +59,8 @@ export default {
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     background-color: #ffffff;
-    @media (max-width: 375px)
-      width: 347px;
+    @media (max-width: 600px)
+      width: 90%;
   .vm--overlay
     background-color: rgba(60,60,60,0.8)
     height: 100vh;
@@ -112,6 +112,8 @@ export default {
       font-size: 16px;
       letter-spacing: 0.05rem;
       line-height: 1.8;
+      word-break: break-all;
+      white-space: pre-wrap;
       @media (max-width: 375px)
         font-size: 12px;
 </style>

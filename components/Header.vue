@@ -46,7 +46,6 @@ import navModal from "~/components/HeaderModal.vue";
   methods: {
     handleResize: function() {
       this.width = window.innerWidth;
-      console.log(this.width);
       if(this.width >= 1025){
         this.navFlug = false;
       }
