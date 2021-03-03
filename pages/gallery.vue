@@ -36,7 +36,6 @@ article.page_container.sp-color_pink
 import PageTop from "~/components/PageTopView.vue";
 // import FlowItem from "~/components/FlowItem.vue";
 import BannerItems from "~/components/BannerItems.vue";
-import axios from "axios";
 
 
 export default {
@@ -447,7 +446,7 @@ export default {
    display: grid
    grid-template-areas: 'area1  area2  area3  area4  ' 'area5  area6  area7  area8  ' 'area9  area10 area11 area12''area13 area14 area15 area16'
    @media screen and (max-width: 600px)
-     grid-template-areas: 'area1  area1  area2  area2  area3  area3  ' 'area4  area4  area5  area5  area6  area6  ' 'area7  area7  area8  area8  area9  area9 ' 'area10 area10 area11 area11 area12 area12 ''area13 area13 area13 area14 area14 area14' 'area15 area15 area15 area16 area16 area16'
+     grid-template-areas: 'area1  area1  area1  area2  area2  area2  ' 'area3  area3  area3  area4  area4  area4  ' 'area5  area5  area6  area6  area7  area7 ' 'area8 area8 area9 area9 area10 area10 ''area11 area11 area12 area12 area13 area13' 'area14 area14 area15 area15 area16 area16'
      
 
    
