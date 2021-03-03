@@ -1,6 +1,6 @@
 <template lang="pug">
 article
-  .top_content(v-if="!voiceFlug")
+  .top_content
     //- first view
     section.first_view
       Slider(:slideImages ="slideImages" :thumbnails ="thumbnails")
@@ -47,7 +47,6 @@ article
     section.faq
       img.flower3(:src="require('@/assets/images/top/flower3.png')" alt="")
       BannerFAQ
-  VoicePage(v-if="voiceFlug" :voiceNumber="voiceNumber" :voice-list="voice")
 </template>
 
 <script>
@@ -57,7 +56,6 @@ import BannerFAQ from "~/components/BannerFAQ.vue";
 import Slider from "~/components/Slider.vue";
 import VoiceItems from "~/components/VoiceItems.vue";
 import TopGallery from "~/components/TopGallery.vue";
-import VoicePage from "~/components/VoicePage.vue";
 
 export default {
   components: {
@@ -67,7 +65,6 @@ export default {
     Slider,
     VoiceItems,
     TopGallery,
-    VoicePage
   },
   async asyncData(context) {
     const slideImages = await context.app.$getData("top_slide");
@@ -78,21 +75,14 @@ export default {
   },
   data() {
     return {
-      voiceFlug: false,
-      voiceNumber: Number,
     }
   },
   created() {
   },
   methods: {
-    goVoicePage(value){
-      this.voiceNumber = value;
-      this.voiceFlug = true;
-      window.location.href ="/#"
+    goVoicePage(id){
+      window.location.href ="/voice/?id="+id
     },
-    // closePage(){
-    //   this.voiceFlug = false;
-    // }
   }
 };
 </script>

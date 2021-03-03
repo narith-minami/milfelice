@@ -1,6 +1,6 @@
 <template lang="pug">
 .voice_items
-  .voice_item(@click="openModal(index)" v-for="(voiceItem, index) in voiceList" :key="index")
+  .voice_item(@click="openModal(index,voiceItem.id)" v-for="(voiceItem, index) in voiceList" :key="index")
     img(:src="voiceItem.image.url" alt="")
     .text_content
       p.text_bold {{ voiceItem.title }}
@@ -48,7 +48,7 @@ export default {
       }
       this.spFlug = true;
     },
-    openModal(index){
+    openModal(index, date){
       const number = index + 1
 
       if(!this.spFlug){
@@ -63,7 +63,7 @@ export default {
         this.voiceModalFlug3 = true;
         return
       }
-      this.$emit('goVoicePage', index)
+      this.$emit('goVoicePage', date)
       return
 
     },

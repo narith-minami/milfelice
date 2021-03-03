@@ -1,36 +1,46 @@
 <template lang="pug">
-.voice-page(name="voicePage")
-  .voice-page-container
-    .voice-wrapper
-      p.voice-title {{voiceItem.title}}
-      .voice-detail
-        .detail-flex
-          p.date {{voiceItem.date}}
-          p.name {{voiceItem.user_name}}
-        p.staf {{voiceItem.staff}}
-      img(:src="voiceItem.image.url" alt="")
-      p.voice-text {{voiceItem.body}}
-  a.back-page(href="/") TOPへ戻る
+article
+  .voice-page
+    .voice-page-container
+      .voice-wrapper
+        p.voice-title {{setItems.title}}
+        .voice-detail
+          .detail-flex
+            p.date {{setItems.date}}
+            p.name {{setItems.user_name}}
+          p.staf {{setItems.staff}}
+        img(:src="setItems.image.url" alt="")
+        p.voice-text {{setItems.body}}
+    a.back-page(href="/") TOPへ戻る
 </template>
 
 <script>
 export default {
+  layout: "page",
+  async asyncData(context) {
+    const voiceItems = await context.app.$getData("voice");
+    return { voiceItems: voiceItems};
+  },
   created() {
     this.fetch();
   },
   props: {
-    voiceList: Array,
-    voiceNumber: Number,
   },
   data() {
     return {
-      voiceItem:{}
+      voiceId: '',
+      setItems: [],
     }
   },
   methods: {
     fetch(){
-      this.voiceItem = this.voiceList[this.voiceNumber];
-      console.log(this.voiceList[this.voiceNumber]);
+      this.voiceId = this.$route.query.id
+      for(const setItems of this.voiceItems){
+        if(setItems.id === this.voiceId){
+          this.setItems = setItems;
+          return
+        }
+      }
     }
   }
 }
