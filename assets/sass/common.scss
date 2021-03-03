@@ -81,6 +81,7 @@ $breakpoints: (
     background-image: url('~@/assets/images/page_back_flow.png');
     @media screen and (max-width: 600px) {
       background-image: url('~@/assets/images/page_back_flow_sp.png');
+
     }
   }
   &.page_staff {
@@ -93,9 +94,15 @@ $breakpoints: (
     height: 120px;
     background-size: cover;
     .page_top_inner {
-      img {
+      .page_top_title_svg {
         width: 100px;
         height: fit-content;
+        &.page_flow {
+          width: 200px;
+        }
+        &.page_faq {
+          width: 80px;
+        } 
       }
     }
   }
@@ -112,7 +119,7 @@ $breakpoints: (
   &.no_title {
     top: 6px;
     @media screen and (max-width: 600px) {
-      top: -20px;
+      top: -10px;
       font-size: 10px;
     }
   }

@@ -2,9 +2,11 @@
 .flow_item
   .flow_item_inner.flex-row.line-height-normal
     .item_left.flex-row
+      //- sp
       p.left_caption.mg-auto.price-title-font.sp_title {{ item.step }} {{ item.title }}
+      //- pc
       .pc_title.flex-col.mg-auto.text-center.price-title-font.left_caption
-        p.text-white {{ item.step }}
+        img(v-if="item.step" :src="require('@/assets/images/flow/flow_' + item.step + '.png')" :alt="item.step" width="80px")
         p {{ item.title }}
     .item_right.word-break
       p.top_text.mg-bottom-16 {{ item.mainBody }}

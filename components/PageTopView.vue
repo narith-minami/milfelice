@@ -2,7 +2,7 @@
 section.page_top.width-100per(:class="'page_' + name")
   .page_top_inner.mg-auto
     p.page_top_title(v-if="title") {{ title }}
-    img.page_top_title_svg(v-else :src="require('@/assets/images/title/title_' + name + '.svg')" :alt="name + ' ' + caption")
+    img.page_top_title_svg(v-else :class="'page_' + name" :src="require('@/assets/images/title/title_' + name + '.svg')" :alt="name + ' ' + caption")
     p.page_top_caption.text-center(v-if="title") {{ caption }}
     p.page_top_caption.no_title.text-center(v-else) {{ caption }}
 </template>
