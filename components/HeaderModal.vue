@@ -5,17 +5,17 @@
     button.btn-close.button(@click="$emit('closeModal')")
     ul.nav__wrapper
       li.nav__item
-        NLink(to="/") TOP
+        a(href="/") TOP
       li.nav__item
-        NLink(to="/gallery") ギャラリー
+        a(href="/gallery") ギャラリー
       li.nav__item
-        NLink(to="/price") 料金
+        a(href="/price") 料金
       li.nav__item
-        NLink(to="/flow") 当日までの流れ
+        a(href="/flow") 当日までの流れ
       li.nav__item
-        NLink(to="/staff") スタッフ
+        a(href="/staff") スタッフ
       li.nav__item
-        NLink(to="/faq") FAQ
+        a(href="/faq") FAQ
       li.nav__item
         .contact_button.text-white.flex-row(href="#")
           span.mg-auto お問い合わせ
