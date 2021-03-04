@@ -13,7 +13,7 @@
   .banner_inner
     .faq_banner
       max-width: 1192px
-      width: calc(100% - 8px)
+      width: 100%
       source
       &.sp_image
         display: none

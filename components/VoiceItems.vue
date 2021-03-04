@@ -89,7 +89,7 @@ export default {
   @media (max-width: 1165px)
     display: block
     padding: 0px 15px
-  @media (max-width: 375px)
+  @media (max-width: 600px)
     padding: 0px
   .voice_item
     cursor: pointer;
@@ -103,9 +103,7 @@ export default {
       &:nth-child(2)
         margin: 20px auto
     @media (max-width: 600px)
-      width: 100%
-      height: 53.29vw
-    @media (max-width: 375px)
+      width: 340px
       height: 200px
     &:hover
       opacity: 0.6;
@@ -126,16 +124,16 @@ export default {
         font-size: 20px;
         font-weight: bold;
         padding-bottom: 4px;
-        @media (max-width: 375px)
+        @media (max-width: 600px)
           font-size: 16px;
       .text_normal
         font-size: 14px;
         padding-bottom: 5px;
-        @media (max-width: 375px)
+        @media (max-width: 600px)
           font-size: 12px;
       .text_min
         font-size: 14px;
-        @media (max-width: 375px)
+        @media (max-width: 600px)
           font-size: 12px;
 
 </style>
