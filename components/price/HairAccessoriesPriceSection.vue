@@ -56,4 +56,14 @@ export default {
         border-radius: 8px
         border: 1px solid #C7B9DB
         background-color: #F8F4FF
+
+  @media screen and (max-width: 600px)
+    .main_plan
+      .option_wrap
+        line-height: 24px
+      .header_wrap
+        .left_caption
+          font-size: 24px
+        .right_caption
+          font-size: 24px
 </style>

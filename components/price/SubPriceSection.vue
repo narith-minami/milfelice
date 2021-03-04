@@ -70,4 +70,24 @@ export default {
           background-color: #B7E3F0
         &.pink
           background-color: #F0B7BF
+
+  @media screen and (max-width: 600px)
+    .main_plan
+      .header_wrap
+        .left_caption
+          flex-direction: column
+          font-size: 24px
+        .right_caption
+          font-size: 12px
+      .detail_wrap
+        flex-direction: column
+        .price_bold
+          font-size: 24px
+          margin-left: 10px
+        .img_label
+          width: 88px
+        .left_item
+          margin-bottom: 30px
+        .color_label
+          width: 80px
 </style>

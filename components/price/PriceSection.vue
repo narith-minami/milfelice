@@ -11,14 +11,14 @@
       //- Left Side
       .left_item
         .flex-row
-          img(:src="require('@/assets/images/price/label_yoso_waso.svg')")
+          img.img_label(:src="require('@/assets/images/price/label_yoso_waso.svg')")
           .price_bold.price-amount-font  {{ plan.price_1 }}
         .flex-row.padding-top-16
           .option_wrap.flex-col.word-break.text-size-m {{ plan.caption_1 }}
       //- Right Side
       .right_item
         .flex-row
-          img(:src="require('@/assets/images/price/label_yoso.svg')")
+          img.img_label(:src="require('@/assets/images/price/label_yoso.svg')")
           .price_bold.price-amount-font  {{ plan.price_2 }}         
         .flex-row.padding-top-16
           .option_wrap.flex-col.word-break.text-size-m {{ plan.caption_2 }}
@@ -44,6 +44,7 @@ export default {
     border-radius: 10px
     padding: 20px
     line-height: 24px
+    display: relative
   .main_plan
     margin-bottom: 80px
     .header_wrap
@@ -67,4 +68,21 @@ export default {
         border-radius: 8px
         &.pink
           background-color: #F0B7BF
+
+  @media screen and (max-width: 600px)
+    .main_plan
+      .header_wrap
+        .left_caption
+          flex-direction: column
+          font-size: 24px
+        .right_caption
+          font-size: 12px
+      .detail_wrap
+        flex-direction: column
+        .price_bold
+          font-size: 24px
+        .img_label
+          width: 88px
+        .left_item
+          margin-bottom: 30px
 </style>

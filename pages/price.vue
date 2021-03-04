@@ -3,13 +3,16 @@ article.page_container
   PageTop(name="price" caption="料金")
   .page_description_wrap.flex-row.align-center
     .page_description_inner.line-height-normal
-      p.text-size-xxl.mg-bottom-24 さまざまなプランをご用意しています。
-      p Milfeliceのウェディングヘアメイクは結婚式やパーティーの種類や
+      p.page_caption_main.text-size-xxl.mg-bottom-24 さまざまなプランをご用意しています。
+      p.page_caption_sub.pc_caption Milfeliceのウェディングヘアメイクは結婚式やパーティーの種類や
         br
         | 出張先でのサポート内容によって下記のプランからお選びただけます。
         br
         | プランに含まれていないことでも出来る限り対応いたしますのでお気軽にご相談ください。
-      b （プランは全て税抜き表示です）
+      p.page_caption_sub.sp_caption Milfeliceのウェディングヘアメイクは結婚式やパーティーの種類や出張先でのサポート内容によって下記のプランからお選びただけます。
+        br
+        | プランに含まれていないことでも出来る限り対応いたしますのでお気軽にご相談ください。        
+      b.page_caption_sub （プランは全て税抜き表示です）
   .page_content_wrap
     //- main
     PriceSection(:plan="mainPlan")
@@ -17,10 +20,14 @@ article.page_container
     .sub_plans_panel.sub_plan_1.flex-row.space-bw
       .left_item.plan_item
         SubPriceSection(:plan="receptionPlan" :show-kastura="true")
+      //- 装飾SP
+      .back_image_flower_sp
+        img(:src="require('@/assets/images/price/flower.svg')")        
+      .description_panel_sp.text-size-s.word-break {{ receptionPlan.remark }}
       .right_item.plan_item
         SubPriceSection(:plan="weddingPlan" :show-kastura="true")
     
-    //- 装飾
+    //- 装飾PC
     .back_image_flower
       img(:src="require('@/assets/images/price/flower.svg')")
 
@@ -31,6 +38,7 @@ article.page_container
       .left_item.plan_item
         SubPriceSection(:plan="preparationPlan")
         .info_panel
+      .description_panel_sp.text-size-s.small.word-break {{ preparationPlan.remark }}
       .right_item.plan_item
         WeddingPhotoPriceSection(:plan="weddingPhotoPlan")
     .description_panel.text-size-s.small.word-break {{ preparationPlan.remark }}
@@ -42,7 +50,7 @@ article.page_container
 
     .align-right.flex-row.padding-top-30
       NLink(to="/faq")
-        img(:src="require('@/assets/images/more_link_button.svg')")
+        img.more_link_button(:src="require('@/assets/images/more_link_button.svg')")
 
   //- Faq
   #option_items_wrap.page_content_wrap
@@ -55,9 +63,51 @@ article.page_container
 </template>
 
 <style lang="sass" scoped>
+.page_description_wrap
+  .pc_caption
+    display: block
+  .sp_caption
+    display: none
+  @media screen and (max-width: 600px)
+    height: 220px
+    .pc_caption
+      display: none
+    .sp_caption
+      display: block
+    .page_description_inner
+      width: 100%
+      padding: 0 20px
+      .page_caption_main
+        font-size: 16px
+        margin-bottom: 16px
+      .page_caption_sub
+        font-size: 12px
+        line-height: 20px
+
+.more_link_button
+  @media screen and (max-width: 600px)
+    width: 80%
+
+.page_content_wrap
+  @media screen and (max-width: 600px)
+    padding: 0 20px
+    margin-bottom: 10px
+
 .back_image_flower
   position: absolute
   right: 16px
+  @media screen and (max-width: 600px)
+    display: none
+
+.back_image_flower_sp
+  position: absolute
+  right: 16px
+  display: none
+  margin-top: 310px
+  img
+    width: 110px
+  @media screen and (max-width: 600px)
+    display: block
 
 .sub_plans_panel
   &.sub_plan_1
@@ -68,6 +118,14 @@ article.page_container
     width: 488px
   .left_item
     margin-right: 50px
+  @media screen and (max-width: 600px)
+    flex-direction: column
+    &.sub_plan_1
+      height: auto
+    &.sub_plan_2
+      height: auto
+    .plan_item
+      width: 100%
 
 .description_panel
   border: 1px solid #F59C9C
@@ -78,6 +136,20 @@ article.page_container
   line-height: 24px
   &.small
     width: 43%
+  @media screen and (max-width: 600px)
+    display: none
+
+.description_panel_sp
+  border: 1px solid #F59C9C
+  background-color: #FFF7FA
+  border-radius: 10px
+  padding: 20px
+  margin-bottom: 60px
+  line-height: 24px
+  display: none
+  margin-top: -70px
+  @media screen and (max-width: 600px)
+    display: block
 
 #option_items_wrap
   width: 100%
@@ -85,6 +157,16 @@ article.page_container
   background-color: #FFF7FA
   .option_header_wrap
     margin-bottom: 80px
+  @media screen and (max-width: 600px)
+    padding: 40px 0
+    .option_header_wrap
+      margin-bottom: 40px
+      .option_title
+        margin-bottom: 4px
+        img
+          width: 85px
+      .option_caption
+        font-size: 10px
 </style>
 
 <script>
