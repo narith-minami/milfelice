@@ -3,7 +3,7 @@
     section.consult_section
       .consult_top
         .consult_inner
-          img(:src="require('@/assets/images/consultation/consult.svg')" alt="予約受付中 ヘア小物相談会")
+          img(:src="require('@/assets/images/consultation/consult.png')" alt="予約受付中 ヘア小物相談会")
       .consult_main
         .consult_inner
           .consult_main_content
@@ -90,7 +90,7 @@ img
   max-width: 100%
   vertical-align: bottom
 .consult_top
-  background-image: url('~@/assets/images/consultation/consult_back.jpg')
+  background-image: url('~@/assets/images/consultation/consult_back.png')
   background-position: center
   background-color: #FFF7FA
   background-repeat: no-repeat
@@ -207,7 +207,7 @@ img
 @media screen and (max-width: 767px)
   .consult_top
     height: 48vw
-    background-image: url('~@/assets/images/consultation/consult_back_sp.jpg')
+    background-image: url('~@/assets/images/consultation/consult_back_sp.png')
     background-size: cover
     &.flower_top
       width: calc(100vw - 32px)
