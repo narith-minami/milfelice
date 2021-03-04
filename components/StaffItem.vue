@@ -9,7 +9,7 @@
           .flex-row
             p.top_text {{ item.name }}
             p.sub_text {{ item.kana }}
-          .flex-row {{ item.job }}
+          .job_text.flex-row {{ item.job }}
         .staff_comment_wrap.word-break.line-height-normal {{ item.comment }}
 </template>
 
@@ -47,6 +47,12 @@ export default {
   @media screen and (max-width: 600px)
     .staff_item_inner
       flex-direction: column
+      .item_right
+        padding: 0 16px 16px 16px
+        .job_text
+          font-size: 14px
+        .staff_comment_wrap
+          font-size: 14px
       .item_left
         .staff_image
           width: 120px

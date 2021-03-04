@@ -27,4 +27,6 @@ export default {
     margin-bottom: 13px
   .link
     border-bottom: 1px solid #F59C9C
+  @media screen and (max-width: 600px)
+    width: 100%
 </style>

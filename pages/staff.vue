@@ -3,10 +3,11 @@ article.page_container
   PageTop(name="staff", caption="スタッフ紹介")
   .page_description_wrap.flex-row.align-center
     .page_description_inner.line-height-normal
-      p.text-size-xxl.mg-bottom-24 フリーのヘアメイクアーティストがお二人の特別な1日をお手伝いいたします。
-      p 花嫁様の気持ちに寄り添えるよう精一杯サポートさせていただきますので
+      p.page_caption_main.text-size-xxl.mg-bottom-24 フリーのヘアメイクアーティストがお二人の特別な1日をお手伝いいたします。
+      p.page_caption_sub.pc_caption 花嫁様の気持ちに寄り添えるよう精一杯サポートさせていただきますので、
         br
         | どんなことでもお気軽にご相談くださいませ。
+      p.page_caption_sub.sp_caption 花嫁様の気持ちに寄り添えるよう精一杯サポートさせていただきますので、どんなことでもお気軽にご相談くださいませ。
   //- 装飾
   .back_image_1
     img(:src="require('@/assets/images/flower_1.svg')")
@@ -20,8 +21,10 @@ article.page_container
   section.partner_section.width-100vw
     .partner_section_inner.main-width.margin-side
       p.header_caption.text-center
-        img(:src="require('@/assets/images/partners/label_partner.svg')")
-      .text-center.mg-bottom-40 提携パートナー
+        img.label_partner(
+          :src="require('@/assets/images/partners/label_partner.svg')"
+        )
+      .label_partner_sub.text-center.mg-bottom-40 提携パートナー
       .partner_sub_caption.flex-row
         .line-height-normal.mg-auto ミルフェリーチェがおすすめする素晴らしい技術とアットホームなお人柄のカメラマンさんたちです。
           br
@@ -62,15 +65,41 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.page_description_wrap
+  .pc_caption
+    display: block
+  .sp_caption
+    display: none
+  @media screen and (max-width: 600px)
+    height: 200px
+    .pc_caption
+      display: none
+    .sp_caption
+      display: block
+    .page_description_inner
+      width: 100%
+      padding: 0 20px
+      .page_caption_main
+        font-size: 16px
+        margin-bottom: 16px
+      .page_caption_sub
+        font-size: 12px
+        line-height: 20px
+
 .back_image_1
   position: absolute
   z-index: -1
   right: 0
+  @media screen and (max-width: 600px)
+    img
+      width: 130px
 
 .back_image_2
   position: relative
   top: -50px
   height: 0
+  @media screen and (max-width: 600px)
+    display: none
 
 .back_image_3
   position: relative
@@ -78,6 +107,8 @@ export default {
   bottom: 550px
   text-align: right
   height: 0
+  @media screen and (max-width: 600px)
+    display: none
 
 .staff_section
   width: 1000px
@@ -87,6 +118,7 @@ export default {
   margin-bottom: 40px
   @media screen and (max-width: 600px)
     width: 100%
+    margin-top: 20px
 
 .partner_section
   background-color: #FFF7FA
@@ -100,6 +132,18 @@ export default {
     margin-bottom: 60px
   .parter_list
     max-width: 1000px
-    @media screen and (max-width: 600px)
+
+  @media screen and (max-width: 600px)
+    .partner_section_inner
+      .header_caption
+        margin-bottom: 12px
+        font-size: inherit
+        .label_partner
+          width: 120px
+      .label_partner_sub
+        margin-bottom: 20px
+        font-size: 12px
+    .parter_list
       width: 100%
+      padding: 0 20px
 </style>
