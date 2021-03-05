@@ -76,7 +76,7 @@ export default {
     @media (max-width: 1220px)
       width: 41.25%;
       min-width: 173px;
-    @media (max-width: 375px)
+    @media (max-width: 600px)
       top: 37%;
       left: 26%;
   .swiper-thumbnails
@@ -85,7 +85,7 @@ export default {
     bottom: 0%;
     left: 50%;
     transform: translateX(-50%)
-    @media (max-width: 375px)
+    @media (max-width: 600px)
       width: 641px
     .slide-thumbnail
       width: 12.5vw;
@@ -95,7 +95,7 @@ export default {
       margin: 0px;
       display: block;
       border-radius: 0px;
-      @media (max-width: 375px)
+      @media (max-width: 600px)
         width: 80px;
         height: 85px;
       img
@@ -107,17 +107,15 @@ export default {
     width: 100%;
     max-height: 720px;
     margin: 0 auto;
-    padding-bottom: 160px;
+    padding-bottom: 11.1vw;
     @media (min-width: 1441px)
       max-width: 100%;
       padding-bottom: 160px;
-    @media (max-width: 1200px)
-      padding-bottom: 13.33vw;
-    @media (max-width: 375px)
-      padding-bottom: 22.8vw;
+    @media (max-width: 600px)
+      padding-bottom: 85px;
     .swiper-wrapper
       height: 720px;
-      @media (max-width: 375px)
+      @media (max-width: 600px)
         height: 212px;
     img
       transform: translate(-50%);
@@ -139,7 +137,7 @@ export default {
       transform: translateY(-50%);
       top: 45%;
       display: block;
-      @media (max-width: 375px)
+      @media (max-width: 600px)
         width: 5.46px
         height: 13.1px
         top: 50%;
@@ -148,7 +146,7 @@ export default {
       right: auto;
       @media (max-width: 1290px)
         left: 30px;
-      @media (max-width: 375px)
+      @media (max-width: 600px)
         left: 10px;
       &:after
         content: '';
@@ -158,7 +156,7 @@ export default {
         background-image: url(~@/assets/images/top_sliders/slide_prev.svg);
         background-size: cover;
         margin: 50% auto;
-        @media (max-width: 375px)
+        @media (max-width: 600px)
           width: 5.46px
           height: 13.1px
     .swiper-button-next
@@ -166,7 +164,7 @@ export default {
       left: auto;
       @media (max-width: 1290px)
         right: 30px;
-      @media (max-width: 375px)
+      @media (max-width: 600px)
         right: 10px;
       &:after
         content: '';
@@ -177,7 +175,7 @@ export default {
         background-image: url(~@/assets/images/top_sliders/slide_next.svg);
         background-size: cover;
         background-position-x: -11px;
-        @media (max-width: 375px)
+        @media (max-width: 600px)
           width: 6.46px
           height: 13.1px
           background-position-x: 0px;
