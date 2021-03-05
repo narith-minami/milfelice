@@ -48,9 +48,12 @@ article.page_container
       .left_item.plan_item
         HairAccessoriesPriceSection(:plan="hairAccePlan")
 
-    .align-right.flex-row.padding-top-30
+    .more_link_button_wrap.align-right.flex-row.padding-top-30
       NLink(to="/faq")
-        img.more_link_button(:src="require('@/assets/images/more_link_button.svg')")
+        picture
+          source.more_link_button.sp_image(:srcset="require('@/assets/images/more_link_button_sp.svg')" media="(max-width: 600px)")
+          img(:src="require('@/assets/images/more_link_button.svg')")
+          //- img.more_link_button(:src="require('@/assets/images/more_link_button.svg')")
 
   //- Faq
   #option_items_wrap.page_content_wrap
@@ -84,9 +87,11 @@ article.page_container
         font-size: 12px
         line-height: 20px
 
-.more_link_button
+.more_link_button_wrap
   @media screen and (max-width: 600px)
-    width: 80%
+    justify-content: center;
+    margin-top: -40px;
+    padding-top: 0px;
 
 .page_content_wrap
   @media screen and (max-width: 600px)
