@@ -4,7 +4,10 @@
     img.mg-bottom-16(:src="require('@/assets/images/price/option_1.svg')")
     img#option_katsura.mg-bottom-16(:src="require('@/assets/images/price/option_2.svg')")
     img(:src="require('@/assets/images/price/option_3.svg')")
-  .sp_layout 
+  .sp_layout
+    img.mg-bottom-16(:src="require('@/assets/images/price/option_sp_1.svg')")
+    img#option_katsura.mg-bottom-16(:src="require('@/assets/images/price/option_sp_2.svg')")
+    img(:src="require('@/assets/images/price/option_sp_3.svg')")  
 </template>
 
 <style lang="sass" scoped>
@@ -16,6 +19,13 @@
         width: 100%     
       @media screen and (max-width: 1024px)
         width: calc(100vw - 100px)    
-      @media screen and (max-width: 768px)
-        width: 100vw
+  .sp_layout
+    display: none
+    padding: 0 15px
+
+  @media screen and (max-width: 600px)
+    .pc_layout
+      display: none
+    .sp_layout
+      display: block
 </style>
