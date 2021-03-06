@@ -175,7 +175,7 @@ export default {
           display: flex;
         img
           width: 100%
-        background-color: #ffffff;
+          background-color: #ffffff;
         @media (max-width: 1222px)
           margin: 0 auto;
         @media (max-width: 720px)
