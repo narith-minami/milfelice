@@ -2,7 +2,8 @@
 .nav-modal(name="navModal")
   .vm--overlay(@click="$emit('closeModal')")
   .vm--modal
-    button.btn-close.button(@click="$emit('closeModal')")
+    button.btn-close(@click="$emit('closeModal')")
+      img(:src="require('@/assets/images/top/gallery/gallery_close.svg')")
     ul.nav__wrapper
       li.nav__item
         a(href="/") TOP
@@ -86,9 +87,9 @@ export default {
     position: absolute;
     right: 20px;
     top: 20px;
-    background-color: initial;
-    content: '';
-    background-image: url(~@/assets/images/top/gallery/gallery_close.svg);
+    display: block
+    background-color: inherit
+    padding: 0px
     &:focus
       outline: none;
   .nav__wrapper
