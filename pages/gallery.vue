@@ -8,8 +8,8 @@ article.page_container.sp-color_pink
           .model_overlay(@click.self="closeModel(index)")
             transition(appear name="model_inside")
               .model_window(v-show="modelFlag[index - 1]")
-                .model_cross_wrap
-                  span.model_cross(@click="closeModel(index)")
+                .model_cross_wrap(@click="closeModel(index)")
+                  span.model_cross
                 h2.model_title {{ galleryList[index -1].title }}
                 .model_grid(:class="{ 'oblong': oblongFlag }")
                   img.model_main_img.model-enter-active(:src="modelMainImg[index - 1] + '?w=400'" :class="{ 'model-enter' : changeImgFlag }" alt="")
@@ -207,14 +207,16 @@ export default {
         font-size: 13px
       @media screen and (max-width: 600px)
         width: 90vw
-        max-width: 312px
-        padding: 18px 18px 28px
-        
+        max-width: 295px
+        padding: 17px 17px 23px
+        transform: translate(0, 10px)
 
     &_cross_wrap
       line-height: 1em
       padding-right: 5px
-      text-align: right
+      width: min-content
+      margin-left: auto
+      cursor: pointer;
 
     &_cross
       display: inline-block;
@@ -227,7 +229,6 @@ export default {
       border-radius: 10px;
       position: relative;
       transform: rotate(45deg);
-      cursor: pointer;
       &::before
          content: '';
          position: absolute;
@@ -297,7 +298,7 @@ export default {
             height: 328px
 
           @media screen and (max-width: 600px)
-            height: calc(0.56 * (93vw - 36px))
+            height: calc(0.56 * 261px)
             
         
         .model_sub_img_cont
@@ -313,11 +314,12 @@ export default {
             width: 122px
             height: 122px
             margin-bottom: 10px
+
           
           @media screen and (max-width: 600px)
-            width: 55px
-            height: 55px
-            margin-right: 5px
+            width: 52px
+            height: 52px
+            margin-right: 4px
             margin-bottom: 0
           
         
@@ -340,10 +342,10 @@ export default {
             top: -21px;
 
           @media screen and (max-width: 600px)
-            width: 73px
-            height: 73px
-            left: -9px
-            top: -9px
+            width: 69px
+            height: 69px
+            left: -8.5px
+            top: -8.5px
           
     &_main_img
       grid-area: main
@@ -357,7 +359,7 @@ export default {
         height: 564px  
 
       @media screen and (max-width: 600px)
-        height: calc(1.33 * (93vw - 36px))
+        height: calc(1.33 * 261px)
         max-height: 367px
 
     &_sub_img_wrap
@@ -367,7 +369,7 @@ export default {
       width: 100%
       height: min-content
       @media screen and (max-width: 600px)
-        margin-top: 10px
+        margin-top: 8px
     
     &_sub_img_cont
       position: relative
@@ -382,7 +384,7 @@ export default {
       &:nth-child(2n)
         margin-right: 0
         @media screen and (max-width: 600px)
-          margin-right: 5px
+          margin-right: 4px
           
       @media screen and (min-width: 970px)
         width: 117px
@@ -395,9 +397,9 @@ export default {
         margin-bottom: 15px
 
       @media screen and (max-width: 600px)
-        width: 55px
-        height: 55px
-        margin-right: 5px
+        width: 52px
+        height: 52px
+        margin-right: 4px
         margin-bottom: 0
 
     &_sub_img
@@ -421,10 +423,10 @@ export default {
         top: -26px
 
       @media screen and (max-width: 600px)
-        width: 73px
-        height: 73px
-        left: -9px
-        top: -9px
+        width: 69px
+        height: 69px
+        left: -8.5px
+        top: -8.5px
 
     &_text_cont
       grid-area: text
