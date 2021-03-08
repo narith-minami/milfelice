@@ -12,7 +12,7 @@ article.page_container.sp-color_pink
                   span.model_cross
                 h2.model_title {{ galleryList[index -1].title }}
                 .model_grid(:class="{ 'oblong': oblongFlag }")
-                  img.model_main_img.model-enter-active(:src="modelMainImg[index - 1] + '?w=400'" :class="{ 'model-enter' : changeImgFlag }" alt="")
+                  img.model_main_img.model-enter-active(:src="modelMainImg[index - 1] + '?w=440'" :class="{ 'model-enter' : changeImgFlag }" v-if="ifImgFlag" alt="")
                   .model_sub_img_wrap
                     .model_sub_img_cont(v-for="n in imgCount(index)" :key="n" @click="changeImg(index, n)")
                       img.model_sub_img(:src="galleryList[index - 1][`image_${n}`].url  + '?w=240'" alt="")
@@ -60,6 +60,7 @@ export default {
                 false, false, false, false, 
                 ],
     changeImgFlag: false,
+    ifImgFlag: true,
     oblongFlag: false,
     viewport: 'width=device-width,initial-scale=1'
    }
@@ -101,17 +102,21 @@ export default {
       this.modelMainImg.splice((index - 1), 1, this.galleryList[index - 1]['image_1'].url);
       this.oblongFlag = false;
     },
-    changeImg(index, n) {
+    async changeImg(index, n) {
       // モーダルのメイン画像をクリックしたサブ画像に入れ替える処理を入れる
       this.changeImgFlag = true; 
       const item = this.galleryList[index - 1][`image_${n}`];
 
-      setTimeout(() => {
-        this.oblongFlag = item.height < item.width;     
-        this.modelMainImg.splice((index - 1), 1, item.url);
-        this.changeImgFlag = false;
-      }, 500);
-      
+      await new Promise(resolve => setTimeout(resolve, 500));
+      this.ifImgFlag = false;
+      this.oblongFlag = item.height < item.width;     
+      this.modelMainImg.splice((index - 1), 1, item.url);
+
+      await this.$nextTick();
+      this.ifImgFlag = true;
+      await new Promise(resolve => setTimeout(resolve, 0));
+      this.changeImgFlag = false;
+
     },
     imgCount(index) {
      const galleryArray = Object.keys(this.galleryList[index - 1]);
