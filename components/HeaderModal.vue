@@ -25,7 +25,13 @@
 </template>
 
 <script>
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 export default {
+  mounted() {
+    const modal = document.querySelector('.vm--modal')
+    disableBodyScroll(modal)
+    console.log('あああああ');
+  },
   created() {
   },
   props: {
@@ -67,8 +73,10 @@ export default {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 347px;
-    height: 463px;
+    max-width: 347px;
+    max-height: 463px;
+    width: 95%;
+    height: 100%;
     opacity: 0;
     animation-name: fadein-bottom;
     animation-duration: .5s;
@@ -79,6 +87,9 @@ export default {
     background-color: rgba(60,60,60,0.8)
     height: 100vh;
     width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
   .btn-close
     cursor: pointer;
     border: none;
