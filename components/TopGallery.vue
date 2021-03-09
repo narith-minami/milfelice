@@ -32,10 +32,10 @@ export default {
     min-width: 86px;
     min-height: 91px
     max-width: 300px;
-    max-height: 300px;
+    max-height: 320px;
     @media (max-width: 1220px)
       width: 20.8vw;
-      height: 20.8vw;
+      height: 23.8vw;
     @media (max-width: 320px)
       min-width: 72px;
       min-height: 81px;
@@ -43,4 +43,5 @@ export default {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: 0px 0px;
 </style>
