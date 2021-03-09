@@ -25,8 +25,9 @@ export default {
   max-width: 1200px;
   margin: 22px auto 0px;
   cursor: pointer;
-  // border: solid 1px #C9C9C9;
-  @media (max-width: 375px)
+  @media (max-width: 1339px)
+    width: 83.3%;
+  @media (max-width: 600px)
     width: 100%
   .top_gallery
     min-width: 86px;
@@ -34,7 +35,7 @@ export default {
     max-width: 300px;
     max-height: 320px;
     @media (max-width: 1220px)
-      width: 20.8vw;
+      width: 25%;
       height: 23.8vw;
     @media (max-width: 320px)
       min-width: 72px;
