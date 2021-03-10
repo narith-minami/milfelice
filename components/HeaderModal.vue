@@ -62,7 +62,7 @@ export default {
     transform: translate(-50%, -50%);
 .nav-modal
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   top: 0px;
   left: 0px;
