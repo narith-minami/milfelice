@@ -99,7 +99,7 @@ export default {
     margin: 0 auto;
     @media (max-width: 1220px)
       width: 83.3%
-    @media (max-width: 375px)
+    @media (max-width: 600px)
       width: 100%
   .first_view
     width: 100%;
@@ -205,10 +205,9 @@ export default {
         margin-bottom: 0px;
         padding: 0px 0px 26.9px 0px
       .banner_inner
-        @media (max-width: 600px)
-          padding: 0px
-    .banner_items
-      padding: 0px;
+        padding: 0px
+  .banner_items
+    padding: 0px;
   .gallery
     padding: 81.8px 0px 40px;
     background-color: #FFF7FA;

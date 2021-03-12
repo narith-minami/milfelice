@@ -103,8 +103,8 @@ export default {
       &:nth-child(2)
         margin: 20px auto
     @media (max-width: 600px)
-      width: 340px
-      height: 200px
+      width: 100%
+      height: 53.38vw
     &:hover
       opacity: 0.6;
     img

@@ -44,12 +44,8 @@ export default {
     }
   },
   created() {
-    this.fetch();
   },
   methods: {
-    fetch(){
-      console.log(this.slideImages);
-    }
   }
 };
 </script>

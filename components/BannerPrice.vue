@@ -11,7 +11,7 @@
   padding: 80px 0
   background-color: #FFF7FA
   .banner_inner
-    padding: 0 15px
+    // padding: 0 15px
     .faq_banner
       max-width: 1192px
       width: 100%
