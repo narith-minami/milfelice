@@ -103,8 +103,9 @@ img
   img
     max-width: 400px
 .consult_inner
-  max-width: 1200px
+  max-width: 1240px
   width: 100%
+  padding: 0 20px
   margin: 0 auto
 .consult_subtitle
   margin: 0 0 60px
@@ -164,9 +165,9 @@ img
       line-height: 1.6
 .flower
   &_content
-    max-width: 1240px
+    max-width: 1280px
     width: 100%
-    padding: 80px 0
+    padding: 80px 20px
     margin: 0 auto
   &_main
     display: flex
