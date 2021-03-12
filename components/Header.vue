@@ -28,7 +28,7 @@ header.site-header
 </template>
 
 <script>
-
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import navModal from "~/components/HeaderModal.vue";
   export default {
   components: {
@@ -55,6 +55,7 @@ import navModal from "~/components/HeaderModal.vue";
     },
     closeNav(){
       this.navFlug = false;
+      clearAllBodyScrollLocks();
     },
   }
 };
