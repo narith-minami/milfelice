@@ -144,6 +144,5 @@ export default {
         margin-bottom: 20px
         font-size: 12px
     .parter_list
-      width: 100%
       padding: 0 20px
 </style>

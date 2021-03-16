@@ -1,7 +1,7 @@
 <template lang="pug">
 .partner_item
-  .thumbnail_wrap
-    img.mg-bottom-16(:src="item.image.url + '?w=483'")
+  .thumbnail_wrap.text-center
+    img.partner_logo.mg-bottom-16(:src="item.image.url")
   .partner_name {{ item.name }}
   .link.mg-bottom-12
     .inner_link.mg-bottom-2
@@ -27,6 +27,13 @@ export default {
     margin-bottom: 13px
   .link
     border-bottom: 1px solid #F59C9C
+  .partner_logo
+    width: 294px
   @media screen and (max-width: 600px)
-    width: 100%
+    width: auto
+    padding-right: 0px
+    .thumbnail_wrap
+      width: 100%
+    .partner_logo
+      width: inherit
 </style>

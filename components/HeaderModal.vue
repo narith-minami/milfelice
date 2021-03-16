@@ -18,7 +18,7 @@
       li.nav__item
         a(href="/faq") FAQ
       li.nav__item
-        .contact_button.text-white.flex-row(href="#")
+        .contact_button.text-white.flex-row(@click="goContact")
           span.mg-auto お問い合わせ
 
 
@@ -27,28 +27,18 @@
 <script>
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 export default {
-  mounted() {
-    const modal = document.querySelector('.vm--modal')
-    disableBodyScroll(modal)
-    console.log('あああああ');
-  },
-  created() {
-  },
-  props: {
-  },
-  data() {
-    return {
-      voiceItems:{
-        text: '挙式披露宴1日サポートプラン',
-        staf: 'ヘアメイク担当：宮澤　フラワー小物担当：荒川',
-        detail: '2017/11/11 Wさんご夫妻',
-        image: 'voice_detail1',
-      }
+    mounted() {
+        const modal = document.querySelector('.vm--modal')
+        disableBodyScroll(modal)
+    },
+    methods: {
+        goContact() {
+            window.open(
+                "https://docs.google.com/forms/d/e/1FAIpQLScZn3DOre2Oz3o52WIw10Q41G5dhMblViudPZ-rIuc5Q6sW7A/viewform",
+                "_blank"
+            );
+        },
     }
-  },
-  methods: {
-    
-  }
 }
 </script>
 
