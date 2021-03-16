@@ -34,7 +34,7 @@ export default {
     methods: {
         goContact() {
             window.open(
-                "https://docs.google.com/forms/d/e/1FAIpQLScZn3DOre2Oz3o52WIw10Q41G5dhMblViudPZ-rIuc5Q6sW7A/viewform",
+                "https://docs.google.com/forms/d/e/1FAIpQLSe3aUtMFdsEw72VnHucl7YLHRwg6d89D6iyEFvQyuNaedIcYg/viewform",
                 "_blank"
             );
         },
