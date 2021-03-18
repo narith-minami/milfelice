@@ -81,8 +81,6 @@ export default {
     bottom: 0%;
     left: 50%;
     transform: translateX(-50%)
-    @media (max-width: 600px)
-      width: 641px
     .slide-thumbnail
       width: 12.5vw;
       max-width: 150px;
@@ -92,8 +90,7 @@ export default {
       display: block;
       border-radius: 0px;
       @media (max-width: 600px)
-        width: 80px;
-        height: 85px;
+        height: 14.33vw;
       img
         width: 100%;
         height: 100%;
@@ -108,7 +105,7 @@ export default {
       max-width: 100%;
       padding-bottom: 160px;
     @media (max-width: 600px)
-      padding-bottom: 85px;
+      padding-bottom: 14.33vw;
     .swiper-wrapper
       height: 720px;
       @media (max-width: 600px)
