@@ -4,15 +4,19 @@ export default {
    ** Doc: https://vue-meta.nuxtjs.org/api/#metainfo-properties
    */
   head: {
-    title: "Nuxt.js starter for CSB",
+    title: "結婚式・ウェディングヘアメイク・出張ヘアメイクならMilfeliceにお任せ",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
         name: "description",
-        content: "Official Nuxt.js starter for CodeSandBox"
-      }
+        content: "ウェディングヘアメイク * Milfeliceは、東京近郊を中心にブライダル/ウエディングの出張ヘアメイクを行っています。フリーのヘアメイクアーティストが確かな技術と格安の料金でお二人の特別な日のお手伝いをさせていただきます。"
+      },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: 'http://milfelice.com/' },
+      { hid: 'og:title', property: 'og:title', content: '結婚式・ウェディングヘアメイク・出張ヘアメイクならMilfelice' },
+      { hid: 'og:image', property: 'og:image', content: 'http://milfelice.com/images/ogp.png' },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
