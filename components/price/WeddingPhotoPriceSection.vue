@@ -64,6 +64,11 @@ export default {
         border: 1px solid #C7B9DB
         background-color: #F8F4FF
 
+  @media screen and (max-width: 1100px)
+    .main_plan
+      .detail_wrap
+        flex-direction: column
+
   @media screen and (max-width: 600px)
     .main_plan
       .header_wrap

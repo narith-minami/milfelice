@@ -54,7 +54,7 @@ export default {
         font-size: 32px
       .right_caption
         align-items: flex-end
-        margin-bottom: 6px        
+        margin-bottom: 6px
     .detail_wrap
       .option_wrap
         line-height: 30px
@@ -68,6 +68,12 @@ export default {
         border-radius: 8px
         &.pink
           background-color: #F0B7BF
+  @media screen and (max-width: 1100px)
+    .main_plan
+      .left_caption
+        flex-direction: column
+      .detail_wrap
+        flex-direction: column
 
   @media screen and (max-width: 600px)
     .main_plan

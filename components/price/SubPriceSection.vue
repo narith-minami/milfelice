@@ -71,6 +71,13 @@ export default {
         &.pink
           background-color: #F0B7BF
 
+  @media screen and (max-width: 1100px)
+    .main_plan
+      .left_caption
+        flex-direction: column
+      .detail_wrap
+        flex-direction: column
+
   @media screen and (max-width: 600px)
     .main_plan
       .header_wrap

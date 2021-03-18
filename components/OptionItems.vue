@@ -22,6 +22,11 @@
   .sp_layout
     display: none
     padding: 0 15px
+    img
+      margin-left: auto
+      margin-right: auto
+      display: block
+      width: 100%
 
   @media screen and (max-width: 600px)
     .pc_layout
