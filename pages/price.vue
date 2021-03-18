@@ -26,7 +26,7 @@ article.page_container
       .description_panel_sp.text-size-s.word-break {{ receptionPlan.remark }}
       .right_item.plan_item
         SubPriceSection(:plan="weddingPlan" :show-kastura="true")
-    
+
     //- 装飾PC
     .back_image_flower
       img(:src="require('@/assets/images/price/flower.svg')")
@@ -94,9 +94,14 @@ article.page_container
     padding-top: 0px;
 
 .page_content_wrap
+  @media screen and (max-width: 1100px)
+    width: calc(100vw - 100px);
+    margin-left: auto
+    margin-right: auto
   @media screen and (max-width: 600px)
     padding: 0 20px
     margin-bottom: 10px
+    width: auto
 
 .back_image_flower
   position: absolute
@@ -123,6 +128,14 @@ article.page_container
     width: 488px
   .left_item
     margin-right: 50px
+  @media screen and (max-width: 1100px)
+    flex-direction: column
+    &.sub_plan_1
+      height: auto
+    &.sub_plan_2
+      height: auto
+    .plan_item
+      width: 100%
   @media screen and (max-width: 600px)
     flex-direction: column
     &.sub_plan_1
@@ -131,6 +144,7 @@ article.page_container
       height: auto
     .plan_item
       width: 100%
+
 
 .description_panel
   border: 1px solid #F59C9C
@@ -158,8 +172,10 @@ article.page_container
 
 #option_items_wrap
   width: 100%
+  max-width: inherit
   padding: 80px 0
   background-color: #FFF7FA
+  margin-bottom: 0px
   .option_header_wrap
     margin-bottom: 80px
   @media screen and (max-width: 600px)

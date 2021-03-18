@@ -47,6 +47,10 @@ export default {
       .top_text
         font-size: 20px
 
+  @media (max-width: 1100px)
+    .flow_item_inner
+      height: auto
+
   @media (max-width: 600px)
     .flow_item_inner
       height: auto

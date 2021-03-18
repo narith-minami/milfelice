@@ -6,7 +6,7 @@
     img(:src="require('@/assets/images/price/option_3.svg')")
   .sp_layout
     img.mg-bottom-16(:src="require('@/assets/images/price/option_sp_1.svg')")
-    img#option_katsura.mg-bottom-16(:src="require('@/assets/images/price/option_sp_2.svg')")
+    img#option_katsura_sp.mg-bottom-16(:src="require('@/assets/images/price/option_sp_2.svg')")
     img(:src="require('@/assets/images/price/option_sp_3.svg')")  
 </template>
 
@@ -22,6 +22,11 @@
   .sp_layout
     display: none
     padding: 0 15px
+    img
+      margin-left: auto
+      margin-right: auto
+      display: block
+      width: 100%
 
   @media screen and (max-width: 600px)
     .pc_layout
