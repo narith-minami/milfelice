@@ -174,6 +174,7 @@ article.page_container
   width: 100%
   padding: 80px 0
   background-color: #FFF7FA
+  margin-bottom: 0px
   .option_header_wrap
     margin-bottom: 80px
   @media screen and (max-width: 600px)
