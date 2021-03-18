@@ -51,7 +51,10 @@ export default {
     margin-bottom: 0px;
 
 .page_content_wrap
+  @media screen and (max-width: 1100px)
+    width: 90%
   @media screen and (max-width: 600px)
+    width: 100%
     .more_link_wrap
       text-align: center
       .more_link_button
