@@ -6,7 +6,7 @@
     img(:src="require('@/assets/images/price/option_3.svg')")
   .sp_layout
     img.mg-bottom-16(:src="require('@/assets/images/price/option_sp_1.svg')")
-    img#option_katsura.mg-bottom-16(:src="require('@/assets/images/price/option_sp_2.svg')")
+    img#option_katsura_sp.mg-bottom-16(:src="require('@/assets/images/price/option_sp_2.svg')")
     img(:src="require('@/assets/images/price/option_sp_3.svg')")  
 </template>
 

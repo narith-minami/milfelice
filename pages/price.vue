@@ -172,6 +172,7 @@ article.page_container
 
 #option_items_wrap
   width: 100%
+  max-width: inherit
   padding: 80px 0
   background-color: #FFF7FA
   margin-bottom: 0px

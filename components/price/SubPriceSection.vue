@@ -25,8 +25,10 @@
           .option_wrap.flex-col.word-break.text-size-m {{ plan.caption_2 }}
             .benefits.padding-top-12.flex-col.text-size-m(v-if="showKastura")
               span かつらは別途料金になります。
-              span
-                a.text-underline(href="#option_katsura") かつらオプション詳細
+              span.is_pc
+                a.text-underline(href="#option_katsura" @click="jumpKatsura(110)") かつらオプション詳細
+              span.is_sp
+                a.text-underline(href="#option_katsura_sp" @click="jumpKatsura(100)") かつらオプション詳細
 </template>
 
 <script>
@@ -35,6 +37,26 @@ export default {
     plan: Object,
     showKastura: Boolean,
   },
+  methods: {
+    jumpKatsura(gap){
+      const smoothScrollTrigger = document.querySelectorAll('a[href^="#"]');
+      for (let i = 0; i < smoothScrollTrigger.length; i++){
+        smoothScrollTrigger[i].addEventListener('click', (e) => {
+          e.preventDefault();
+          let href = smoothScrollTrigger[i].getAttribute('href');
+          let targetElement = document.getElementById(href.replace('#', ''));
+          const rect = targetElement.getBoundingClientRect().top;
+          console.log(rect);
+          const offset = window.pageYOffset;
+          const target = rect + offset - gap;
+          window.scrollTo({
+            top: target,
+            behavior: 'smooth',
+          });
+        });
+      }
+    },
+  }
 };
 </script>
 <style lang="sass" scoped>
@@ -70,6 +92,10 @@ export default {
           background-color: #B7E3F0
         &.pink
           background-color: #F0B7BF
+      .is_sp
+        display: none
+      .is_pc
+        display: block
 
   @media screen and (max-width: 1100px)
     .main_plan
@@ -97,4 +123,8 @@ export default {
           margin-bottom: 30px
         .color_label
           width: 80px
+        .is_sp
+          display: block
+        .is_pc
+          display: none
 </style>
