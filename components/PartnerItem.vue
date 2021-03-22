@@ -36,4 +36,10 @@ export default {
       width: 100%
     .partner_logo
       width: inherit
+    .partner_name
+      font-size: 20px
+    .inner_link
+      font-size: 12px
+    .detail
+      font-size: 12px
 </style>

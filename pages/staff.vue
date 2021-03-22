@@ -134,6 +134,8 @@ export default {
     max-width: 1000px
 
   @media screen and (max-width: 600px)
+    .partner_sub_caption
+      font-size: 12px
     .partner_section_inner
       .header_caption
         margin-bottom: 12px

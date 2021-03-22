@@ -49,10 +49,14 @@ export default {
       flex-direction: column
       .item_right
         padding: 0 16px 16px 16px
+        .top_text
+          font-size: 20px
+        .sub_text
+          font-size: 12px
         .job_text
-          font-size: 14px
+          font-size: 12px
         .staff_comment_wrap
-          font-size: 14px
+          font-size: 12px
       .item_left
         .staff_image
           width: 120px
