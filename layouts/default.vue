@@ -3,7 +3,7 @@
     <CommonHeader></CommonHeader>
     <Nuxt />
     <footer id="footer" class="text-center">
-      <span>Copyright</span>
+      <span>©︎ 2021 Milfelice.inc</span>
     </footer>
   </div>
 </template>
