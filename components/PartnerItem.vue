@@ -29,6 +29,9 @@ export default {
     border-bottom: 1px solid #F59C9C
   .partner_logo
     width: 294px
+  @media screen and (min-width: 600px) and (max-width: 1000px)
+    margin: auto
+    padding-bottom: 40px
   @media screen and (max-width: 600px)
     width: auto
     padding-right: 0px

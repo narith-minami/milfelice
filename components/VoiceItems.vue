@@ -96,8 +96,7 @@ export default {
       margin: 0 auto
       width: 53.46vw
       height: 40.96vw
-      &:nth-child(2)
-        margin: 20px auto
+      margin-bottom: 24px
     @media (max-width: 600px)
       width: 100%
       height: 53.38vw

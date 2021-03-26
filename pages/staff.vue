@@ -116,6 +116,9 @@ export default {
   margin-left: auto
   margin-top: 80px
   margin-bottom: 40px
+  @media screen and (max-width: 1000px)
+    width: auto
+
   @media screen and (max-width: 600px)
     width: 100%
     margin-top: 20px
