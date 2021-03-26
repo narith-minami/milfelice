@@ -1,7 +1,7 @@
 <template lang="pug">
 .voice_items
   .voice_item(@click="openModal(index,voiceItem.id)" v-for="(voiceItem, index) in voiceList" :key="index")
-    img(:src="voiceItem.image.url" alt="")
+    img(:src="voiceItem.image_sub.url" alt="")
     .text_content
       p.text_bold {{ voiceItem.title }}
       p.text_normal {{ voiceItem.staff }}
