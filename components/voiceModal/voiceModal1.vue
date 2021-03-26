@@ -47,7 +47,7 @@ export default {
   z-index: 100;
   .vm--modal
     border-radius: 10px;
-    overflow: scroll;
+    overflow-y: scroll;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -59,6 +59,10 @@ export default {
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     background-color: #ffffff;
+    &:-webkit-scrollbar-thumb
+      border-radius: 10px;
+    &:-webkit-scrollbar-track
+      border-radius: 10px;
     @media (max-width: 600px)
       width: 90%;
   .vm--overlay
