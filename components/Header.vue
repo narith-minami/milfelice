@@ -67,7 +67,7 @@ export default {
     },
     goContact() {
       window.open(
-        "https://docs.google.com/forms/d/e/1FAIpQLSe3aUtMFdsEw72VnHucl7YLHRwg6d89D6iyEFvQyuNaedIcYg/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSfRnvnpri80dMxbwlnvVMipe6kjiscxIukEOL370iKOhj1Tgw/viewform",
         "_blank"
       );
     },
