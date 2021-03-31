@@ -3,7 +3,7 @@
   NLink(to="/faq").faq_link
     picture
       source.faq_banner.sp_image(:srcset="require('@/assets/images/banners/footer_banner_faq-sp.png')" media="(max-width: 600px)")
-      img.faq_banner(:src="require('@/assets/images/footer_banner_faq.svg')" alt="よくある質問はこちら")
+      img.faq_banner(:src="require('@/assets/images/banners/footer_banner_faq.png')" alt="よくある質問はこちら")
 </template>
 
 <style lang="sass" scoped>

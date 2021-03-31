@@ -16,13 +16,8 @@ export default {
     CommonHeader,
   },
   head: {
-    titleTemplate: "Milfelice | ミルフェリーチェ",
-    meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "Meta description" },
-    ],
-  },
+    title: "結婚式・ウェディングヘアメイク・出張ヘアメイクならMilfeliceにお任せ",
+  }
 };
 </script>
 

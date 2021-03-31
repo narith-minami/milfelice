@@ -221,5 +221,8 @@ export default {
       hairAccePlan: data[5]
     };
   },
+  head: {
+      title: '料金'
+  },
 };
 </script>

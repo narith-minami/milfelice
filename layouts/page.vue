@@ -16,12 +16,7 @@ export default {
     CommonHeader,
   },
   head: {
-    titleTemplate: "Milfelice | ミルフェリーチェ",
-    meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "Meta description" },
-    ],
+    titleTemplate:  'Milfelice | %s ☆ウェディングヘアメイク（出張）＆アクセサリー☆',
   },
 };
 </script>

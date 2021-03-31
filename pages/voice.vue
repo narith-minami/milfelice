@@ -5,9 +5,6 @@ article
       .voice-wrapper
         p.voice-title {{setItems.title}}
         .voice-detail
-          .detail-flex
-            p.date {{setItems.date}}
-            p.name {{setItems.user_name}}
           p.staf {{setItems.staff}}
         img(:src="setItems.image.url" alt="")
         p.voice-text {{setItems.body}}
@@ -20,6 +17,9 @@ export default {
   async asyncData(context) {
     const voiceItems = await context.app.$getData("voice");
     return { voiceItems: voiceItems};
+  },
+  head: {
+      title: 'お客様の声'
   },
   created() {
     this.fetch();

@@ -25,16 +25,12 @@ article.page_container.sp-color_pink
           source(:srcset="galleryList[index - 1].image_1.url + '?w=190'" media="(max-width: 600px)")
           img.gallery_img(:src="galleryList[index - 1].image_1.url + '?w=300'" alt="")
         
-
-    //- FlowItem(v-for="(item, index) in list", :key="index", :item="item")
-  //- button
   //- flowr image
   BannerItems
 </template>
 
 <script>
 import PageTop from "~/components/PageTopView.vue";
-// import FlowItem from "~/components/FlowItem.vue";
 import BannerItems from "~/components/BannerItems.vue";
 
 
@@ -42,11 +38,11 @@ export default {
   layout: "page",
   components: {
     PageTop,
-    // FlowItem,
     BannerItems,
   },
   head() {
     return {
+      title: 'ギャラリー',
       meta: [
       { name: 'viewport', content: this.viewport }
     ]

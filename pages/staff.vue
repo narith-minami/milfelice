@@ -61,6 +61,9 @@ export default {
     const partners = await context.app.$getData("partner");
     return { staff: staff, partners: partners };
   },
+  head: {
+    title: 'スタッフ'
+  },
 };
 </script>
 

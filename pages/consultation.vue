@@ -81,6 +81,9 @@ export default {
       flowerItems: items,
     };
   },
+  head: {
+    title: 'ヘア小物相談会'
+  },
 };
 </script>
 

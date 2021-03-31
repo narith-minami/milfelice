@@ -9,7 +9,6 @@
     .text_content
       p.text_bold {{ voiceItem.title }}
       p.text_normal {{ voiceItem.staff }}
-      p.text_min {{ voiceItem.date }} {{ voiceItem.user_name }}
   //- 詳細
   voiceModal1(
     v-if="voiceModalFlug1",

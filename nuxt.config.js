@@ -6,19 +6,27 @@ export default {
   head: {
     title: "結婚式・ウェディングヘアメイク・出張ヘアメイクならMilfeliceにお任せ",
     meta: [
+      { lang: "ja" },
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "author", content: "milfelice.com" },
       {
         hid: "description",
         name: "description",
         content: "ウェディングヘアメイク * Milfeliceは、東京近郊を中心にブライダル/ウエディングの出張ヘアメイクを行っています。フリーのヘアメイクアーティストが確かな技術と格安の料金でお二人の特別な日のお手伝いをさせていただきます。"
       },
+      {
+        hid: "og:description",
+        name: "og:description",
+        content: "ウェディングヘアメイク * Milfeliceは、東京近郊を中心にブライダル/ウエディングの出張ヘアメイクを行っています。フリーのヘアメイクアーティストが確かな技術と格安の料金でお二人の特別な日のお手伝いをさせていただきます。"
+      },
+      { hid: 'keyword', property: 'keyword', content: '結婚式出張ヘアメイク,ウェディングヘアメイク出張,出張ヘアメイク,ブライダル,ヘアメイク,ウェディング,格安,フリーランス' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:url', property: 'og:url', content: 'http://milfelice.com/' },
       { hid: 'og:title', property: 'og:title', content: '結婚式・ウェディングヘアメイク・出張ヘアメイクならMilfelice' },
       { hid: 'og:image', property: 'og:image', content: 'http://milfelice.com/images/ogp.png' },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "./milfelice.ico" }]
   },
 
   /*

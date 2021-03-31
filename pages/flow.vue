@@ -28,6 +28,9 @@ export default {
     const data = await context.app.$getData("flows");
     return { list: data };
   },
+  head: {
+      title: '当日までの流れ'
+  },  
 };
 </script>
 

@@ -5,10 +5,6 @@
     button.btn-close.button(@click="$emit('closeModal')")
     .voice-wrapper
       p.voice-title {{voiceItem.title}}
-      .voice-detail
-        .detail-flex
-          p.date {{voiceItem.date}}
-          p.name {{voiceItem.user_name}}
         p.staf {{voiceItem.staff}}
       img(:src="voiceItem.image.url" alt="")
       p.voice-text {{voiceItem.body}}

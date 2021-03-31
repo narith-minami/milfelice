@@ -38,6 +38,9 @@ export default {
     FAQItems,
     BannerPrice,
   },
+  head: {
+      title: 'FAQ'
+  },  
 };
 </script>
 
