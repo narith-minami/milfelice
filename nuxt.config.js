@@ -56,8 +56,16 @@ export default {
     // TODO: Remove it if you want to eject from codeSandbox
     "./codesandbox",
 
-    "@nuxtjs/style-resources"
+    "@nuxtjs/style-resources",
+
+    '@nuxtjs/gtm',
   ],
+
+  gtm: {
+    id: 'GTM-W4S542B',
+    debug: true,
+    pageTracking: true,
+  },
 
   /*
    ** HTTP module configuration
@@ -76,7 +84,6 @@ export default {
      */
     vendor: [
       'vue-awesome-swiper',
-      // 'vue-js-modal'
     ],
     extend(config, ctx) {}
   }
