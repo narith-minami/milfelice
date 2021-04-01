@@ -7,7 +7,7 @@ article.page_container
         p.faq_top_title.text-size-xxl.mg-bottom-24 よくある質問をまとめました。
         p.faq_top_caption 結婚式はわからないことだらけ。
           br
-          | ミルファリーチェでよくある質問は以下となります。
+          | ミルフェリーチェでよくある質問は以下となります。
           br
           | その他御不明点などございましたら、お気軽にお声がけください。
       .right_panel.flex-row
