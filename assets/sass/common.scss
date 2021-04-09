@@ -71,6 +71,7 @@ $breakpoints: (
   height: 340px;
   width: 100vw;
   display: flex;
+  background-repeat: no-repeat;
   &.page_price {
     background-image: url('~@/assets/images/page_back_price.png');
     // @media screen and (max-width: 600px) {

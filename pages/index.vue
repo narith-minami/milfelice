@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     goVoicePage(id){
-      window.location.href ="/voice/?id="+id
+      window.location.href ="/voice/"+id
     },
   }
 };

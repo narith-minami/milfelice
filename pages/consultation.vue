@@ -1,70 +1,96 @@
 <template lang="pug">
-  article.page_container
-    section.consult_section
-      .consult_top
-        .consult_inner
-          img(:src="require('@/assets/images/consultation/consult.png')" alt="予約受付中 ヘア小物相談会")
-      .consult_main
-        .consult_inner
-          .consult_main_content
-            p.consult_title
-              img(:src="require('@/assets/images/consultation/consult_title.svg')" alt="What kind of hairstyle?")
-            p.consult_subtitle.price-title-font どんな髪型にしようかな？
-            p.consult_lead 結婚式のヘアスタイルをお悩みの花嫁様にご好評いただいているヘア小物相談会。
-            p.consult_lead 自分にはどんなスタイルが似合うのだろう…
-              br
-              | 髪飾りはどうしたらいいのかな？？
-            p.consult_lead 相談会では、様々な小物を用意し、実際にヘアスタイルを作って色々な髪飾りをお試しいただきながら、イメージを膨らますことができます。
-          .consult_main_thumb
-            img(:src="require('@/assets/images/consultation/hairstyle.jpg')" alt="")
-      .consult_box
-        .consult_inner
-          p.consult_box_title.price-title-font ヘア小物相談会
-            span ￥6,000
-          p.consult_lead 所要時間/1時間30分・完全予約制
-          p.consult_lead 海外挙式や会場でのリハーサル前に、ある程度イメージをつけておきたい。
+article.page_container
+  section.consult_section
+    .consult_top
+      .consult_inner
+        img(
+          :src="require('@/assets/images/consultation/consult.png')",
+          alt="予約受付中 ヘア小物相談会"
+        )
+    .consult_main
+      .consult_inner
+        .consult_main_content
+          p.consult_title
+            img(
+              :src="require('@/assets/images/consultation/consult_title.svg')",
+              alt="What kind of hairstyle?"
+            )
+          p.consult_subtitle.price-title-font どんな髪型にしようかな？
+          p.consult_lead 結婚式のヘアスタイルをお悩みの花嫁様にご好評いただいているヘア小物相談会。
+          p.consult_lead 自分にはどんなスタイルが似合うのだろう…
             br
-            | そんな花嫁様におすすめの髪型とヘア小物を相談できるサービスです。
+            | 髪飾りはどうしたらいいのかな？？
+          p.consult_lead 相談会では、様々な小物を用意し、実際にヘアスタイルを作って色々な髪飾りをお試しいただきながら、イメージを膨らますことができます。
+        .consult_main_thumb
+          img(
+            :src="require('@/assets/images/consultation/hairstyle.jpg')",
+            alt=""
+          )
+    .consult_box
+      .consult_inner
+        p.consult_box_title.price-title-font ヘア小物相談会
+          span ￥6,000
+        p.consult_lead 所要時間/1時間30分・完全予約制
+        p.consult_lead 海外挙式や会場でのリハーサル前に、ある程度イメージをつけておきたい。
+          br
+          | そんな花嫁様におすすめの髪型とヘア小物を相談できるサービスです。
+          br
+          | 一時間半の相談で、スタイル制限なし、お写真も撮っていただけます。
+    .consult_btm
+      .consult_inner
+        p.consult_btn
+          a.consult_link.item-center(
+            href="https://instagram.com/milfelicewedding",
+            target="_blank"
+          )
+            img.consult_link_insta(
+              :src="require('@/assets/images/consultation/instagram.svg')"
+            )
+            span ヘア小物のスタイリングを<br />Instagramでチェックできます
+            img.consult_link_arr(
+              :src="require('@/assets/images/consultation/arrow.svg')"
+            )
+  section#flower_item.flower_section
+    .consult_top.flower_top
+      .consult_inner
+        img(
+          :src="require('@/assets/images/consultation/flower.svg')",
+          alt="胸キュン フラワーアイテム"
+        )
+    .flower_content
+      .flower_main
+        .flower_main_top
+          p.flower_title
+            img(
+              :src="require('@/assets/images/consultation/flower_title.svg')",
+              alt="Favorite flower item"
+            )
+          p.consult_subtitle.price-title-font お気に入りのフラワーアイテム
+          p.consult_lead ミルフェリーチェでは衣装に合わせたブーケやリストブーケ
             br
-            | 一時間半の相談で、スタイル制限なし、お写真も撮っていただけます。
-      .consult_btm
-        .consult_inner
-          p.consult_btn
-            a.consult_link.item-center(href="https://instagram.com/milfelicewedding" target="_blank")
-              img.consult_link_insta(:src="require('@/assets/images/consultation/instagram.svg')")
-              <span>ヘア小物のスタイリングを<br />Instagramでチェックできます</span>
-              img.consult_link_arr(:src="require('@/assets/images/consultation/arrow.svg')")
-    section.flower_section#flower_item
-      .consult_top.flower_top
-        .consult_inner
-          img(:src="require('@/assets/images/consultation/flower.svg')" alt="胸キュン フラワーアイテム")
-      .flower_content
-        .flower_main
-          .flower_main_top
-            p.flower_title
-              img(:src="require('@/assets/images/consultation/flower_title.svg')" alt="Favorite flower item")
-            p.consult_subtitle.price-title-font お気に入りのフラワーアイテム
-            p.consult_lead ミルフェリーチェでは衣装に合わせたブーケやリストブーケ
-              br
-              | ヘアスタイルに合わせた花冠などの髪飾りもご提案させていただきます。
-              br
-              | どうぞお気軽にお問い合わせください。
-          .flower_main_btm
-            p.consult_lead お花は全てアーティシャルフラワーになります。
-              br
-              | 生花の取り扱いはございませんのでご注意ください。
-            p.flower_price Price（税抜き表示）
-            ul.flower_price_list
-              li.flower_price_item ・ウエディングブーケ・ブートニアセット … ￥20,000〜
-              li.flower_price_item ・花冠 … ￥5,000〜
-              li.flower_price_item ・リストブーケ … ￥4,500〜
-              li.flower_price_item ・和装髪飾り（コームタイプ） … ￥3,500〜
-              li.flower_price_item ・フラワーヘッドパーツ … ￥300〜/1本
-        ul.flower_list
-          li.flower_item(v-for="(flowerItem, index) in flowerItems" :key="index")
-            img(:src="flowerItem.image.url")
-    BannerFAQ
-  </article>
+            | ヘアスタイルに合わせた花冠などの髪飾りもご提案させていただきます。
+            br
+            | どうぞお気軽にお問い合わせください。
+        .flower_main_btm
+          p.consult_lead お花は全てアーティシャルフラワーになります。
+            br
+            | 生花の取り扱いはございませんのでご注意ください。
+          p.flower_price Price（税抜き表示）
+          ul.flower_price_list
+            li.flower_price_item ・ウエディングブーケ・ブートニアセット … ￥20,000〜
+            li.flower_price_item ・花冠 … ￥5,000〜
+            li.flower_price_item ・リストブーケ … ￥4,500〜
+            li.flower_price_item ・和装髪飾り（コームタイプ） … ￥3,500〜
+            li.flower_price_item ・フラワーヘッドパーツ … ￥300〜/1本
+      ul.flower_list
+        li.flower_item(
+          v-for="(flowerItem, index) in flowerItems",
+          :key="index"
+        )
+          img(:src="flowerItem.image.url")
+    section.faq
+      BannerFAQ
+</article>
 </template>
 
 <script>
@@ -82,12 +108,28 @@ export default {
     };
   },
   head: {
-    title: 'ヘア小物相談会'
+    title: "ヘア小物相談会",
   },
 };
 </script>
 
 <style lang="sass" scoped>
+.faq
+  background-color: #FFF7FA
+  position: relative
+  @media (max-width: 600px)
+    padding: 0px 27px
+    .banner_faq
+      background-color: #FFF7FA
+      padding: 80px 0px 118px
+      @media (max-width: 1200px)
+        width: 83.3%
+      @media (max-width: 600px)
+        padding: 25.4px 0px 40.5px
+        width: auto
+      img
+        width: 100%
+
 $sp-padding: 16px
 img
   max-width: 100%

@@ -91,4 +91,6 @@ export default {
           width: 88px
         .left_item
           margin-bottom: 30px
+      .description_panel
+        font-size: 12px
 </style>
