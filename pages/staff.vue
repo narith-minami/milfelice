@@ -114,9 +114,6 @@ export default {
     display: none
 
 .staff_section
-  // width: 1000px
-  // margin-right: auto
-  // margin-left: auto
   margin-top: 80px
   margin-bottom: 40px
   @media screen and (max-width: 1000px)
