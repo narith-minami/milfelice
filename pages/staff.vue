@@ -13,7 +13,7 @@ article.page_container
     img(:src="require('@/assets/images/flower_1.svg')")
   //- スタッフ
   section.staff_section
-    StaffItem(v-for="(item, index) in staff", :key="index", :item="item")
+    StaffItem(v-for="(item, index) in staff", :key="index", :item="item" :order="index + 1")
   //- 装飾
   .back_image_2
     img(:src="require('@/assets/images/flower_2.svg')")
@@ -114,9 +114,9 @@ export default {
     display: none
 
 .staff_section
-  width: 1000px
-  margin-right: auto
-  margin-left: auto
+  // width: 1000px
+  // margin-right: auto
+  // margin-left: auto
   margin-top: 80px
   margin-bottom: 40px
   @media screen and (max-width: 1000px)
