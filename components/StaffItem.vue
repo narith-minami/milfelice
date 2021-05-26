@@ -95,4 +95,5 @@ export default {
       flex-wrap: wrap
       .work_image
         width: calc((100vw - 32px) / 4)
+        height: calc((100vw - 32px) / 4)
 </style>
