@@ -74,6 +74,7 @@ export default {
       .item_left
         padding: 16px
     .staff_item_works
+      flex-wrap: wrap
       width: auto
   @media screen and (max-width: 600px)
     .staff_item_inner
