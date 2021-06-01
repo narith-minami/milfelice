@@ -29,7 +29,7 @@ article.page_container
     .consult_box
       .consult_inner
         p.consult_box_title.price-title-font ヘア小物相談会
-          span ￥6,000
+          span ￥6,600
         p.consult_lead 所要時間/1時間30分・完全予約制
         p.consult_lead 海外挙式や会場でのリハーサル前に、ある程度イメージをつけておきたい。
           br
@@ -75,13 +75,13 @@ article.page_container
           p.consult_lead お花は全てアーティシャルフラワーになります。
             br
             | 生花の取り扱いはございませんのでご注意ください。
-          p.flower_price Price（税抜き表示）
+          p.flower_price Price（税込み表示）
           ul.flower_price_list
-            li.flower_price_item ・ウエディングブーケ・ブートニアセット … ￥20,000〜
-            li.flower_price_item ・花冠 … ￥5,000〜
-            li.flower_price_item ・リストブーケ … ￥4,500〜
-            li.flower_price_item ・和装髪飾り（コームタイプ） … ￥3,500〜
-            li.flower_price_item ・フラワーヘッドパーツ … ￥300〜/1本
+            li.flower_price_item ・ウエディングブーケ・ブートニアセット … ￥22,000〜
+            li.flower_price_item ・花冠 … ￥5,500〜
+            li.flower_price_item ・リストブーケ … ￥4,950〜
+            li.flower_price_item ・和装髪飾り（コームタイプ） … ￥3,850〜
+            li.flower_price_item ・フラワーヘッドパーツ … ￥330〜/1本
       ul.flower_list
         li.flower_item(
           v-for="(flowerItem, index) in flowerItems",

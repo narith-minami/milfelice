@@ -12,7 +12,7 @@ article.page_container
       p.page_caption_sub.sp_caption Milfeliceのウェディングヘアメイクは結婚式やパーティーの種類や出張先でのサポート内容によって下記のプランからお選びただけます。
         br
         | プランに含まれていないことでも出来る限り対応いたしますのでお気軽にご相談ください。        
-      b.page_caption_sub （プランは全て税抜き表示です）
+      b.page_caption_sub （プランは全て税込み表示です）
   .page_content_wrap
     //- main
     PriceSection(:plan="mainPlan")
