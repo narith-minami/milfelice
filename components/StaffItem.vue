@@ -67,7 +67,7 @@ export default {
     padding: 24px 16px
     .work_image
       width: 125px
-      height: 125px
+      height: auto
   @media screen and (max-width: 1000px)
     .staff_item_inner
       width: auto
@@ -99,5 +99,4 @@ export default {
       flex-wrap: wrap
       .work_image
         width: calc((100vw - 32px) / 4)
-        height: calc((100vw - 32px) / 4)
 </style>
