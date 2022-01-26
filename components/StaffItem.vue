@@ -65,9 +65,11 @@ export default {
     margin-right: auto
     margin-left: auto   
     padding: 24px 16px
+    height: auto
     .work_image
       width: 125px
       height: auto
+      align-self: flex-start
   @media screen and (max-width: 1000px)
     .staff_item_inner
       width: auto
